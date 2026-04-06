@@ -281,4 +281,13 @@ function spaceCanvas(id){
     this.spawn(init);
   }
   function init(){resize();ents=[];plPos=[];for(var i=0;i<130;i++)ents.push(new Star());for(var i=0;i<6;i++)ents.push(new Cloud(true));for(var i=0;i<4;i++)ents.push(new Planet());for(var i=0;i<5;i++)ents.push(new Rocket(true));}
-  function loop(){requestAnimationFrame(loop);ctx.clearRect(0,0,W,H);frame++;if(frame>=nxt){shots.push(new Shoot());nxt=frame+Math.floor(rand(160,450));}shots=shots.filter(function(s){ret
+  function loop(){requestAnimationFrame(loop);ctx.clearRect(0,0,W,H);frame++;if(frame>=nxt){shots.push(new Shoot());nxt=frame+Math.floor(rand(160,450));}shots=shots.filter(function(s){return s.update();});ents.forEach(function(e){e.update();e.draw();});shots.forEach(function(s){s.draw();});}
+  window.addEventListener("resize",function(){resize();});
+  init();loop();
+}
+spaceCanvas("space-canvas");
+spaceCanvas("brands-canvas");
+})();
+</script>
+</body>
+</html>
