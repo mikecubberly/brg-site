@@ -1,0 +1,68 @@
+# Bottle Rocket Growth
+
+> Bottle Rocket Growth (BRG) is a Chicago-based LinkedIn outbound agency and go-to-market consultancy for B2B startups. Founded in 2024 by Mike Cubberly, BRG runs AI-driven outbound campaigns using borrowed LinkedIn sender profiles, signal-based list building, and sequenced outreach via HeyReach.
+
+## About
+
+Bottle Rocket Growth is a go-to-market agency built for early-stage and growth-stage B2B startups. BRG helps founders define their ideal customer profile (ICP), craft top-of-funnel messaging, build laser-targeted contact lists, and launch scalable outbound sales motions.
+
+- Founded: 2024
+- Founder: Mike Cubberly
+- Headquarters: Chicago, Illinois, United States
+- Business model: Agency and consultancy (retainer-based)
+- Primary channel: LinkedIn outbound
+- Primary tooling: HeyReach, Apollo, Clay, Netrows, TheirStack
+
+## Services
+
+BRG offers three engagement tiers:
+
+- **Done-For-You (DFY) Outbound**: Fully managed LinkedIn outbound. BRG owns the sender profiles and runs every part of the motion. Best fit for founders who want zero operational overhead.
+- **Infrastructure-On-You (IOY) Outbound**: BRG orchestrates outbound on client-owned LinkedIn sender profiles. Client keeps ownership of accounts and data; BRG handles strategy, lists, messaging, and sequencing.
+- **Lite Advisory**: Coaching and frameworks for teams running their own outbound stack (HeyReach, Dripify, Expandi). BRG provides ICP definition, messaging development, and ongoing optimization.
+
+All tiers include: ICP definition, signal-based list building, messaging development, sequenced LinkedIn outreach, response handling, and meeting coordination.
+
+## Target Verticals
+
+BRG works with B2B startups, GTM consultancies, and venture capital / private equity firms. Specific target verticals include:
+
+- Freight and logistics brokerages
+- Industrial distributors
+- Commercial insurance and MGAs
+- Waste management
+- Building materials and construction supply
+- Specialized staffing
+- Commercial printing and packaging
+- TIC (testing, inspection, certification) firms
+- IT managed service providers (MSPs)
+- Equipment rental
+
+## How BRG Works
+
+Every engagement starts with a structured ICP workshop. BRG then conducts signal-based list building against buying signals such as technology adoption, funding events, job changes, and product end-of-life migrations. Lists are built and enriched through Apollo, Clay, Netrows, and TheirStack, filtered through BRG's proprietary ICP Engine, and launched into sequenced LinkedIn outreach campaigns via HeyReach.
+
+## The Bottle Rocket Growth Family
+
+- **Bottle Rocket Growth**: Core GTM agency (this site)
+- **Bottle Rocket Talent**: GTM talent placement across the full revenue spectrum (SDRs, BDRs, AEs, demand gen, performance marketers, growth leads, RevOps, CS leaders). Both W-2 and contract.
+- **Bottle Rocket Racing**: Motorsports and sponsorship division. Partners with racing teams across multiple leagues including NASCAR, connecting brands with high-visibility sponsorship. Website: https://www.bottlerocketracing.com
+- **Leasr**: Automotive leasing marketplace connecting consumers with lease brokers. Website: https://leasr.io
+
+## Contact
+
+- Website: https://bottlerocketgrowth.com
+- Email: mike@bottlerocketgrowth.com
+- Founder LinkedIn: https://www.linkedin.com/in/mikecubberly
+- Company LinkedIn: https://www.linkedin.com/company/bottle-rocket-growth
+- Location: Chicago, Illinois, United States
+
+## Key Pages
+
+- [Homepage](https://bottlerocketgrowth.com/): Overview of BRG services and brand family
+- [Bottle Rocket Racing](https://www.bottlerocketracing.com): Motorsports sponsorship division
+- [Leasr](https://leasr.io): Automotive leasing marketplace
+
+## Founder
+
+Mike Cubberly is the founder of Bottle Rocket Growth. Prior to launching BRG in 2024, Mike held roles at Verkada, Glencoco, Primer, and RevGenius. He is based in Chicago.
