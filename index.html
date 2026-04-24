@@ -580,6 +580,17 @@ body::after{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opac
 .status-badge{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);z-index:20;display:flex;align-items:center;gap:8px;padding:8px 18px 8px 12px;background:rgba(255,255,255,.84);backdrop-filter:blur(12px);border:1px solid var(--light);border-radius:999px;font-size:12px;font-weight:500;color:var(--slate);box-shadow:0 2px 16px rgba(0,0,0,.06);opacity:0;animation:fadeUp .8s cubic-bezier(.22,1,.36,1) 1.6s forwards;pointer-events:none;}
 .status-dot{width:7px;height:7px;border-radius:50%;background:#4ade80;flex-shrink:0;animation:pulse 2s ease-in-out infinite;}
 .brands-page{position:fixed;inset:0;z-index:300;background:#f8f9fe;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .45s cubic-bezier(.22,1,.36,1);}
+.site-footer{position:relative;z-index:10;background:#fff;border-top:1px solid var(--light);padding:48px 28px 28px;color:var(--ink);}
+.site-footer-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;}
+.site-footer-col h4{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--slate);margin-bottom:14px;font-weight:600;font-family:"DM Sans",sans-serif;}
+.site-footer-col a{display:block;font-size:13px;color:var(--ink);margin-bottom:8px;text-decoration:none;border:none;}
+.site-footer-col a:hover{color:var(--accent);}
+.site-footer-legal{max-width:1080px;margin:36px auto 0;padding-top:24px;border-top:1px solid var(--light);font-size:12px;color:var(--slate);text-align:center;line-height:1.6;}
+.site-footer-legal a{color:var(--slate);text-decoration:none;border:none;}
+.site-footer-legal a:hover{color:var(--accent);}
+.site-footer-social{display:flex;gap:10px;margin-top:6px;}
+.site-footer-social a{width:34px;height:34px;border-radius:50%;background:var(--light);display:flex;align-items:center;justify-content:center;color:var(--ink);transition:background .2s,color .2s;margin-bottom:0;}
+.site-footer-social a:hover{background:var(--accent);color:#fff;}
 .brands-page.active{opacity:1;pointer-events:all;}
 #brands-canvas{position:absolute;inset:0;z-index:0;pointer-events:none;}
 .brands-back{position:absolute;top:30px;left:36px;z-index:10;display:flex;align-items:center;gap:7px;font-size:13px;font-weight:500;color:var(--slate);cursor:pointer;border:none;background:none;letter-spacing:.04em;transition:color .2s;}
@@ -666,8 +677,9 @@ body::after{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opac
     <span class="brg-eyebrow">About BRG</span>
     <h2 itemprop="headline">A Go-To-Market Agency Built for B2B Startups</h2>
     <div class="brg-divider"></div>
-    <p><strong>Bottle Rocket Growth (BRG)</strong> is a Chicago-based LinkedIn outbound agency and go-to-market consultancy. Founded in 2024 by <a href="https://www.linkedin.com/in/mikecubberly" rel="noopener author">Mike Cubberly</a>, BRG helps early-stage and growth-stage B2B startups define their ideal customer profile, build signal-based contact lists, craft top-of-funnel messaging, and launch AI-driven outbound campaigns on LinkedIn.</p>
-    <p>BRG runs sequenced LinkedIn outreach via HeyReach using borrowed sender profiles, signal-based list building powered by Apollo, Clay, Netrows, and TheirStack, and a proprietary ICP Engine for prospect sourcing and enrichment. Our clients include GTM consultancies, venture capital and private equity firms, and B2B startups across multiple verticals.</p>
+    <p><strong>Bottle Rocket Growth (BRG) is a Chicago-based LinkedIn outbound agency and go-to-market consultancy for B2B startups.</strong> Founded in 2024 by <a href="https://www.linkedin.com/in/mikecubberly" rel="noopener author">Mike Cubberly</a>, BRG runs AI-driven outbound campaigns using borrowed LinkedIn sender profiles, signal-based list building, and sequenced outreach via HeyReach.</p>
+    <p>BRG services include ICP definition, top-of-funnel messaging, signal-based contact list building, and full-funnel outbound orchestration. Engagements run in three tiers: Done-For-You, Infrastructure-On-You, and Lite Advisory.</p>
+    <p>BRG clients are early-stage and growth-stage B2B startups, GTM consultancies, and venture capital and private equity firms. Target verticals include freight and logistics, industrial distribution, commercial insurance, IT managed services, and specialized staffing.</p>
 
     <div class="credentials-grid">
       <div class="credential-item">
@@ -872,6 +884,48 @@ body::after{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opac
     </div>
   </div>
 </section>
+<footer class="site-footer" role="contentinfo">
+  <div class="site-footer-inner">
+    <div class="site-footer-col">
+      <h4>Company</h4>
+      <a href="/about.html">About</a>
+      <a href="/team.html">Team</a>
+      <a href="/press.html">Press</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+    <div class="site-footer-col">
+      <h4>Resources</h4>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/insights/">Insights</a>
+      <a href="/industries/">Industries</a>
+      <a href="/glossary.html">Glossary</a>
+      <a href="/feed.xml">RSS Feed</a>
+    </div>
+    <div class="site-footer-col">
+      <h4>Bottle Rocket Family</h4>
+      <a href="https://www.bottlerocketracing.com" target="_blank" rel="noopener">Bottle Rocket Racing</a>
+      <a href="https://leasr.io" target="_blank" rel="noopener">Leasr</a>
+      <a href="https://clients.bottlerocketgrowth.com" target="_blank" rel="noopener">Client Portal</a>
+    </div>
+    <div class="site-footer-col">
+      <h4>Connect</h4>
+      <a href="https://www.linkedin.com/company/bottle-rocket-growth" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://x.com/brg_chicago" target="_blank" rel="noopener">X (Twitter)</a>
+      <a href="https://www.crunchbase.com/organization/bottle-rocket-growth" target="_blank" rel="noopener">Crunchbase</a>
+      <a href="https://github.com/mikecubberly" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:mike@bottlerocketgrowth.com">Email</a>
+      <div class="site-footer-social" aria-label="Social media links">
+        <a href="https://www.linkedin.com/company/bottle-rocket-growth" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 1 1 8.3 6.5a1.78 1.78 0 0 1-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0 0 13 14.19a.66.66 0 0 0 0 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 0 1 2.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg></a>
+        <a href="https://x.com/brg_chicago" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="https://www.crunchbase.com/organization/bottle-rocket-growth" target="_blank" rel="noopener" aria-label="Crunchbase"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M10.5 14.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 2.45 2"/><path d="M16.5 14.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 2.45 2"/></svg></a>
+        <a href="https://github.com/mikecubberly" target="_blank" rel="noopener" aria-label="GitHub"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.78 0 12.29c0 5.2 3.44 9.62 8.2 11.17.6.11.82-.25.82-.57v-2c-3.34.72-4.04-1.41-4.04-1.41-.55-1.36-1.33-1.72-1.33-1.72-1.08-.72.08-.71.08-.71 1.2.08 1.83 1.21 1.83 1.21 1.07 1.77 2.8 1.26 3.49.96.11-.76.42-1.27.76-1.56-2.66-.3-5.47-1.3-5.47-5.79 0-1.28.46-2.33 1.21-3.15-.12-.29-.52-1.49.12-3.11 0 0 1-.32 3.3 1.2a11.55 11.55 0 0 1 6 0c2.3-1.52 3.3-1.2 3.3-1.2.64 1.62.24 2.82.12 3.11.75.82 1.21 1.87 1.21 3.15 0 4.5-2.81 5.48-5.49 5.77.43.36.81 1.07.81 2.16v3.2c0 .32.22.69.82.57A12 12 0 0 0 24 12.29C24 5.78 18.63.5 12 .5z"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="site-footer-legal">
+    <p>&copy; 2024&ndash;2026 Bottle Rocket Growth, LLC. Chicago, Illinois. All rights reserved.<br>Written and reviewed by <a href="https://www.linkedin.com/in/mikecubberly" rel="noopener author">Mike Cubberly</a>, Founder &amp; CEO. Last updated April 24, 2026.</p>
+  </div>
+</footer>
 <div class="brands-page" id="brandsPage">
   <canvas id="brands-canvas"></canvas>
   <button class="brands-back" id="backBtn">
