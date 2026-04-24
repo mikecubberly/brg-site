@@ -331,11 +331,7 @@
       "inLanguage": "en-US",
       "articleSection": ["About", "Services", "Methodology", "Brand Family", "FAQ"],
       "about": {"@id": "https://bottlerocketgrowth.com/#organization"},
-      "keywords": "LinkedIn outbound agency, GTM consultancy, B2B outbound, HeyReach agency, Chicago, Mike Cubberly, Bottle Rocket Growth",
-      "speakable": {
-        "@type": "SpeakableSpecification",
-        "cssSelector": [".brg-content h2", ".brg-content h3", ".brg-faq-item h3", ".brg-faq-item p"]
-      }
+      "keywords": "LinkedIn outbound agency, GTM consultancy, B2B outbound, HeyReach agency, Chicago, Mike Cubberly, Bottle Rocket Growth"
     },
     {
       "@type": "HowTo",
@@ -487,67 +483,66 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{--ink:#1a1d2e;--slate:#8892b0;--silver:#c8cde0;--light:#eef0f8;--accent:#5b6bff;}
 html,body{width:100%;min-height:100%;background:#fff;font-family:"DM Sans",sans-serif;}
-html{scroll-behavior:smooth;}
-body{overflow-x:hidden;overflow-y:auto;}
-.scroll-cue{position:fixed;bottom:86px;left:50%;transform:translateX(-50%);z-index:15;display:flex;flex-direction:column;align-items:center;gap:6px;opacity:0;animation:fadeUp .8s cubic-bezier(.22,1,.36,1) 1.9s forwards;pointer-events:none;color:var(--slate);font-size:10px;letter-spacing:.25em;text-transform:uppercase;}
-.scroll-cue-dot{width:18px;height:28px;border:1.5px solid var(--silver);border-radius:10px;position:relative;}
-.scroll-cue-dot::after{content:"";position:absolute;top:5px;left:50%;transform:translateX(-50%);width:2px;height:6px;background:var(--accent);border-radius:1px;animation:scrollDot 2s ease-in-out infinite;}
-@keyframes scrollDot{0%{transform:translateX(-50%) translateY(0);opacity:1;}80%{transform:translateX(-50%) translateY(10px);opacity:0;}100%{transform:translateX(-50%) translateY(0);opacity:0;}}
-.brg-content{position:relative;z-index:10;background:#fafbff;padding:120px 24px 80px;color:var(--ink);}
-.brg-content-inner{max-width:880px;margin:0 auto;}
-.brg-content h2{font-family:"Bebas Neue",sans-serif;font-size:clamp(32px,5vw,52px);letter-spacing:.03em;line-height:1.05;margin-bottom:28px;color:var(--ink);text-transform:uppercase;}
-.brg-content h3{font-family:"DM Sans",sans-serif;font-size:clamp(18px,2vw,22px);font-weight:600;margin:44px 0 14px;color:var(--ink);letter-spacing:-.01em;}
-.brg-content p{font-size:clamp(15px,1.5vw,17px);line-height:1.72;color:#3d4566;margin-bottom:18px;font-weight:400;}
-.brg-content p strong{color:var(--ink);font-weight:600;}
-.brg-content a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(91,107,255,.3);transition:border-color .2s;}
-.brg-content a:hover{border-color:var(--accent);}
-.brg-eyebrow{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px;display:block;}
-.brg-divider{width:54px;height:3px;background:var(--accent);border-radius:999px;margin:0 0 28px;}
-.brg-faq{margin-top:24px;}
-.brg-faq-item{border-top:1px solid rgba(200,205,224,.6);padding:22px 0;}
-.brg-faq-item:last-child{border-bottom:1px solid rgba(200,205,224,.6);}
-.brg-faq-item h3{margin:0 0 10px;font-size:17px;font-weight:600;}
-.brg-faq-item p{margin:0;font-size:15px;line-height:1.68;}
-.brg-services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin:28px 0 8px;}
-.brg-service-card{background:#fff;border:1px solid var(--light);border-radius:16px;padding:24px;}
+
+body{overflow:hidden;}
+
+
+
+80%{transform:translateX(-50%) translateY(10px);opacity:0;}100%{transform:translateX(-50%) translateY(0);opacity:0;}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .brg-service-card h3{margin:0 0 8px;font-size:16px;font-weight:600;}
 .brg-service-card p{margin:0;font-size:14px;line-height:1.62;color:#555c7e;}
-.brg-service-tag{display:inline-block;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:10px;}
-.brg-footer{margin-top:56px;padding-top:28px;border-top:1px solid var(--light);font-size:13px;color:var(--slate);text-align:center;}
-.brg-footer a{color:var(--slate);}
-.author-card{display:flex;align-items:center;gap:18px;background:#fff;border:1px solid var(--light);border-radius:16px;padding:18px 22px;margin-bottom:32px;}
-.author-avatar{width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#5b6bff 0%,#7c4dff 100%);display:flex;align-items:center;justify-content:center;color:#fff;font-family:"Bebas Neue",sans-serif;font-size:24px;letter-spacing:.04em;flex-shrink:0;}
-.author-meta{flex:1;min-width:0;}
-.author-name{font-weight:600;font-size:15px;color:var(--ink);margin:0 0 2px;line-height:1.3;}
-.author-role{font-size:13px;color:var(--slate);margin:0;}
-.author-dates{font-size:11px;color:var(--slate);text-align:right;letter-spacing:.04em;line-height:1.5;}
-.author-dates time{display:block;}
-.author-dates .label{color:#a5adc8;text-transform:uppercase;letter-spacing:.15em;font-size:9px;}
-.timeline{margin:18px 0 8px;border-left:2px solid var(--light);padding-left:22px;}
-.timeline-item{position:relative;margin-bottom:20px;}
-.timeline-item::before{content:"";position:absolute;left:-28px;top:6px;width:10px;height:10px;background:var(--accent);border-radius:50%;border:2px solid #fafbff;}
-.timeline-role{font-weight:600;font-size:15px;color:var(--ink);margin:0;}
-.timeline-company{font-size:14px;color:var(--accent);margin:2px 0 0;}
-.timeline-desc{font-size:13px;color:#3d4566;margin:4px 0 0;line-height:1.55;}
-.methodology-steps{counter-reset:step;margin:18px 0 8px;}
-.methodology-step{counter-increment:step;position:relative;padding:18px 22px 18px 64px;background:#fff;border:1px solid var(--light);border-radius:12px;margin-bottom:12px;}
-.methodology-step::before{content:counter(step,decimal-leading-zero);position:absolute;left:20px;top:18px;font-family:"Bebas Neue",sans-serif;font-size:22px;color:var(--accent);letter-spacing:.04em;}
-.methodology-step h4{margin:0 0 6px;font-size:15px;font-weight:600;color:var(--ink);}
-.methodology-step p{margin:0;font-size:13.5px;line-height:1.6;color:#3d4566;}
-.industries-list{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 8px;}
-.industry-tag{display:inline-block;padding:6px 12px;background:#fff;border:1px solid var(--light);border-radius:999px;font-size:12px;color:#3d4566;font-weight:500;}
-.credentials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:16px 0 8px;}
-.credential-item{background:#fff;border:1px solid var(--light);border-radius:12px;padding:18px;text-align:center;}
-.credential-value{font-family:"Bebas Neue",sans-serif;font-size:36px;color:var(--accent);letter-spacing:.02em;line-height:1;margin-bottom:6px;}
-.credential-label{font-size:11px;color:var(--slate);text-transform:uppercase;letter-spacing:.14em;font-weight:600;}
-.connect-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:16px 0 0;}
-.connect-link{display:flex;align-items:center;gap:12px;padding:14px 16px;background:#fff;border:1px solid var(--light);border-radius:12px;color:var(--ink);font-size:13px;font-weight:500;border-bottom:1px solid var(--light);transition:border-color .2s,transform .2s;}
-.connect-link:hover{border-color:var(--accent);transform:translateY(-1px);}
-.connect-icon{width:32px;height:32px;border-radius:10px;background:var(--light);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;}
-.connect-link-text{display:flex;flex-direction:column;min-width:0;}
-.connect-label{font-size:10px;color:var(--slate);letter-spacing:.14em;text-transform:uppercase;font-weight:600;}
-.connect-value{font-size:13px;color:var(--ink);font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-@media(max-width:700px){.brg-content{padding:80px 20px 60px;}.brg-content h2{font-size:36px;}.scroll-cue{display:none;}.author-card{flex-direction:column;text-align:center;}.author-dates{text-align:center;}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media(max-width:700px){}
 #space-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
 body::after{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");}
 .hero{position:relative;z-index:10;width:100%;height:100dvh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;}
@@ -580,17 +575,17 @@ body::after{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opac
 .status-badge{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);z-index:20;display:flex;align-items:center;gap:8px;padding:8px 18px 8px 12px;background:rgba(255,255,255,.84);backdrop-filter:blur(12px);border:1px solid var(--light);border-radius:999px;font-size:12px;font-weight:500;color:var(--slate);box-shadow:0 2px 16px rgba(0,0,0,.06);opacity:0;animation:fadeUp .8s cubic-bezier(.22,1,.36,1) 1.6s forwards;pointer-events:none;}
 .status-dot{width:7px;height:7px;border-radius:50%;background:#4ade80;flex-shrink:0;animation:pulse 2s ease-in-out infinite;}
 .brands-page{position:fixed;inset:0;z-index:300;background:#f8f9fe;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .45s cubic-bezier(.22,1,.36,1);}
-.site-footer{position:relative;z-index:10;background:#fff;border-top:1px solid var(--light);padding:48px 28px 28px;color:var(--ink);}
-.site-footer-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;}
-.site-footer-col h4{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--slate);margin-bottom:14px;font-weight:600;font-family:"DM Sans",sans-serif;}
-.site-footer-col a{display:block;font-size:13px;color:var(--ink);margin-bottom:8px;text-decoration:none;border:none;}
-.site-footer-col a:hover{color:var(--accent);}
-.site-footer-legal{max-width:1080px;margin:36px auto 0;padding-top:24px;border-top:1px solid var(--light);font-size:12px;color:var(--slate);text-align:center;line-height:1.6;}
-.site-footer-legal a{color:var(--slate);text-decoration:none;border:none;}
-.site-footer-legal a:hover{color:var(--accent);}
-.site-footer-social{display:flex;gap:10px;margin-top:6px;}
-.site-footer-social a{width:34px;height:34px;border-radius:50%;background:var(--light);display:flex;align-items:center;justify-content:center;color:var(--ink);transition:background .2s,color .2s;margin-bottom:0;}
-.site-footer-social a:hover{background:var(--accent);color:#fff;}
+
+
+
+
+
+
+
+
+
+
+
 .brands-page.active{opacity:1;pointer-events:all;}
 #brands-canvas{position:absolute;inset:0;z-index:0;pointer-events:none;}
 .brands-back{position:absolute;top:30px;left:36px;z-index:10;display:flex;align-items:center;gap:7px;font-size:13px;font-weight:500;color:var(--slate);cursor:pointer;border:none;background:none;letter-spacing:.04em;transition:color .2s;}
@@ -624,6 +619,11 @@ body::after{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opac
 @keyframes lineGrow{to{opacity:1;transform:scaleX(1);}}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 2px rgba(74,222,128,.25);}50%{box-shadow:0 0 0 5px rgba(74,222,128,.10);}}
 @keyframes lbip{0%,100%{box-shadow:0 0 0 2px rgba(170,255,0,.25);}50%{box-shadow:0 0 0 5px rgba(170,255,0,.08);}}
+.mini-nav{position:fixed;bottom:62px;left:50%;transform:translateX(-50%);z-index:19;display:flex;align-items:center;gap:10px;font-size:10px;color:var(--slate);letter-spacing:.15em;text-transform:uppercase;opacity:0;animation:fadeUp .8s cubic-bezier(.22,1,.36,1) 2.1s forwards;font-family:"DM Sans",sans-serif;font-weight:500;}
+.mini-nav a{color:var(--slate);text-decoration:none;transition:color .2s;}
+.mini-nav a:hover{color:var(--ink);}
+.mini-nav .dot{color:var(--silver);font-size:10px;line-height:1;}
+@media(max-width:700px){.mini-nav{font-size:9px;gap:7px;bottom:56px;}}
 </style>
 </head>
 <body>
@@ -654,278 +654,8 @@ body::after{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opac
     <button class="btn btn-ghost" id="brandsBtn">Brands</button>
   </div>
 </main>
-<div class="scroll-cue" id="scrollCue"><div class="scroll-cue-dot"></div><span>Scroll</span></div>
+<span>Scroll</span></div>
 <div class="status-badge" id="statusBadge"><span class="status-dot"></span>Currently fueling new growth &#x1F680;</div>
-<section class="brg-content" id="about" aria-label="About Bottle Rocket Growth" itemscope itemtype="https://schema.org/Article">
-  <meta itemprop="datePublished" content="2024-06-01">
-  <meta itemprop="dateModified" content="2026-04-23">
-  <div class="brg-content-inner">
-    <div class="author-card" itemprop="author" itemscope itemtype="https://schema.org/Person">
-      <div class="author-avatar" aria-hidden="true">MC</div>
-      <div class="author-meta">
-        <p class="author-name" itemprop="name">Mike Cubberly</p>
-        <p class="author-role"><span itemprop="jobTitle">Founder</span>, Bottle Rocket Growth &middot; <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress"><span itemprop="addressLocality">Chicago</span>, <span itemprop="addressRegion">IL</span></span></p>
-      </div>
-      <div class="author-dates">
-        <span class="label">Published</span>
-        <time datetime="2024-06-01">June 2024</time>
-        <span class="label" style="margin-top:6px;">Last Updated</span>
-        <time datetime="2026-04-23">April 23, 2026</time>
-      </div>
-    </div>
-
-    <span class="brg-eyebrow">About BRG</span>
-    <h2 itemprop="headline">A Go-To-Market Agency Built for B2B Startups</h2>
-    <div class="brg-divider"></div>
-    <p><strong>Bottle Rocket Growth (BRG) is a Chicago-based LinkedIn outbound agency and go-to-market consultancy for B2B startups.</strong> Founded in 2024 by <a href="https://www.linkedin.com/in/mikecubberly" rel="noopener author">Mike Cubberly</a>, BRG runs AI-driven outbound campaigns using borrowed LinkedIn sender profiles, signal-based list building, and sequenced outreach via HeyReach.</p>
-    <p>BRG services include ICP definition, top-of-funnel messaging, signal-based contact list building, and full-funnel outbound orchestration. Engagements run in three tiers: Done-For-You, Infrastructure-On-You, and Lite Advisory.</p>
-    <p>BRG clients are early-stage and growth-stage B2B startups, GTM consultancies, and venture capital and private equity firms. Target verticals include freight and logistics, industrial distribution, commercial insurance, IT managed services, and specialized staffing.</p>
-
-    <div class="credentials-grid">
-      <div class="credential-item">
-        <div class="credential-value">10+</div>
-        <div class="credential-label">Years in B2B GTM</div>
-      </div>
-      <div class="credential-item">
-        <div class="credential-value">4</div>
-        <div class="credential-label">Sister Brands</div>
-      </div>
-      <div class="credential-item">
-        <div class="credential-value">2024</div>
-        <div class="credential-label">Founded</div>
-      </div>
-      <div class="credential-item">
-        <div class="credential-value">3</div>
-        <div class="credential-label">Engagement Tiers</div>
-      </div>
-    </div>
-
-    <h3 id="services">Services</h3>
-    <p>BRG offers three engagement tiers, each structured around the same core motion: ICP definition, signal-based list building, messaging development, and sequenced LinkedIn outreach. The difference is who owns the infrastructure and how much hands-on work BRG does.</p>
-    <div class="brg-services-grid">
-      <div class="brg-service-card">
-        <span class="brg-service-tag">Done-For-You</span>
-        <h3>Full DFY Outbound</h3>
-        <p>BRG runs everything on our sender profiles. You provide ICP and offer, we deliver booked meetings. Best fit for founders who want zero operational overhead.</p>
-      </div>
-      <div class="brg-service-card">
-        <span class="brg-service-tag">Infrastructure-On-You</span>
-        <h3>IOY Outbound</h3>
-        <p>BRG orchestrates outbound on your sender profiles. You keep ownership of the LinkedIn accounts and data; we handle strategy, lists, messaging, and sequencing.</p>
-      </div>
-      <div class="brg-service-card">
-        <span class="brg-service-tag">Lite Advisory</span>
-        <h3>Advisory &amp; Coaching</h3>
-        <p>Best for teams running their own outbound stack (HeyReach, Dripify, Expandi). BRG provides ICP frameworks, messaging, and ongoing coaching.</p>
-      </div>
-    </div>
-
-    <h3 id="methodology">The BRG Outbound Methodology</h3>
-    <p>Every BRG engagement follows the same four-step process, refined across dozens of campaigns in B2B verticals ranging from logistics and insurance to SaaS and venture capital.</p>
-    <div class="methodology-steps">
-      <div class="methodology-step">
-        <h4>Define the ICP</h4>
-        <p>Run a structured ICP workshop to define firmographics, buyer personas, and the specific trigger events that indicate buying intent. Output is a ranked ICP document with clear inclusion and exclusion rules.</p>
-      </div>
-      <div class="methodology-step">
-        <h4>Build Signal-Based Lists</h4>
-        <p>Source prospects from Apollo, Clay, Netrows, and TheirStack against buying signals such as technology adoption, product end-of-life migrations, funding events, hiring patterns, and leadership changes. Filter through the BRG ICP Engine before load.</p>
-      </div>
-      <div class="methodology-step">
-        <h4>Craft Contextual Messaging</h4>
-        <p>Write messaging sequences that reference each prospect's specific signal. Avoid generic templated cold outreach. Messaging is tested, iterated, and versioned per campaign.</p>
-      </div>
-      <div class="methodology-step">
-        <h4>Launch and Orchestrate on HeyReach</h4>
-        <p>Load sequences into HeyReach using borrowed sender profiles (DFY) or client-owned profiles (IOY). Monitor reply rates, response routing, and meeting coordination. Iterate weekly based on cohort performance.</p>
-      </div>
-    </div>
-
-    <h3 id="about-mike">About the Founder</h3>
-    <p>Mike Cubberly has spent over a decade helping B2B tech companies build, grow, and scale go-to-market teams. His focus is helping organizations treat growth as a tangible milestone through disciplined outbound, signal-based prospecting, and messaging that prioritizes prospect context over generic automation. Before Bottle Rocket Growth, Mike held go-to-market roles at Verkada, Glencoco, Primer, and RevGenius.</p>
-    <div class="timeline">
-      <div class="timeline-item">
-        <p class="timeline-role">Founder</p>
-        <p class="timeline-company">Bottle Rocket Growth &middot; 2024&ndash;Present</p>
-        <p class="timeline-desc">Chicago-based LinkedIn outbound agency and GTM consultancy for B2B startups.</p>
-      </div>
-      <div class="timeline-item">
-        <p class="timeline-role">Go-To-Market</p>
-        <p class="timeline-company">Verkada</p>
-        <p class="timeline-desc">Cloud-based physical security platform.</p>
-      </div>
-      <div class="timeline-item">
-        <p class="timeline-role">Go-To-Market</p>
-        <p class="timeline-company">Glencoco</p>
-        <p class="timeline-desc">Sales development marketplace.</p>
-      </div>
-      <div class="timeline-item">
-        <p class="timeline-role">Go-To-Market</p>
-        <p class="timeline-company">Primer</p>
-        <p class="timeline-desc">B2B signal and targeting platform.</p>
-      </div>
-      <div class="timeline-item">
-        <p class="timeline-role">Community &amp; GTM</p>
-        <p class="timeline-company">RevGenius</p>
-        <p class="timeline-desc">Revenue and GTM professionals community.</p>
-      </div>
-    </div>
-
-    <h3 id="industries">Industries We Serve</h3>
-    <p>BRG works primarily with early-stage and growth-stage B2B startups, GTM consultancies, and venture capital and private equity firms. Our target verticals reflect where signal-based outbound outperforms generic cold outreach:</p>
-    <div class="industries-list">
-      <span class="industry-tag">Freight &amp; Logistics Brokerages</span>
-      <span class="industry-tag">Industrial Distributors</span>
-      <span class="industry-tag">Commercial Insurance &amp; MGAs</span>
-      <span class="industry-tag">Waste Management</span>
-      <span class="industry-tag">Building Materials &amp; Construction Supply</span>
-      <span class="industry-tag">Specialized Staffing</span>
-      <span class="industry-tag">Commercial Printing &amp; Packaging</span>
-      <span class="industry-tag">TIC &amp; Testing Firms</span>
-      <span class="industry-tag">IT Managed Service Providers</span>
-      <span class="industry-tag">Equipment Rental</span>
-      <span class="industry-tag">Technology Consultancies</span>
-      <span class="industry-tag">Venture Capital &amp; Private Equity</span>
-    </div>
-
-    <h3 id="brands">The Bottle Rocket Growth Family</h3>
-    <p><strong>Bottle Rocket Growth</strong> is the core GTM agency. <strong>Bottle Rocket Talent</strong> places elite go-to-market professionals across the full revenue spectrum, from SDRs and BDRs to AEs, demand generation and performance marketers, growth leads, revenue ops, and customer success leaders, both W-2 and contract. <strong>Bottle Rocket Racing</strong> is the motorsports and sponsorship division, partnering with racing teams across multiple leagues including NASCAR to connect brands with high-visibility sponsorship. <strong>Leasr</strong> is an automotive leasing marketplace connecting consumers with lease brokers.</p>
-
-    <h3 id="faq">Frequently Asked Questions</h3>
-    <div class="brg-faq">
-      <div class="brg-faq-item">
-        <h3>What is Bottle Rocket Growth?</h3>
-        <p>Bottle Rocket Growth (BRG) is a Chicago-based LinkedIn outbound agency and go-to-market consultancy founded in 2024 by Mike Cubberly. BRG specializes in running AI-driven outbound campaigns for B2B startups using borrowed LinkedIn sender profiles, signal-based list building, and sequenced outreach via HeyReach.</p>
-      </div>
-      <div class="brg-faq-item">
-        <h3>Who founded Bottle Rocket Growth?</h3>
-        <p>Bottle Rocket Growth was founded by Mike Cubberly in 2024. Mike previously held go-to-market roles at Verkada, Glencoco, Primer, and RevGenius. He has over a decade of experience helping B2B tech companies build, grow, and scale GTM teams.</p>
-      </div>
-      <div class="brg-faq-item">
-        <h3>Where is Bottle Rocket Growth located?</h3>
-        <p>Bottle Rocket Growth is headquartered in Chicago, Illinois. BRG serves clients across the United States and globally through remote-delivered outbound services.</p>
-      </div>
-      <div class="brg-faq-item">
-        <h3>What services does Bottle Rocket Growth offer?</h3>
-        <p>BRG offers three engagement tiers: Done-For-You (fully managed LinkedIn outbound on BRG sender profiles), Infrastructure-On-You (BRG orchestrates outbound on client-owned sender profiles), and Lite Advisory (coaching and frameworks for teams running their own outbound stack). All tiers include ICP definition, signal-based list building, messaging development, and sequenced LinkedIn outreach.</p>
-      </div>
-      <div class="brg-faq-item">
-        <h3>What tools does Bottle Rocket Growth use?</h3>
-        <p>BRG's outbound stack centers on HeyReach for sequenced LinkedIn outreach. For list building and enrichment, BRG uses Apollo, Clay, TheirStack, and Netrows. BRG also builds custom internal tooling including the BRG ICP Engine for prospect sourcing and LinkedIn enrichment.</p>
-      </div>
-      <div class="brg-faq-item">
-        <h3>What types of clients does Bottle Rocket Growth work with?</h3>
-        <p>BRG works primarily with early-stage and growth-stage B2B startups, GTM consultancies, and venture capital and private equity firms. Target verticals include freight and logistics brokerages, industrial distributors, commercial insurance and MGAs, waste management, building materials and construction supply, specialized staffing, commercial printing and packaging, TIC and testing firms, IT managed service providers, and equipment rental.</p>
-      </div>
-      <div class="brg-faq-item">
-        <h3>What is the difference between DFY, IOY, and Lite engagements?</h3>
-        <p>Done-For-You (DFY) means BRG owns the LinkedIn sender profiles and runs every part of the outbound motion on behalf of the client. Infrastructure-On-You (IOY) means the client provides their own sender profiles and BRG orchestrates the campaigns on those accounts. Lite Advisory is coaching and framework delivery for teams already running their own outbound stack.</p>
-      </div>
-      <div class="brg-faq-item">
-        <h3>Does Bottle Rocket Growth use AI in its outbound campaigns?</h3>
-        <p>Yes. BRG uses AI-driven tooling across the outbound stack including Clay workflows for enrichment and research, large language models for messaging generation and response handling, and the BRG ICP Engine for prospect sourcing. AI is used to personalize messaging at scale while humans own strategy, qualification, and meeting coordination.</p>
-      </div>
-      <div class="brg-faq-item">
-        <h3>How long is a typical engagement with Bottle Rocket Growth?</h3>
-        <p>DFY engagements typically run three to six months minimum. IOY and Lite engagements run six months minimum. Most clients renew or extend after the initial term once campaigns are dialed in.</p>
-      </div>
-      <div class="brg-faq-item">
-        <h3>Does BRG work with venture capital and private equity firms?</h3>
-        <p>Yes. BRG works with VC and PE firms on investor outreach and deal sourcing campaigns, positioning firms as deal-flow nodes in specific target verticals. Typical filters include employee count, geography, sector specialization, and fund stage.</p>
-      </div>
-      <div class="brg-faq-item">
-        <h3>What brands fall under Bottle Rocket Growth?</h3>
-        <p>The Bottle Rocket Growth family includes Bottle Rocket Growth (the core GTM agency), Bottle Rocket Talent (GTM talent placement for SDRs, AEs, marketers, RevOps, and CS leaders), Bottle Rocket Racing (motorsports sponsorship division working with teams including NASCAR), and Leasr (an automotive leasing marketplace connecting consumers with lease brokers).</p>
-      </div>
-      <div class="brg-faq-item">
-        <h3>How do I contact Bottle Rocket Growth?</h3>
-        <p>Reach Bottle Rocket Growth by emailing mike@bottlerocketgrowth.com or by connecting with founder Mike Cubberly on LinkedIn at linkedin.com/in/mikecubberly.</p>
-      </div>
-    </div>
-
-    <h3 id="connect">Connect Elsewhere</h3>
-    <div class="connect-grid">
-      <a class="connect-link" href="https://www.linkedin.com/in/mikecubberly" target="_blank" rel="noopener me author">
-        <span class="connect-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span>
-        <span class="connect-link-text"><span class="connect-label">Mike on LinkedIn</span><span class="connect-value">linkedin.com/in/mikecubberly</span></span>
-      </a>
-      <a class="connect-link" href="https://www.linkedin.com/company/bottle-rocket-growth" target="_blank" rel="noopener">
-        <span class="connect-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span>
-        <span class="connect-link-text"><span class="connect-label">BRG on LinkedIn</span><span class="connect-value">linkedin.com/company/bottle-rocket-growth</span></span>
-      </a>
-      <a class="connect-link" href="https://x.com/brg_chicago" target="_blank" rel="noopener">
-        <span class="connect-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></span>
-        <span class="connect-link-text"><span class="connect-label">BRG on X</span><span class="connect-value">x.com/brg_chicago</span></span>
-      </a>
-      <a class="connect-link" href="https://www.crunchbase.com/organization/bottle-rocket-growth" target="_blank" rel="noopener">
-        <span class="connect-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M10.5 14.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 2.45 2"/><path d="M16.5 14.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 2.45 2"/></svg></span>
-        <span class="connect-link-text"><span class="connect-label">Crunchbase</span><span class="connect-value">crunchbase.com/organization/bottle-rocket-growth</span></span>
-      </a>
-      <a class="connect-link" href="https://github.com/mikecubberly" target="_blank" rel="noopener me">
-        <span class="connect-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></span>
-        <span class="connect-link-text"><span class="connect-label">GitHub</span><span class="connect-value">github.com/mikecubberly</span></span>
-      </a>
-      <a class="connect-link" href="https://www.bottlerocketracing.com" target="_blank" rel="noopener">
-        <span class="connect-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg></span>
-        <span class="connect-link-text"><span class="connect-label">Bottle Rocket Racing</span><span class="connect-value">bottlerocketracing.com</span></span>
-      </a>
-      <a class="connect-link" href="https://leasr.io" target="_blank" rel="noopener">
-        <span class="connect-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m8 14 4-4 4 4"/></svg></span>
-        <span class="connect-link-text"><span class="connect-label">Leasr</span><span class="connect-value">leasr.io</span></span>
-      </a>
-      <a class="connect-link" href="mailto:mike@bottlerocketgrowth.com">
-        <span class="connect-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
-        <span class="connect-link-text"><span class="connect-label">Email</span><span class="connect-value">mike@bottlerocketgrowth.com</span></span>
-      </a>
-    </div>
-
-    <div class="brg-footer">
-      <p>&copy; 2024&ndash;2026 Bottle Rocket Growth. Chicago, IL. All rights reserved.<br>Written and reviewed by <a href="https://www.linkedin.com/in/mikecubberly" rel="noopener author">Mike Cubberly</a>, Founder.</p>
-    </div>
-  </div>
-</section>
-<footer class="site-footer" role="contentinfo">
-  <div class="site-footer-inner">
-    <div class="site-footer-col">
-      <h4>Company</h4>
-      <a href="/about.html">About</a>
-      <a href="/team.html">Team</a>
-      <a href="/press.html">Press</a>
-      <a href="/contact.html">Contact</a>
-    </div>
-    <div class="site-footer-col">
-      <h4>Resources</h4>
-      <a href="/methodology.html">Methodology</a>
-      <a href="/insights/">Insights</a>
-      <a href="/industries/">Industries</a>
-      <a href="/glossary.html">Glossary</a>
-      <a href="/feed.xml">RSS Feed</a>
-    </div>
-    <div class="site-footer-col">
-      <h4>Bottle Rocket Family</h4>
-      <a href="https://www.bottlerocketracing.com" target="_blank" rel="noopener">Bottle Rocket Racing</a>
-      <a href="https://leasr.io" target="_blank" rel="noopener">Leasr</a>
-      <a href="https://clients.bottlerocketgrowth.com" target="_blank" rel="noopener">Client Portal</a>
-    </div>
-    <div class="site-footer-col">
-      <h4>Connect</h4>
-      <a href="https://www.linkedin.com/company/bottle-rocket-growth" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://x.com/brg_chicago" target="_blank" rel="noopener">X (Twitter)</a>
-      <a href="https://www.crunchbase.com/organization/bottle-rocket-growth" target="_blank" rel="noopener">Crunchbase</a>
-      <a href="https://github.com/mikecubberly" target="_blank" rel="noopener">GitHub</a>
-      <a href="mailto:mike@bottlerocketgrowth.com">Email</a>
-      <div class="site-footer-social" aria-label="Social media links">
-        <a href="https://www.linkedin.com/company/bottle-rocket-growth" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 1 1 8.3 6.5a1.78 1.78 0 0 1-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0 0 13 14.19a.66.66 0 0 0 0 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 0 1 2.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg></a>
-        <a href="https://x.com/brg_chicago" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-        <a href="https://www.crunchbase.com/organization/bottle-rocket-growth" target="_blank" rel="noopener" aria-label="Crunchbase"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M10.5 14.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 2.45 2"/><path d="M16.5 14.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 2.45 2"/></svg></a>
-        <a href="https://github.com/mikecubberly" target="_blank" rel="noopener" aria-label="GitHub"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.78 0 12.29c0 5.2 3.44 9.62 8.2 11.17.6.11.82-.25.82-.57v-2c-3.34.72-4.04-1.41-4.04-1.41-.55-1.36-1.33-1.72-1.33-1.72-1.08-.72.08-.71.08-.71 1.2.08 1.83 1.21 1.83 1.21 1.07 1.77 2.8 1.26 3.49.96.11-.76.42-1.27.76-1.56-2.66-.3-5.47-1.3-5.47-5.79 0-1.28.46-2.33 1.21-3.15-.12-.29-.52-1.49.12-3.11 0 0 1-.32 3.3 1.2a11.55 11.55 0 0 1 6 0c2.3-1.52 3.3-1.2 3.3-1.2.64 1.62.24 2.82.12 3.11.75.82 1.21 1.87 1.21 3.15 0 4.5-2.81 5.48-5.49 5.77.43.36.81 1.07.81 2.16v3.2c0 .32.22.69.82.57A12 12 0 0 0 24 12.29C24 5.78 18.63.5 12 .5z"/></svg></a>
-      </div>
-    </div>
-  </div>
-  <div class="site-footer-legal">
-    <p>&copy; 2024&ndash;2026 Bottle Rocket Growth, LLC. Chicago, Illinois. All rights reserved.<br>Written and reviewed by <a href="https://www.linkedin.com/in/mikecubberly" rel="noopener author">Mike Cubberly</a>, Founder &amp; CEO. Last updated April 24, 2026.</p>
-  </div>
-</footer>
 <div class="brands-page" id="brandsPage">
   <canvas id="brands-canvas"></canvas>
   <button class="brands-back" id="backBtn">
@@ -1010,14 +740,6 @@ var popup=document.getElementById("brand-popup");
 var hideTimer=null;
 gitBtn.addEventListener("click",function(e){e.stopPropagation();gitWrap.classList.toggle("open");});
 document.addEventListener("click",function(e){if(!gitWrap.contains(e.target))gitWrap.classList.remove("open");});
-var scrollCueEl=document.getElementById("scrollCue");
-var statusBadgeEl=document.getElementById("statusBadge");
-window.addEventListener("scroll",function(){
-  var y=window.scrollY||window.pageYOffset;
-  var op=Math.max(0,1-y/200);
-  if(scrollCueEl)scrollCueEl.style.opacity=op;
-  if(statusBadgeEl)statusBadgeEl.style.opacity=op;
-},{passive:true});
 brandsBtn.addEventListener("click",function(){brandsPage.classList.add("active");});
 backBtn.addEventListener("click",function(){brandsPage.classList.remove("active");closePopup();});
 function showPopup(card){
@@ -1117,5 +839,16 @@ spaceCanvas("space-canvas");
 spaceCanvas("brands-canvas");
 })();
 </script>
+<footer class="mini-nav" role="contentinfo" aria-label="Site navigation">
+  <a href="/about.html">About</a>
+  <span class="dot">&middot;</span>
+  <a href="/methodology.html">Methodology</a>
+  <span class="dot">&middot;</span>
+  <a href="/insights/">Insights</a>
+  <span class="dot">&middot;</span>
+  <a href="/press.html">Press</a>
+  <span class="dot">&middot;</span>
+  <a href="/contact.html">Contact</a>
+</footer>
 </body>
 </html>
