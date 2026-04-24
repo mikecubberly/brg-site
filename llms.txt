@@ -62,6 +62,17 @@ Every engagement starts with a structured ICP workshop. BRG then conducts signal
 ## Key Pages
 
 - [Homepage](https://bottlerocketgrowth.com/): Overview of BRG services and brand family
+- [Methodology](https://bottlerocketgrowth.com/methodology.html): The four-step BRG outbound methodology
+- [Insights](https://bottlerocketgrowth.com/insights/): Tactical writing on LinkedIn outbound and GTM
+  - [How to Define an ICP That Actually Converts](https://bottlerocketgrowth.com/insights/defining-an-icp-that-converts.html)
+  - [Signal-Based List Building Framework](https://bottlerocketgrowth.com/insights/signal-based-list-building.html)
+  - [LinkedIn Sender Profile Strategy: DFY vs IOY](https://bottlerocketgrowth.com/insights/linkedin-sender-profile-strategy.html)
+  - [HeyReach Sequence Architecture](https://bottlerocketgrowth.com/insights/heyreach-sequence-architecture.html)
+- [Industries](https://bottlerocketgrowth.com/industries/): Vertical-specific outbound approach
+  - [Freight & Logistics Brokerages](https://bottlerocketgrowth.com/industries/freight-logistics.html)
+  - [IT Managed Service Providers](https://bottlerocketgrowth.com/industries/managed-service-providers.html)
+  - [Commercial Insurance & MGAs](https://bottlerocketgrowth.com/industries/commercial-insurance.html)
+- [Glossary](https://bottlerocketgrowth.com/glossary.html): Outbound and GTM terminology reference
 - [Bottle Rocket Racing](https://www.bottlerocketracing.com): Motorsports sponsorship division
 - [Leasr](https://leasr.io): Automotive leasing marketplace
 

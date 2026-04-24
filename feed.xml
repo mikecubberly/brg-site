@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Bottle Rocket Growth Insights</title>
+    <link>https://bottlerocketgrowth.com/insights/</link>
+    <description>Tactical writing on LinkedIn outbound, ICP frameworks, signal-based prospecting, and B2B GTM from Bottle Rocket Growth.</description>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 24 Apr 2026 12:00:00 -0500</lastBuildDate>
+    <atom:link href="https://bottlerocketgrowth.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <managingEditor>mike@bottlerocketgrowth.com (Mike Cubberly)</managingEditor>
+    <webMaster>mike@bottlerocketgrowth.com (Mike Cubberly)</webMaster>
+
+    <item>
+      <title>How to Define an ICP That Actually Converts in B2B Outbound</title>
+      <link>https://bottlerocketgrowth.com/insights/defining-an-icp-that-converts.html</link>
+      <guid isPermaLink="true">https://bottlerocketgrowth.com/insights/defining-an-icp-that-converts.html</guid>
+      <pubDate>Fri, 24 Apr 2026 12:00:00 -0500</pubDate>
+      <dc:creator>Mike Cubberly</dc:creator>
+      <category>ICP Strategy</category>
+      <description>A four-layer framework for defining an ICP that drives real conversion in B2B outbound: firmographics, technographics, buyer persona, and trigger signals.</description>
+    </item>
+
+    <item>
+      <title>Signal-Based List Building: A Framework for B2B Outbound in 2026</title>
+      <link>https://bottlerocketgrowth.com/insights/signal-based-list-building.html</link>
+      <guid isPermaLink="true">https://bottlerocketgrowth.com/insights/signal-based-list-building.html</guid>
+      <pubDate>Fri, 24 Apr 2026 12:00:00 -0500</pubDate>
+      <dc:creator>Mike Cubberly</dc:creator>
+      <category>List Building</category>
+      <description>How to build signal-based prospect lists using Apollo, Clay, TheirStack, and LinkedIn Sales Navigator. Covers structural, technology, and intent signals.</description>
+    </item>
+
+    <item>
+      <title>LinkedIn Sender Profile Strategy: Borrowed vs Client-Owned</title>
+      <link>https://bottlerocketgrowth.com/insights/linkedin-sender-profile-strategy.html</link>
+      <guid isPermaLink="true">https://bottlerocketgrowth.com/insights/linkedin-sender-profile-strategy.html</guid>
+      <pubDate>Fri, 24 Apr 2026 12:00:00 -0500</pubDate>
+      <dc:creator>Mike Cubberly</dc:creator>
+      <category>LinkedIn Outbound</category>
+      <description>The tradeoffs between borrowed (DFY) and client-owned (IOY) LinkedIn sender profiles for outbound. Includes warmup protocols and selection criteria.</description>
+    </item>
+
+    <item>
+      <title>HeyReach Sequence Architecture: Building Campaigns That Book Meetings</title>
+      <link>https://bottlerocketgrowth.com/insights/heyreach-sequence-architecture.html</link>
+      <guid isPermaLink="true">https://bottlerocketgrowth.com/insights/heyreach-sequence-architecture.html</guid>
+      <pubDate>Fri, 24 Apr 2026 12:00:00 -0500</pubDate>
+      <dc:creator>Mike Cubberly</dc:creator>
+      <category>Sequencing</category>
+      <description>How to architect a HeyReach LinkedIn outbound campaign end-to-end: sequence structure, message length, timing, branching logic, and metrics that matter.</description>
+    </item>
+  </channel>
+</rss>
