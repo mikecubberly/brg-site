@@ -81,8 +81,10 @@ export async function onRequestPost({ request, env }) {
   }
 
   // 2. Post Slack DM to Mike (best-effort; non-blocking on failure)
+  const slackStatus = { ok: false, error: null, attempted: false };
   try {
     if (env.SLACK_USER_TOKEN) {
+      slackStatus.attempted = true;
       const slackPayload = {
         channel: MIKE_SLACK_USER_ID,
         text: `New BRGmcp application: ${submission.company} (${submission.full_name})`,
@@ -97,17 +99,55 @@ export async function onRequestPost({ request, env }) {
         body: JSON.stringify(slackPayload)
       });
       const result = await resp.json().catch(() => ({}));
-      if (!result.ok) {
+      if (result.ok) {
+        slackStatus.ok = true;
+      } else {
+        slackStatus.error = result.error || 'unknown_slack_error';
         console.error('Slack post failed:', result.error || 'unknown', JSON.stringify(result));
       }
     } else {
+      slackStatus.error = 'token_not_configured';
       console.error('SLACK_USER_TOKEN env var not set; skipping Slack notification');
     }
   } catch (e) {
+    slackStatus.error = (e && e.message) ? e.message : 'slack_exception';
     console.error('Slack notify error:', e && e.message ? e.message : e);
   }
 
-  return new Response(JSON.stringify({ ok: true, id }), { status: 200, headers: cors });
+  // Persist Slack failures to KV so they're retrievable without Pages log tailing
+  if (!slackStatus.ok) {
+    try {
+      const errKey = `brgmcp:slack_error:${ts}:${id}`;
+      await env.BRGmcp_KV.put(errKey, JSON.stringify({
+        submission_id: id,
+        submitted_at: ts,
+        company: submission.company,
+        full_name: submission.full_name,
+        email: submission.email,
+        slack_error: slackStatus.error,
+        attempted: slackStatus.attempted
+      }), { expirationTtl: 60 * 60 * 24 * 90 }); // 90 day retention
+
+      const errIndexKey = 'brgmcp:slack_errors_index';
+      let errIndex = [];
+      try {
+        const existing = await env.BRGmcp_KV.get(errIndexKey);
+        if (existing) errIndex = JSON.parse(existing);
+      } catch (e) { errIndex = []; }
+      errIndex.unshift({
+        submission_id: id,
+        submitted_at: ts,
+        company: submission.company,
+        slack_error: slackStatus.error
+      });
+      if (errIndex.length > 50) errIndex = errIndex.slice(0, 50);
+      await env.BRGmcp_KV.put(errIndexKey, JSON.stringify(errIndex));
+    } catch (e) {
+      console.error('Failed to write slack error log to KV:', e && e.message ? e.message : e);
+    }
+  }
+
+  return new Response(JSON.stringify({ ok: true, id, slack: slackStatus }), { status: 200, headers: cors });
 }
 
 export async function onRequestOptions() {

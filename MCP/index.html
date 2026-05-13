@@ -725,6 +725,15 @@ form.addEventListener('submit', async (e) => {
     });
     const data = await res.json().catch(() => ({}));
     if (res.ok) {
+      // Diagnostic: surface Slack notification status to devtools console.
+      // If Slack DM failed, the submission still saved to KV; see /api/brgmcp-slack-errors.
+      try {
+        if (data && data.slack && !data.slack.ok) {
+          console.warn('[BRGmcp] Submission saved but Slack notification failed:', data.slack);
+        } else if (data && data.slack && data.slack.ok) {
+          console.info('[BRGmcp] Submission saved and Slack notification sent.');
+        }
+      } catch (e) { /* no-op */ }
       form.style.display = 'none';
       successCard.classList.add('show');
       successCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
