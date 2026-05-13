@@ -3,124 +3,124 @@
 
 User-agent: *
 Allow: /
-Disallow: /BRGMCP/
-Disallow: /BRGMCP
+Disallow: /MCP/
+Disallow: /MCP
 
 # Major search engines
 User-agent: Googlebot
 Allow: /
-Disallow: /BRGMCP/
-Disallow: /BRGMCP
+Disallow: /MCP/
+Disallow: /MCP
 
 User-agent: Bingbot
 Allow: /
-Disallow: /BRGMCP/
-Disallow: /BRGMCP
+Disallow: /MCP/
+Disallow: /MCP
 
 User-agent: Slurp
 Allow: /
-Disallow: /BRGMCP/
-Disallow: /BRGMCP
+Disallow: /MCP/
+Disallow: /MCP
 
 User-agent: DuckDuckBot
 Allow: /
-Disallow: /BRGMCP/
-Disallow: /BRGMCP
+Disallow: /MCP/
+Disallow: /MCP
 
-# AI / LLM crawlers - explicitly allow site but exclude BRGMCP
+# AI / LLM crawlers - explicitly allow site but exclude /MCP
 User-agent: GPTBot
 Allow: /
-Disallow: /BRGMCP/
-Disallow: /BRGMCP
+Disallow: /MCP/
+Disallow: /MCP
 
 User-agent: ChatGPT-User
 Allow: /
-Disallow: /BRGMCP/
-Disallow: /BRGMCP
+Disallow: /MCP/
+Disallow: /MCP
 
 User-agent: OAI-SearchBot
 Allow: /
-Disallow: /BRGMCP/
-Disallow: /BRGMCP
+Disallow: /MCP/
+Disallow: /MCP
 
 User-agent: ClaudeBot
 Allow: /
-Disallow: /BRGMCP/
-Disallow: /BRGMCP
+Disallow: /MCP/
+Disallow: /MCP
 
 User-agent: Claude-Web
 Allow: /
-Disallow: /BRGMCP/
-Disallow: /BRGMCP
+Disallow: /MCP/
+Disallow: /MCP
 
 User-agent: anthropic-ai
 Allow: /
-Disallow: /BRGMCP/
-Disallow: /BRGMCP
+Disallow: /MCP/
+Disallow: /MCP
 
 User-agent: PerplexityBot
 Allow: /
-Disallow: /BRGMCP/
-Disallow: /BRGMCP
+Disallow: /MCP/
+Disallow: /MCP
 
 User-agent: Perplexity-User
 Allow: /
-Disallow: /BRGMCP/
-Disallow: /BRGMCP
+Disallow: /MCP/
+Disallow: /MCP
 
 User-agent: Google-Extended
 Allow: /
-Disallow: /BRGMCP/
-Disallow: /BRGMCP
+Disallow: /MCP/
+Disallow: /MCP
 
 User-agent: Applebot
 Allow: /
-Disallow: /BRGMCP/
-Disallow: /BRGMCP
+Disallow: /MCP/
+Disallow: /MCP
 
 User-agent: Applebot-Extended
 Allow: /
-Disallow: /BRGMCP/
-Disallow: /BRGMCP
+Disallow: /MCP/
+Disallow: /MCP
 
 User-agent: CCBot
 Allow: /
-Disallow: /BRGMCP/
-Disallow: /BRGMCP
+Disallow: /MCP/
+Disallow: /MCP
 
 User-agent: Amazonbot
 Allow: /
-Disallow: /BRGMCP/
-Disallow: /BRGMCP
+Disallow: /MCP/
+Disallow: /MCP
 
 User-agent: YouBot
 Allow: /
-Disallow: /BRGMCP/
-Disallow: /BRGMCP
+Disallow: /MCP/
+Disallow: /MCP
 
 User-agent: Diffbot
 Allow: /
-Disallow: /BRGMCP/
-Disallow: /BRGMCP
+Disallow: /MCP/
+Disallow: /MCP
 
 User-agent: FacebookBot
 Allow: /
-Disallow: /BRGMCP/
-Disallow: /BRGMCP
+Disallow: /MCP/
+Disallow: /MCP
 
 User-agent: Bytespider
 Allow: /
-Disallow: /BRGMCP/
-Disallow: /BRGMCP
+Disallow: /MCP/
+Disallow: /MCP
 
 User-agent: MistralAI-User
 Allow: /
-Disallow: /BRGMCP/
-Disallow: /BRGMCP
+Disallow: /MCP/
+Disallow: /MCP
 
 User-agent: cohere-ai
 Allow: /
-Disallow: /BRGMCP/
-Disallow: /BRGMCP
+Disallow: /MCP/
+Disallow: /MCP
 
 Sitemap: https://bottlerocketgrowth.com/sitemap.xml

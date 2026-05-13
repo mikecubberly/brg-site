@@ -1,0 +1,16 @@
+# Redirect legacy and casing variants to canonical /MCP/
+
+/BRGMCP/* /MCP/:splat 301
+/BRGMCP /MCP/ 301
+
+/BRGmcp/* /MCP/:splat 301
+/BRGmcp /MCP/ 301
+
+/brgmcp/* /MCP/:splat 301
+/brgmcp /MCP/ 301
+
+/mcp/* /MCP/:splat 301
+/mcp /MCP/ 301
+
+/Mcp/* /MCP/:splat 301
+/Mcp /MCP/ 301
