@@ -49,12 +49,18 @@ body::before{
 
 /* nav */
 .nav{position:relative;z-index:10;padding:28px 0 0;}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;}
-.brand{display:flex;align-items:center;gap:12px;font-family:"Bebas Neue",sans-serif;font-size:18px;letter-spacing:.18em;color:var(--cream);text-transform:uppercase;}
-.brand-mark{width:30px;height:30px;border:1px solid var(--line-strong);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;letter-spacing:.04em;color:var(--accent);}
-.brand-mark::before{content:"";width:6px;height:6px;background:var(--accent);border-radius:50%;box-shadow:0 0 18px var(--accent);}
-.nav-meta{font-family:"DM Sans",sans-serif;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-faint);font-weight:500;}
-@media (max-width:640px){.nav-meta{display:none;}}
+.nav-inner{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px;}
+.brand{display:flex;align-items:center;gap:14px;font-family:"Bebas Neue",sans-serif;font-size:18px;letter-spacing:.18em;color:var(--cream);text-transform:uppercase;justify-self:start;}
+.brand-logo{width:32px;height:32px;display:block;filter:brightness(0) invert(0.93);opacity:.95;}
+.nav-center{justify-self:center;display:flex;align-items:center;}
+.nav-center-logo{width:46px;height:46px;display:block;filter:brightness(0) invert(0.93);opacity:.92;transition:opacity .35s,transform .35s;}
+.nav-center-logo:hover{opacity:1;transform:rotate(-6deg) scale(1.04);}
+.nav-meta{font-family:"DM Sans",sans-serif;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-faint);font-weight:500;justify-self:end;text-align:right;}
+@media (max-width:760px){
+  .nav-inner{grid-template-columns:1fr auto;}
+  .nav-center{display:none;}
+  .nav-meta{display:none;}
+}
 
 /* hero */
 .hero{position:relative;padding:90px 0 120px;overflow:hidden;}
@@ -201,9 +207,37 @@ section{position:relative;padding:110px 0;}
 /* footer */
 .footer{padding:64px 0 48px;border-top:1px solid var(--line);}
 .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
-.footer-brand{font-family:"Bebas Neue",sans-serif;font-size:14px;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-dim);}
+.footer-brand{display:flex;align-items:center;gap:12px;font-family:"Bebas Neue",sans-serif;font-size:14px;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-dim);}
+.footer-logo{width:24px;height:24px;display:block;filter:brightness(0) invert(0.85);opacity:.9;}
 .footer-meta{font-family:"DM Sans",sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--cream-faint);font-weight:500;}
 .footer-meta a:hover{color:var(--accent);}
+
+/* ICP × MCP acronyms section */
+.acronyms{padding:120px 0;position:relative;overflow:hidden;}
+.acronyms::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--line-strong) 30%,var(--line-strong) 70%,transparent);
+}
+.acronyms::after{
+  content:"";position:absolute;bottom:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--line-strong) 30%,var(--line-strong) 70%,transparent);
+}
+.acronyms-inner{max-width:920px;margin:0 auto;text-align:center;position:relative;}
+.acronyms-eyebrow{font-family:"DM Sans",sans-serif;font-size:10px;letter-spacing:.42em;text-transform:uppercase;color:var(--cream-faint);font-weight:500;margin-bottom:40px;display:inline-flex;align-items:center;gap:18px;}
+.acronyms-eyebrow::before,.acronyms-eyebrow::after{content:"";width:34px;height:1px;background:var(--line-strong);}
+.acronyms-headline{font-family:"Bebas Neue",sans-serif;font-size:clamp(54px,9vw,144px);line-height:.95;letter-spacing:.01em;text-transform:uppercase;color:var(--cream);font-weight:400;}
+.acronyms-headline .serif{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;letter-spacing:-.01em;text-transform:none;color:var(--cream-dim);display:inline-block;padding:0 .04em;}
+.acronyms-headline .acc{color:var(--accent);}
+.acronyms-versus{display:inline-block;font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;color:var(--accent);font-size:.5em;vertical-align:.18em;padding:0 .25em;text-transform:none;letter-spacing:-.02em;}
+.acronyms-body{margin-top:48px;font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;font-size:clamp(20px,2.4vw,28px);line-height:1.45;color:var(--cream-dim);max-width:680px;margin-left:auto;margin-right:auto;}
+.acronyms-body em{color:var(--cream);font-style:italic;}
+.acronyms-foot{margin-top:36px;display:inline-flex;align-items:center;gap:14px;}
+.acronyms-foot-line{width:24px;height:1px;background:var(--cream-faint);}
+.acronyms-foot-text{font-family:"DM Sans",sans-serif;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--cream-faint);font-weight:500;}
+.acronyms-mini{position:absolute;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:14px;color:var(--cream-faint);letter-spacing:.04em;opacity:.7;}
+.acronyms-mini-1{top:-8px;left:8%;transform:rotate(-8deg);}
+.acronyms-mini-2{bottom:-8px;right:8%;transform:rotate(6deg);}
+@media (max-width:760px){.acronyms-mini{display:none;}.acronyms{padding:80px 0;}}
 
 /* fade-in animations */
 .fade{opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1);}
@@ -215,8 +249,11 @@ section{position:relative;padding:110px 0;}
 <header class="nav">
   <div class="wrap nav-inner">
     <div class="brand">
-      <span class="brand-mark"></span>
+      <img src="/logo.png" alt="Bottle Rocket Growth" class="brand-logo">
       <span>Bottle Rocket Growth</span>
+    </div>
+    <div class="nav-center">
+      <img src="/logo.png" alt="Bottle Rocket Growth" class="nav-center-logo">
     </div>
     <div class="nav-meta">By Application &middot; Reviewed by Mike Cubberly</div>
   </div>
@@ -262,6 +299,25 @@ section{position:relative;padding:110px 0;}
         <p>BRGmcp is a <strong>commission-only LinkedIn outbound partnership</strong> for only one to two companies a month. We plug your campaign into the same infrastructure Bottle Rocket Growth runs for its paying clients.</p>
         <p>That infrastructure is built to scale your messaging, expand your reach, and put your offer in front of the right buyers at volume. Our campaigns consistently see <strong>reply rates between 20% and 70%</strong>, depending on offer and ICP. That is the engine you're getting access to.</p>
         <p>There is no upfront agency retainer. We're aligned on results, on purpose. We only do this for one to two companies a month because the work is real and the bar is high.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="acronyms">
+  <div class="wrap">
+    <div class="acronyms-inner">
+      <span class="acronyms-mini acronyms-mini-1 fade">a fashionable acronym,</span>
+      <span class="acronyms-mini acronyms-mini-2 fade">meet a useful one.</span>
+      <div class="acronyms-eyebrow fade">A footnote on three-letter acronyms</div>
+      <h2 class="acronyms-headline fade">
+        <span class="serif">Your</span> ICP<span class="acronyms-versus">meets</span><span class="acc">MCP</span>.
+      </h2>
+      <p class="acronyms-body fade">You spent two years sharpening your <em>Ideal Customer Profile</em>. We spent that time building our <em>Monthly Commission Project</em>. The introduction was overdue.</p>
+      <div class="acronyms-foot fade">
+        <span class="acronyms-foot-line"></span>
+        <span class="acronyms-foot-text">BRGmcp by Bottle Rocket Growth</span>
+        <span class="acronyms-foot-line"></span>
       </div>
     </div>
   </div>
@@ -549,7 +605,10 @@ section{position:relative;padding:110px 0;}
 
 <footer class="footer">
   <div class="wrap footer-inner">
-    <div class="footer-brand">Bottle Rocket Growth</div>
+    <div class="footer-brand">
+      <img src="/logo.png" alt="Bottle Rocket Growth" class="footer-logo">
+      <span>Bottle Rocket Growth</span>
+    </div>
     <div class="footer-meta">BRGmcp &middot; <a href="/">bottlerocketgrowth.com</a></div>
   </div>
 </footer>
