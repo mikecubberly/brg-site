@@ -3,76 +3,124 @@
 
 User-agent: *
 Allow: /
+Disallow: /BRGMCP/
+Disallow: /BRGMCP
 
 # Major search engines
 User-agent: Googlebot
 Allow: /
+Disallow: /BRGMCP/
+Disallow: /BRGMCP
 
 User-agent: Bingbot
 Allow: /
+Disallow: /BRGMCP/
+Disallow: /BRGMCP
 
 User-agent: Slurp
 Allow: /
+Disallow: /BRGMCP/
+Disallow: /BRGMCP
 
 User-agent: DuckDuckBot
 Allow: /
+Disallow: /BRGMCP/
+Disallow: /BRGMCP
 
-# AI / LLM crawlers - explicitly allow
+# AI / LLM crawlers - explicitly allow site but exclude BRGMCP
 User-agent: GPTBot
 Allow: /
+Disallow: /BRGMCP/
+Disallow: /BRGMCP
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /BRGMCP/
+Disallow: /BRGMCP
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /BRGMCP/
+Disallow: /BRGMCP
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /BRGMCP/
+Disallow: /BRGMCP
 
 User-agent: Claude-Web
 Allow: /
+Disallow: /BRGMCP/
+Disallow: /BRGMCP
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /BRGMCP/
+Disallow: /BRGMCP
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /BRGMCP/
+Disallow: /BRGMCP
 
 User-agent: Perplexity-User
 Allow: /
+Disallow: /BRGMCP/
+Disallow: /BRGMCP
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /BRGMCP/
+Disallow: /BRGMCP
 
 User-agent: Applebot
 Allow: /
+Disallow: /BRGMCP/
+Disallow: /BRGMCP
 
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /BRGMCP/
+Disallow: /BRGMCP
 
 User-agent: CCBot
 Allow: /
+Disallow: /BRGMCP/
+Disallow: /BRGMCP
 
 User-agent: Amazonbot
 Allow: /
+Disallow: /BRGMCP/
+Disallow: /BRGMCP
 
 User-agent: YouBot
 Allow: /
+Disallow: /BRGMCP/
+Disallow: /BRGMCP
 
 User-agent: Diffbot
 Allow: /
+Disallow: /BRGMCP/
+Disallow: /BRGMCP
 
 User-agent: FacebookBot
 Allow: /
+Disallow: /BRGMCP/
+Disallow: /BRGMCP
 
 User-agent: Bytespider
 Allow: /
+Disallow: /BRGMCP/
+Disallow: /BRGMCP
 
 User-agent: MistralAI-User
 Allow: /
+Disallow: /BRGMCP/
+Disallow: /BRGMCP
 
 User-agent: cohere-ai
 Allow: /
+Disallow: /BRGMCP/
+Disallow: /BRGMCP
 
 Sitemap: https://bottlerocketgrowth.com/sitemap.xml

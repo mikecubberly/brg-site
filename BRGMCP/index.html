@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>BRGMCP | Bottle Rocket Growth Monthly Commission Project</title>
+<meta name="description" content="A commission-only outbound engagement with Mike Cubberly and Bottle Rocket Growth. One or two operators selected per month. By application only.">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="bingbot" content="noindex, nofollow">
+<meta name="theme-color" content="#11131f">
+<link rel="canonical" href="https://bottlerocketgrowth.com/BRGMCP/">
+<link rel="icon" type="image/png" href="/logo.png">
+<link rel="apple-touch-icon" href="/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --ink:#0b0d18;
+  --ink-2:#11131f;
+  --ink-3:#181b2a;
+  --line:rgba(232,228,217,0.10);
+  --line-strong:rgba(232,228,217,0.22);
+  --cream:#ece6d5;
+  --cream-dim:#bdb6a5;
+  --cream-faint:#7d7969;
+  --accent:#7b8aff;
+  --accent-deep:#5b6bff;
+  --gold:#c8a96a;
+  --bg:#0b0d18;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+html,body{background:var(--bg);color:var(--cream);font-family:"DM Sans",sans-serif;line-height:1.6;font-weight:400;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+body{overflow-x:hidden;min-height:100vh;}
+a{color:inherit;text-decoration:none;}
+::selection{background:var(--accent);color:var(--ink);}
+
+/* grain overlay */
+body::before{
+  content:"";position:fixed;inset:0;z-index:200;pointer-events:none;opacity:.06;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' seed='8'/><feColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .9 0'/></filter><rect width='220' height='220' filter='url(%23n)'/></svg>");
+}
+
+/* container */
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+@media (max-width:640px){.wrap{padding:0 22px;}}
+
+/* nav */
+.nav{position:relative;z-index:10;padding:28px 0 0;}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;}
+.brand{display:flex;align-items:center;gap:12px;font-family:"Bebas Neue",sans-serif;font-size:18px;letter-spacing:.18em;color:var(--cream);text-transform:uppercase;}
+.brand-mark{width:30px;height:30px;border:1px solid var(--line-strong);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;letter-spacing:.04em;color:var(--accent);}
+.brand-mark::before{content:"";width:6px;height:6px;background:var(--accent);border-radius:50%;box-shadow:0 0 18px var(--accent);}
+.nav-meta{font-family:"DM Sans",sans-serif;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-faint);font-weight:500;}
+@media (max-width:640px){.nav-meta{display:none;}}
+
+/* hero */
+.hero{position:relative;padding:90px 0 120px;overflow:hidden;}
+.hero::after{
+  content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(1200px,140%);height:1000px;
+  background:radial-gradient(ellipse at center, rgba(123,138,255,0.22) 0%, rgba(123,138,255,0.06) 35%, transparent 65%);
+  filter:blur(40px);z-index:0;pointer-events:none;
+}
+.hero-inner{position:relative;z-index:1;text-align:center;}
+.eyebrow{display:inline-flex;align-items:center;gap:14px;font-family:"DM Sans",sans-serif;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--cream-dim);font-weight:500;margin-bottom:34px;}
+.eyebrow::before,.eyebrow::after{content:"";width:34px;height:1px;background:var(--line-strong);}
+.headline{font-family:"Bebas Neue",sans-serif;font-weight:400;font-size:clamp(48px,8.5vw,128px);line-height:.92;letter-spacing:.005em;color:var(--cream);text-transform:uppercase;}
+.headline .accent-word{color:var(--accent);font-style:normal;}
+.headline .serif{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;letter-spacing:-.01em;text-transform:none;color:var(--cream);display:inline-block;padding:0 .08em;}
+.lede{max-width:640px;margin:36px auto 0;font-size:18px;line-height:1.7;color:var(--cream-dim);}
+@media (max-width:640px){.lede{font-size:16px;}}
+.hero-meta{margin-top:46px;display:inline-flex;align-items:center;gap:18px;padding:10px 22px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,0.015);}
+.hero-meta-dot{width:7px;height:7px;background:var(--accent);border-radius:50%;box-shadow:0 0 14px var(--accent);animation:pulse 2.4s ease-in-out infinite;}
+.hero-meta-text{font-family:"DM Sans",sans-serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-dim);font-weight:500;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.5;}}
+.hero-cta{margin-top:52px;}
+.cta-btn{display:inline-flex;align-items:center;gap:14px;padding:18px 36px;border-radius:999px;background:var(--cream);color:var(--ink);font-family:"DM Sans",sans-serif;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;border:none;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s,background .3s;}
+.cta-btn:hover{transform:translateY(-3px);box-shadow:0 18px 40px -16px rgba(123,138,255,0.55);background:var(--accent);color:var(--ink);}
+.cta-btn-arrow{display:inline-block;transition:transform .3s;}
+.cta-btn:hover .cta-btn-arrow{transform:translateX(4px);}
+
+/* section base */
+section{position:relative;padding:110px 0;}
+@media (max-width:768px){section{padding:80px 0;}}
+.section-rule{display:flex;align-items:center;gap:24px;margin-bottom:64px;}
+.section-rule-num{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:22px;color:var(--accent);font-weight:500;letter-spacing:.04em;}
+.section-rule-line{flex:1;height:1px;background:var(--line);}
+.section-rule-label{font-family:"DM Sans",sans-serif;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--cream-faint);font-weight:500;}
+.section-title{font-family:"Bebas Neue",sans-serif;font-size:clamp(36px,5.4vw,72px);line-height:1;letter-spacing:.01em;color:var(--cream);text-transform:uppercase;margin-bottom:24px;font-weight:400;}
+.section-title .serif{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;letter-spacing:-.01em;text-transform:none;color:var(--accent);}
+.section-intro{max-width:680px;font-size:17px;line-height:1.75;color:var(--cream-dim);margin-bottom:64px;}
+@media (max-width:640px){.section-intro{font-size:15px;}}
+
+/* what this is */
+.what-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+@media (max-width:900px){.what-grid{grid-template-columns:1fr;gap:48px;}}
+.what-quote{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;font-size:clamp(26px,3.4vw,40px);line-height:1.25;color:var(--cream);letter-spacing:-.005em;}
+.what-quote .em{color:var(--accent);font-style:italic;}
+.what-quote-sig{margin-top:32px;display:flex;align-items:center;gap:14px;}
+.what-quote-sig-line{width:28px;height:1px;background:var(--cream-faint);}
+.what-quote-sig-text{font-family:"DM Sans",sans-serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-faint);font-weight:500;}
+.what-body p{font-size:16px;line-height:1.85;color:var(--cream-dim);margin-bottom:22px;}
+.what-body p:last-child{margin-bottom:0;}
+.what-body strong{color:var(--cream);font-weight:600;}
+
+/* what BRG handles */
+.handles-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+@media (max-width:768px){.handles-grid{grid-template-columns:1fr;}}
+.handle{background:var(--ink-2);padding:48px 40px;position:relative;transition:background .35s;}
+.handle:hover{background:var(--ink-3);}
+.handle-num{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:14px;color:var(--accent);letter-spacing:.06em;margin-bottom:24px;display:block;}
+.handle-title{font-family:"Bebas Neue",sans-serif;font-size:24px;letter-spacing:.06em;text-transform:uppercase;color:var(--cream);margin-bottom:16px;font-weight:400;}
+.handle-text{font-size:14.5px;line-height:1.75;color:var(--cream-dim);}
+
+/* process */
+.process-list{position:relative;}
+.process-step{display:grid;grid-template-columns:120px 1fr;gap:48px;padding:44px 0;border-top:1px solid var(--line);align-items:start;}
+.process-step:last-child{border-bottom:1px solid var(--line);}
+@media (max-width:768px){.process-step{grid-template-columns:80px 1fr;gap:28px;padding:32px 0;}}
+.process-num{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:64px;line-height:.85;color:var(--accent);font-weight:500;}
+@media (max-width:768px){.process-num{font-size:44px;}}
+.process-content{padding-top:14px;}
+.process-title{font-family:"Bebas Neue",sans-serif;font-size:clamp(20px,2.6vw,30px);letter-spacing:.04em;text-transform:uppercase;color:var(--cream);margin-bottom:12px;font-weight:400;line-height:1.1;}
+.process-text{font-size:16px;line-height:1.7;color:var(--cream-dim);max-width:640px;}
+
+/* qualified */
+.qual-shell{border:1px solid var(--line);background:linear-gradient(180deg,rgba(123,138,255,0.025) 0%,transparent 80%);padding:80px 64px;border-radius:2px;}
+@media (max-width:768px){.qual-shell{padding:48px 28px;}}
+.qual-eyebrow{font-family:"DM Sans",sans-serif;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:20px;}
+.qual-head{font-family:"Bebas Neue",sans-serif;font-size:clamp(28px,4vw,52px);line-height:1.05;letter-spacing:.01em;text-transform:uppercase;color:var(--cream);margin-bottom:52px;font-weight:400;}
+.qual-head .serif{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;text-transform:none;color:var(--cream-dim);letter-spacing:-.01em;}
+.qual-list{display:grid;grid-template-columns:1fr 1fr;gap:36px 64px;}
+@media (max-width:768px){.qual-list{grid-template-columns:1fr;gap:28px;}}
+.qual-item{display:flex;gap:18px;align-items:flex-start;}
+.qual-marker{flex-shrink:0;width:22px;height:22px;border:1px solid var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:3px;}
+.qual-marker::before{content:"";width:7px;height:7px;background:var(--accent);border-radius:50%;}
+.qual-text{font-size:15.5px;line-height:1.65;color:var(--cream);}
+.qual-text strong{color:var(--accent);font-weight:600;}
+.qual-floor{margin-top:56px;padding-top:36px;border-top:1px solid var(--line);display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+.qual-floor-label{font-family:"DM Sans",sans-serif;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--cream-faint);font-weight:500;}
+.qual-floor-value{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:26px;color:var(--cream);font-weight:500;}
+.qual-floor-value .em{color:var(--accent);}
+
+/* exclusivity strip */
+.strip{padding:56px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,0.005);}
+.strip-inner{display:flex;align-items:center;justify-content:space-between;gap:48px;flex-wrap:wrap;}
+.strip-stat{flex:1;min-width:200px;}
+.strip-num{font-family:"Bebas Neue",sans-serif;font-size:clamp(40px,6vw,80px);line-height:.9;color:var(--accent);font-weight:400;letter-spacing:.01em;display:block;margin-bottom:8px;}
+.strip-num .serif{font-family:"Cormorant Garamond",serif;font-style:italic;text-transform:none;color:var(--cream);}
+.strip-label{font-family:"DM Sans",sans-serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-faint);font-weight:500;}
+
+/* form */
+.form-section{padding:130px 0 110px;position:relative;}
+.form-section::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:1px;height:80px;background:linear-gradient(180deg,transparent,var(--accent),transparent);}
+.form-shell{max-width:780px;margin:0 auto;}
+.form-head{text-align:center;margin-bottom:64px;}
+.form-eyebrow{font-family:"DM Sans",sans-serif;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:22px;}
+.form-title{font-family:"Bebas Neue",sans-serif;font-size:clamp(36px,5.6vw,72px);line-height:1;letter-spacing:.01em;text-transform:uppercase;color:var(--cream);margin-bottom:22px;font-weight:400;}
+.form-title .serif{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;text-transform:none;color:var(--accent);letter-spacing:-.01em;}
+.form-sub{font-size:16px;line-height:1.75;color:var(--cream-dim);max-width:540px;margin:0 auto;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px 28px;}
+@media (max-width:680px){.form-grid{grid-template-columns:1fr;}}
+.field{display:flex;flex-direction:column;gap:10px;}
+.field.full{grid-column:1 / -1;}
+.field-label{font-family:"DM Sans",sans-serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-dim);font-weight:500;}
+.field-label .req{color:var(--accent);margin-left:4px;}
+.field input,.field textarea,.field select{
+  width:100%;background:transparent;border:none;border-bottom:1px solid var(--line-strong);
+  color:var(--cream);font-family:"DM Sans",sans-serif;font-size:16px;font-weight:400;
+  padding:14px 0 14px;outline:none;transition:border-color .3s;
+  border-radius:0;-webkit-appearance:none;appearance:none;
+}
+.field select{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1L6 6L11 1' stroke='%23bdb6a5' stroke-width='1.4' fill='none'/></svg>");background-repeat:no-repeat;background-position:right 4px center;padding-right:24px;cursor:pointer;}
+.field select option{background:var(--ink-2);color:var(--cream);}
+.field textarea{resize:vertical;min-height:120px;line-height:1.6;}
+.field input:focus,.field textarea:focus,.field select:focus{border-bottom-color:var(--accent);}
+.field input::placeholder,.field textarea::placeholder{color:var(--cream-faint);}
+.field-help{font-size:12px;color:var(--cream-faint);line-height:1.5;}
+
+.form-acknowledge{margin-top:36px;padding:24px;border:1px solid var(--line);background:rgba(255,255,255,0.015);border-radius:2px;display:flex;gap:14px;align-items:flex-start;}
+.form-acknowledge input[type="checkbox"]{flex-shrink:0;margin-top:3px;width:18px;height:18px;accent-color:var(--accent);cursor:pointer;}
+.form-acknowledge label{font-size:13.5px;line-height:1.65;color:var(--cream-dim);cursor:pointer;}
+.form-acknowledge label strong{color:var(--cream);font-weight:600;}
+
+.form-submit{margin-top:48px;text-align:center;}
+.form-submit-btn{display:inline-flex;align-items:center;gap:14px;padding:20px 48px;border-radius:999px;background:var(--cream);color:var(--ink);font-family:"DM Sans",sans-serif;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;border:none;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s,background .3s;}
+.form-submit-btn:hover{transform:translateY(-3px);box-shadow:0 18px 40px -16px rgba(123,138,255,0.55);background:var(--accent);}
+.form-submit-btn:disabled{opacity:.5;cursor:not-allowed;transform:none;}
+.form-status{margin-top:24px;font-size:14px;letter-spacing:.04em;min-height:20px;text-align:center;color:var(--cream-dim);}
+.form-status.success{color:var(--accent);}
+.form-status.error{color:#e89084;}
+
+.form-success-card{display:none;text-align:center;padding:64px 40px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(123,138,255,0.04) 0%,transparent 100%);border-radius:2px;}
+.form-success-card.show{display:block;}
+.form-success-card h3{font-family:"Bebas Neue",sans-serif;font-size:40px;letter-spacing:.02em;color:var(--cream);text-transform:uppercase;margin-bottom:20px;font-weight:400;}
+.form-success-card h3 .serif{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;text-transform:none;color:var(--accent);}
+.form-success-card p{font-size:16px;line-height:1.75;color:var(--cream-dim);max-width:480px;margin:0 auto;}
+
+/* footer */
+.footer{padding:64px 0 48px;border-top:1px solid var(--line);}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.footer-brand{font-family:"Bebas Neue",sans-serif;font-size:14px;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-dim);}
+.footer-meta{font-family:"DM Sans",sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--cream-faint);font-weight:500;}
+.footer-meta a:hover{color:var(--accent);}
+
+/* fade-in animations */
+.fade{opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1);}
+.fade.in{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <div class="brand">
+      <span class="brand-mark"></span>
+      <span>Bottle Rocket Growth</span>
+    </div>
+    <div class="nav-meta">By Application &middot; Reviewed by Mike Cubberly</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="eyebrow fade">BRGMCP &middot; By Application</div>
+    <h1 class="headline fade">
+      The <span class="serif">Bottle Rocket Growth</span><br>
+      Monthly <span class="accent-word">Commission</span> Project
+    </h1>
+    <p class="lede fade">One or two operators selected each month. We run your outbound on our infrastructure. You pay only when it produces. Built and executed by Mike Cubberly and the BRG team.</p>
+    <div class="hero-meta fade">
+      <span class="hero-meta-dot"></span>
+      <span class="hero-meta-text">Currently accepting applications</span>
+    </div>
+    <div class="hero-cta fade">
+      <a href="#apply" class="cta-btn">
+        <span>Apply for Review</span>
+        <span class="cta-btn-arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-rule fade">
+      <span class="section-rule-num">i.</span>
+      <span class="section-rule-line"></span>
+      <span class="section-rule-label">What this is</span>
+    </div>
+    <div class="what-grid">
+      <div class="fade">
+        <p class="what-quote">A small bet on a sharp company. <span class="em">We bring the engine, you bring the offer, and we both get paid when it produces.</span></p>
+        <div class="what-quote-sig">
+          <span class="what-quote-sig-line"></span>
+          <span class="what-quote-sig-text">Mike Cubberly, Founder of BRG</span>
+        </div>
+      </div>
+      <div class="what-body fade">
+        <p>BRGMCP is a <strong>commission-only outbound partnership</strong> for a very small number of companies each month. You provide LinkedIn sender profiles and an offer that's already converting. We do the rest.</p>
+        <p>We borrow your sender profiles into our HeyReach instance, build the targeted list, write and sequence the messaging, and run the campaign end to end. Booked meetings go straight into your calendar.</p>
+        <p>There is no upfront agency retainer. We're aligned on results, on purpose. We only do this for one or two companies a month because the work is real and the bar is high.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-rule fade">
+      <span class="section-rule-num">ii.</span>
+      <span class="section-rule-line"></span>
+      <span class="section-rule-label">What BRG handles</span>
+    </div>
+    <h2 class="section-title fade">The Full <span class="serif">Outbound Engine</span></h2>
+    <p class="section-intro fade">Everything that lives between "we have an offer" and "a meeting on the calendar" is on us. You stay focused on what happens inside the meeting room.</p>
+    <div class="handles-grid">
+      <div class="handle fade">
+        <span class="handle-num">01.</span>
+        <h3 class="handle-title">ICP &amp; Signal Strategy</h3>
+        <p class="handle-text">We sharpen your ICP, identify the buying signals worth chasing, and build a targeting plan that's narrow enough to be sharp and broad enough to fill pipeline.</p>
+      </div>
+      <div class="handle fade">
+        <span class="handle-num">02.</span>
+        <h3 class="handle-title">List Build &amp; Enrichment</h3>
+        <p class="handle-text">Signal-based prospect lists from Apollo, Clay, and OrangeSlice. Hand-verified, deduplicated, and matched to the messaging variants they're going to receive.</p>
+      </div>
+      <div class="handle fade">
+        <span class="handle-num">03.</span>
+        <h3 class="handle-title">Sender Profile Setup</h3>
+        <p class="handle-text">Your LinkedIn profiles plug into our HeyReach instance. We configure warmup, daily limits, and connection request pacing so the accounts stay healthy.</p>
+      </div>
+      <div class="handle fade">
+        <span class="handle-num">04.</span>
+        <h3 class="handle-title">Messaging &amp; Sequencing</h3>
+        <p class="handle-text">We write the connection request, the follow-up, and the variants. We iterate on copy weekly based on what's actually moving the needle for your specific ICP.</p>
+      </div>
+      <div class="handle fade">
+        <span class="handle-num">05.</span>
+        <h3 class="handle-title">Live Reply Handling</h3>
+        <p class="handle-text">Inbox monitoring, qualification of warm replies, and meeting handoff. You see qualified conversations only. We keep the noise out of your day.</p>
+      </div>
+      <div class="handle fade">
+        <span class="handle-num">06.</span>
+        <h3 class="handle-title">Reporting &amp; Iteration</h3>
+        <p class="handle-text">A live dashboard at clients.bottlerocketgrowth.com. Weekly review of step rates, copy performance, and target adjustments. No black box.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-rule fade">
+      <span class="section-rule-num">iii.</span>
+      <span class="section-rule-line"></span>
+      <span class="section-rule-label">The Process</span>
+    </div>
+    <h2 class="section-title fade">From Application <span class="serif">to Pipeline</span></h2>
+    <p class="section-intro fade">Six steps. The first three are about figuring out whether this is a real fit. The last three are about getting your pipeline moving.</p>
+    <div class="process-list">
+      <div class="process-step fade">
+        <span class="process-num">01</span>
+        <div class="process-content">
+          <h3 class="process-title">Submit Your Application</h3>
+          <p class="process-text">Tell us about your company, your offer, your ICP, and the sender profiles you'd dedicate. The form below takes about ten minutes if you know your numbers.</p>
+        </div>
+      </div>
+      <div class="process-step fade">
+        <span class="process-num">02</span>
+        <div class="process-content">
+          <h3 class="process-title">Internal Fit Review</h3>
+          <p class="process-text">We review every application internally. We're looking at TAM, offer maturity, sales motion, and whether we have the right operator profile to run your campaign well right now.</p>
+        </div>
+      </div>
+      <div class="process-step fade">
+        <span class="process-num">03</span>
+        <div class="process-content">
+          <h3 class="process-title">We Reach Back Out</h3>
+          <p class="process-text">If it's a fit, you'll hear from us directly. If it isn't, we'll tell you why. Either way, you get a real response. No automated rejections, no ghosting.</p>
+        </div>
+      </div>
+      <div class="process-step fade">
+        <span class="process-num">04</span>
+        <div class="process-content">
+          <h3 class="process-title">Commission Conversation</h3>
+          <p class="process-text">Live call. We discuss the commission structure, what triggers payment, the term, and what success looks like for both sides. Numbers get put on paper.</p>
+        </div>
+      </div>
+      <div class="process-step fade">
+        <span class="process-num">05</span>
+        <div class="process-content">
+          <h3 class="process-title">We Build Out Your Project</h3>
+          <p class="process-text">List, messaging, sender setup, infrastructure, and dashboard. The first two weeks are heavy build. We're not running campaigns until the foundation is right.</p>
+        </div>
+      </div>
+      <div class="process-step fade">
+        <span class="process-num">06</span>
+        <div class="process-content">
+          <h3 class="process-title">Pipeline Begins</h3>
+          <p class="process-text">Campaigns go live. Replies and booked meetings start landing in your inbox. We iterate weekly. You sell. We get paid when the pipeline produces.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="qual-shell fade">
+      <div class="qual-eyebrow">Section iv. &middot; Who Qualifies</div>
+      <h2 class="qual-head">A short list of things that have to <span class="serif">already be true</span></h2>
+      <div class="qual-list">
+        <div class="qual-item">
+          <span class="qual-marker"></span>
+          <p class="qual-text"><strong>United States-based</strong> company. We focus on the US market right now.</p>
+        </div>
+        <div class="qual-item">
+          <span class="qual-marker"></span>
+          <p class="qual-text"><strong>Found product-market fit.</strong> You've sold this offer to enough people to know it works.</p>
+        </div>
+        <div class="qual-item">
+          <span class="qual-marker"></span>
+          <p class="qual-text"><strong>You know who your buyer is.</strong> Title, function, company profile, the whole picture.</p>
+        </div>
+        <div class="qual-item">
+          <span class="qual-marker"></span>
+          <p class="qual-text"><strong>You know how to convert them.</strong> Once a meeting is on the calendar, you have a sales motion that closes.</p>
+        </div>
+        <div class="qual-item">
+          <span class="qual-marker"></span>
+          <p class="qual-text"><strong>Dedicated salespeople or founder-led sales.</strong> Someone is actually running the meetings we book.</p>
+        </div>
+        <div class="qual-item">
+          <span class="qual-marker"></span>
+          <p class="qual-text"><strong>A real TAM.</strong> The total addressable market is large enough to support sustained outbound at volume.</p>
+        </div>
+        <div class="qual-item">
+          <span class="qual-marker"></span>
+          <p class="qual-text"><strong>A clear ICP and offering.</strong> One product, one buyer, one promise. The cleaner the message, the better this works.</p>
+        </div>
+        <div class="qual-item">
+          <span class="qual-marker"></span>
+          <p class="qual-text"><strong>Product priced at $1,000 per month or higher.</strong> The math has to work for a commission engagement on both sides.</p>
+        </div>
+      </div>
+      <div class="qual-floor">
+        <span class="qual-floor-label">Minimum Product Price</span>
+        <span class="qual-floor-value"><span class="em">$1,000</span> / month</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="strip">
+  <div class="wrap">
+    <div class="strip-inner">
+      <div class="strip-stat fade">
+        <span class="strip-num">01<span class="serif">&ndash;</span>02</span>
+        <span class="strip-label">Selected per month</span>
+      </div>
+      <div class="strip-stat fade">
+        <span class="strip-num">$0</span>
+        <span class="strip-label">Agency retainer</span>
+      </div>
+      <div class="strip-stat fade">
+        <span class="strip-num">100%</span>
+        <span class="strip-label">Commission aligned</span>
+      </div>
+      <div class="strip-stat fade">
+        <span class="strip-num">US</span>
+        <span class="strip-label">Companies only</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="form-section" id="apply">
+  <div class="wrap">
+    <div class="form-shell">
+      <div class="form-head fade">
+        <div class="form-eyebrow">Section v. &middot; Application</div>
+        <h2 class="form-title">Tell Us About <span class="serif">Your Company</span></h2>
+        <p class="form-sub">Be specific. The more honest and detailed your answers, the easier it is for us to figure out whether we're a fit.</p>
+      </div>
+
+      <form id="brgmcp-form" class="fade" novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label class="field-label" for="full_name">Full Name<span class="req">&bull;</span></label>
+            <input type="text" id="full_name" name="full_name" required autocomplete="name" placeholder="Jane Doe">
+          </div>
+          <div class="field">
+            <label class="field-label" for="role">Your Role<span class="req">&bull;</span></label>
+            <input type="text" id="role" name="role" required placeholder="Founder &amp; CEO">
+          </div>
+          <div class="field">
+            <label class="field-label" for="company">Company Name<span class="req">&bull;</span></label>
+            <input type="text" id="company" name="company" required placeholder="Acme Inc">
+          </div>
+          <div class="field">
+            <label class="field-label" for="website">Company Website<span class="req">&bull;</span></label>
+            <input type="text" id="website" name="website" required placeholder="acme.com">
+          </div>
+          <div class="field">
+            <label class="field-label" for="email">Email<span class="req">&bull;</span></label>
+            <input type="email" id="email" name="email" required autocomplete="email" placeholder="jane@acme.com">
+          </div>
+          <div class="field">
+            <label class="field-label" for="linkedin">Your LinkedIn URL<span class="req">&bull;</span></label>
+            <input type="text" id="linkedin" name="linkedin" required placeholder="linkedin.com/in/janedoe">
+          </div>
+          <div class="field full">
+            <label class="field-label" for="offer">What You Sell<span class="req">&bull;</span></label>
+            <textarea id="offer" name="offer" required placeholder="Describe your product, who buys it, and what problem it solves. Two or three sentences is enough."></textarea>
+          </div>
+          <div class="field">
+            <label class="field-label" for="price">Product Price (monthly)<span class="req">&bull;</span></label>
+            <select id="price" name="price" required>
+              <option value="">Select a range</option>
+              <option value="$1,000 to $2,499">$1,000 to $2,499</option>
+              <option value="$2,500 to $4,999">$2,500 to $4,999</option>
+              <option value="$5,000 to $9,999">$5,000 to $9,999</option>
+              <option value="$10,000 to $24,999">$10,000 to $24,999</option>
+              <option value="$25,000+">$25,000+</option>
+              <option value="One-time fee above $10k">One-time fee above $10k</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="field-label" for="sales_motion">Sales Motion<span class="req">&bull;</span></label>
+            <select id="sales_motion" name="sales_motion" required>
+              <option value="">Select one</option>
+              <option value="Founder-led sales">Founder-led sales</option>
+              <option value="Dedicated AEs only">Dedicated AEs only</option>
+              <option value="Founder plus AEs">Founder plus AEs</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label class="field-label" for="icp">Your ICP<span class="req">&bull;</span></label>
+            <textarea id="icp" name="icp" required placeholder="Who do you sell to? Title, company size, industry, the buying signals you look for. Be specific."></textarea>
+          </div>
+          <div class="field">
+            <label class="field-label" for="tam">TAM Size<span class="req">&bull;</span></label>
+            <select id="tam" name="tam" required>
+              <option value="">Select one</option>
+              <option value="Large (10,000+ target accounts)">Large (10,000+ target accounts)</option>
+              <option value="Medium (2,000 to 10,000 target accounts)">Medium (2,000 to 10,000 target accounts)</option>
+              <option value="Small (under 2,000 target accounts)">Small (under 2,000 target accounts)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="field-label" for="senders">LinkedIn Senders You'd Dedicate<span class="req">&bull;</span></label>
+            <select id="senders" name="senders" required>
+              <option value="">Select one</option>
+              <option value="1 profile">1 profile</option>
+              <option value="2 profiles">2 profiles</option>
+              <option value="3 profiles">3 profiles</option>
+              <option value="4 to 5 profiles">4 to 5 profiles</option>
+              <option value="6+ profiles">6+ profiles</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label class="field-label" for="why_fit">Why You're a Fit<span class="req">&bull;</span></label>
+            <textarea id="why_fit" name="why_fit" required placeholder="What makes you confident this works for your company right now? What evidence do you have that your offer converts? What numbers can you share?"></textarea>
+          </div>
+          <div class="field full">
+            <label class="field-label" for="notes">Anything Else</label>
+            <textarea id="notes" name="notes" placeholder="Anything we should know that didn't fit above. Optional."></textarea>
+          </div>
+        </div>
+
+        <div class="form-acknowledge">
+          <input type="checkbox" id="confirm" name="confirm" required>
+          <label for="confirm"><strong>I confirm</strong> our company is US-based, our product is priced at $1,000 per month or higher, and the information above is accurate. I understand BRG selects only one or two partners per month and that submitting this form does not guarantee acceptance.</label>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="form-submit-btn" id="submit-btn">
+            <span>Submit Application</span>
+            <span>&rarr;</span>
+          </button>
+          <div class="form-status" id="form-status"></div>
+        </div>
+      </form>
+
+      <div class="form-success-card" id="success-card">
+        <h3>Application <span class="serif">Received</span></h3>
+        <p>Thanks. Your application is in our queue. We review every submission personally and you'll hear from us within five business days. If we move forward, the next step is a live call with Mike to discuss the commission structure.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">Bottle Rocket Growth</div>
+    <div class="footer-meta">BRGMCP &middot; <a href="/">bottlerocketgrowth.com</a></div>
+  </div>
+</footer>
+
+<script>
+// Staggered fade-in on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('in'), i * 40);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -80px 0px' });
+
+document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+
+// Trigger hero fades immediately
+window.addEventListener('load', () => {
+  document.querySelectorAll('.hero .fade').forEach((el, i) => {
+    setTimeout(() => el.classList.add('in'), 100 + i * 120);
+  });
+});
+
+// Form submission
+const form = document.getElementById('brgmcp-form');
+const status = document.getElementById('form-status');
+const submitBtn = document.getElementById('submit-btn');
+const successCard = document.getElementById('success-card');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  status.textContent = '';
+  status.className = 'form-status';
+
+  // Basic validation
+  if (!form.checkValidity()) {
+    status.textContent = 'Please complete all required fields.';
+    status.className = 'form-status error';
+    form.reportValidity();
+    return;
+  }
+
+  const fd = new FormData(form);
+  const payload = {};
+  fd.forEach((v, k) => { payload[k] = v; });
+  payload.submitted_at = new Date().toISOString();
+  payload.page = 'BRGMCP';
+
+  submitBtn.disabled = true;
+  submitBtn.querySelector('span').textContent = 'Submitting...';
+  status.textContent = 'Sending your application...';
+
+  try {
+    const res = await fetch('/api/brgmcp-submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    const data = await res.json().catch(() => ({}));
+    if (res.ok) {
+      form.style.display = 'none';
+      successCard.classList.add('show');
+      successCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else {
+      throw new Error(data.error || 'Submission failed.');
+    }
+  } catch (err) {
+    submitBtn.disabled = false;
+    submitBtn.querySelector('span').textContent = 'Submit Application';
+    status.textContent = 'Something went wrong. Email mike@bottlerocketgrowth.com directly.';
+    status.className = 'form-status error';
+  }
+});
+</script>
+
+</body>
+</html>
