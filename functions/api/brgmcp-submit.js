@@ -1,10 +1,10 @@
 // /api/brgmcp-submit
-// Handles BRGMCP application form submissions.
-// Writes to KV (binding: BRGMCP_KV) and sends an email to mike@bottlerocketgrowth.com
+// Handles BRGmcp application form submissions.
+// Writes to KV (binding: BRGmcp_KV) and sends an email to mike@bottlerocketgrowth.com
 // via Cloudflare's send_email binding (binding: SEB).
 //
 // Required Cloudflare Pages bindings (set in dashboard):
-//   - KV namespace binding "BRGMCP_KV" (create namespace, attach to brg-site Pages project)
+//   - KV namespace binding "BRGmcp_KV" (create namespace, attach to brg-site Pages project)
 //   - Email binding "SEB" with destination address mike@bottlerocketgrowth.com
 //     (verify the destination address in Email Routing first; then add the binding under
 //     Pages > Settings > Functions > Bindings > Send Email)
@@ -44,7 +44,7 @@ export async function onRequestPost({ request, env }) {
   const submission = {
     id,
     submitted_at: ts,
-    page: 'BRGMCP',
+    page: 'BRGmcp',
     ip: request.headers.get('CF-Connecting-IP') || '',
     user_agent: request.headers.get('User-Agent') || '',
     referer: request.headers.get('Referer') || '',
@@ -52,23 +52,23 @@ export async function onRequestPost({ request, env }) {
   };
 
   // 1. Write to KV (primary persistence)
-  if (!env.BRGMCP_KV) {
+  if (!env.BRGmcp_KV) {
     return new Response(JSON.stringify({ error: 'Storage not configured' }), { status: 500, headers: cors });
   }
 
   try {
     const key = `brgmcp:submission:${ts}:${id}`;
-    await env.BRGMCP_KV.put(key, JSON.stringify(submission));
+    await env.BRGmcp_KV.put(key, JSON.stringify(submission));
     // Also maintain an index of recent submissions for fast listing
     const indexKey = 'brgmcp:index';
     let index = [];
     try {
-      const existing = await env.BRGMCP_KV.get(indexKey);
+      const existing = await env.BRGmcp_KV.get(indexKey);
       if (existing) index = JSON.parse(existing);
     } catch (e) { index = []; }
     index.unshift({ id, key, submitted_at: ts, company: submission.company, full_name: submission.full_name, email: submission.email });
     if (index.length > 500) index = index.slice(0, 500);
-    await env.BRGMCP_KV.put(indexKey, JSON.stringify(index));
+    await env.BRGmcp_KV.put(indexKey, JSON.stringify(index));
   } catch (e) {
     return new Response(JSON.stringify({ error: 'Failed to persist submission' }), { status: 500, headers: cors });
   }
@@ -77,10 +77,10 @@ export async function onRequestPost({ request, env }) {
   try {
     if (env.SEB) {
       const { EmailMessage } = await import('cloudflare:email');
-      const subject = `BRGMCP application: ${submission.company} (${submission.full_name})`;
+      const subject = `BRGmcp application: ${submission.company} (${submission.full_name})`;
       const body = buildEmailBody(submission);
       const raw = buildRawMime({
-        from: 'BRGMCP <brgmcp@bottlerocketgrowth.com>',
+        from: 'BRGmcp <brgmcp@bottlerocketgrowth.com>',
         to: 'mike@bottlerocketgrowth.com',
         subject,
         text: body
@@ -109,7 +109,7 @@ export async function onRequestOptions() {
 
 function buildEmailBody(s) {
   return [
-    `New BRGMCP application received.`,
+    `New BRGmcp application received.`,
     ``,
     `Submitted: ${s.submitted_at}`,
     `Submission ID: ${s.id}`,
