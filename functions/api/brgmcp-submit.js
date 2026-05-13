@@ -25,7 +25,7 @@ export async function onRequestPost({ request, env }) {
     return new Response(JSON.stringify({ error: 'Invalid JSON' }), { status: 400, headers: cors });
   }
 
-  const required = ['full_name','role','company','website','email','linkedin','offer','price','sales_motion','icp','tam','senders','why_fit'];
+  const required = ['full_name','role','company','website','email','linkedin','offer','price','sales_motion','icp','tam','why_fit'];
   for (const field of required) {
     if (!payload[field] || String(payload[field]).trim() === '') {
       return new Response(JSON.stringify({ error: `Missing required field: ${field}` }), { status: 400, headers: cors });
@@ -128,7 +128,6 @@ function buildEmailBody(s) {
     `Price tier:  ${s.price}`,
     `Sales:       ${s.sales_motion}`,
     `TAM:         ${s.tam}`,
-    `Senders:     ${s.senders}`,
     ``,
     `What they sell:`,
     s.offer,
