@@ -1,17 +1,15 @@
 // /api/brgmcp-submit
 // Handles BRGmcp application form submissions.
-// Writes to KV (binding: BRGmcp_KV) and posts a Slack DM to Mike (U716RS96E)
-// via chat.postMessage using the SLACK_USER_TOKEN env var.
+// Writes to KV (binding: BRGmcp_KV) and posts a Slack notification to the
+// channel tied to the SLACK_MCP_WEBHOOK incoming webhook URL.
 //
 // Required Cloudflare Pages bindings (set in dashboard):
 //   - KV namespace binding "BRGmcp_KV"
-//   - Plaintext/secret env var "SLACK_USER_TOKEN" (xoxp- token with chat:write,
-//     im:write scopes)
+//   - Secret env var "SLACK_MCP_WEBHOOK" (Slack incoming webhook URL)
 //
-// If Slack post fails for any reason, the submission still saves to KV and the
-// function returns success. Slack failures are logged.
-
-const MIKE_SLACK_USER_ID = 'U716RS96E';
+// If the Slack post fails for any reason, the submission still saves to KV
+// and the function returns success. Slack failures are logged to KV under
+// brgmcp:slack_errors_index (retrievable via /api/brgmcp-slack-errors).
 
 export async function onRequestPost({ request, env }) {
   const cors = {
@@ -80,34 +78,33 @@ export async function onRequestPost({ request, env }) {
     return new Response(JSON.stringify({ error: 'Failed to persist submission' }), { status: 500, headers: cors });
   }
 
-  // 2. Post Slack DM to Mike (best-effort; non-blocking on failure)
+  // 2. Post Slack notification via incoming webhook (best-effort; non-blocking on failure)
+  // Webhooks accept the same { text, blocks } payload as chat.postMessage but
+  // don't require OAuth scopes -- they post to whichever channel the webhook was created for.
   const slackStatus = { ok: false, error: null, attempted: false };
   try {
-    if (env.SLACK_USER_TOKEN) {
+    if (env.SLACK_MCP_WEBHOOK) {
       slackStatus.attempted = true;
       const slackPayload = {
-        channel: MIKE_SLACK_USER_ID,
         text: `New BRGmcp application: ${submission.company} (${submission.full_name})`,
         blocks: buildSlackBlocks(submission)
       };
-      const resp = await fetch('https://slack.com/api/chat.postMessage', {
+      const resp = await fetch(env.SLACK_MCP_WEBHOOK, {
         method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${env.SLACK_USER_TOKEN}`,
-          'Content-Type': 'application/json; charset=utf-8'
-        },
+        headers: { 'Content-Type': 'application/json; charset=utf-8' },
         body: JSON.stringify(slackPayload)
       });
-      const result = await resp.json().catch(() => ({}));
-      if (result.ok) {
+      // Slack webhooks return 200 with body "ok" on success.
+      const bodyText = await resp.text().catch(() => '');
+      if (resp.ok && bodyText.trim().toLowerCase() === 'ok') {
         slackStatus.ok = true;
       } else {
-        slackStatus.error = result.error || 'unknown_slack_error';
-        console.error('Slack post failed:', result.error || 'unknown', JSON.stringify(result));
+        slackStatus.error = `webhook_${resp.status}_${bodyText.slice(0, 120) || 'no_body'}`;
+        console.error('Slack webhook failed:', resp.status, bodyText);
       }
     } else {
-      slackStatus.error = 'token_not_configured';
-      console.error('SLACK_USER_TOKEN env var not set; skipping Slack notification');
+      slackStatus.error = 'webhook_not_configured';
+      console.error('SLACK_MCP_WEBHOOK env var not set; skipping Slack notification');
     }
   } catch (e) {
     slackStatus.error = (e && e.message) ? e.message : 'slack_exception';
