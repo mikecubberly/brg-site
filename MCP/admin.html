@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>BRGmcp Admin | Bottle Rocket Growth</title>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="theme-color" content="#11131f">
+<link rel="icon" type="image/png" href="/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --ink:#0b0d18;
+  --ink-2:#11131f;
+  --ink-3:#181b2a;
+  --line:rgba(232,228,217,0.10);
+  --line-strong:rgba(232,228,217,0.22);
+  --cream:#ece6d5;
+  --cream-dim:#bdb6a5;
+  --cream-faint:#7d7969;
+  --accent:#7b8aff;
+  --accent-deep:#5b6bff;
+  --gold:#c8a96a;
+  --bg:#0b0d18;
+  --danger:#e07b6b;
+  --ok:#7bc8a4;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+html,body{background:var(--bg);color:var(--cream);font-family:"DM Sans",sans-serif;line-height:1.6;font-weight:400;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+body{overflow-x:hidden;min-height:100vh;}
+a{color:inherit;text-decoration:none;}
+::selection{background:var(--accent);color:var(--ink);}
+
+body::before{
+  content:"";position:fixed;inset:0;z-index:200;pointer-events:none;opacity:.06;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' seed='8'/><feColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .9 0'/></filter><rect width='220' height='220' filter='url(%23n)'/></svg>");
+}
+
+.wrap{max-width:1280px;margin:0 auto;padding:0 32px;}
+@media (max-width:640px){.wrap{padding:0 22px;}}
+
+/* header */
+.topbar{padding:32px 0 22px;border-bottom:1px solid var(--line);}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.brand{font-family:"Bebas Neue",sans-serif;font-size:22px;letter-spacing:.18em;color:var(--cream);}
+.brand .accent{color:var(--gold);}
+.meta{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--cream-faint);}
+
+/* gate */
+.gate{min-height:70vh;display:flex;align-items:center;justify-content:center;}
+.gate-card{
+  max-width:440px;width:100%;
+  background:linear-gradient(180deg,var(--ink-2),var(--ink-3));
+  border:1px solid var(--line-strong);
+  border-radius:6px;padding:42px 36px;
+}
+.gate-eyebrow{font-family:"Bebas Neue",sans-serif;font-size:12px;letter-spacing:.25em;color:var(--gold);margin-bottom:12px;}
+.gate-h1{font-family:"Cormorant Garamond",serif;font-size:36px;font-weight:500;color:var(--cream);margin-bottom:8px;line-height:1.1;}
+.gate-sub{font-size:14px;color:var(--cream-dim);margin-bottom:28px;}
+.gate-label{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-faint);margin-bottom:8px;}
+.gate-input{
+  width:100%;background:rgba(11,13,24,0.6);border:1px solid var(--line-strong);
+  color:var(--cream);padding:12px 14px;border-radius:4px;font-family:inherit;font-size:14px;
+  outline:none;transition:border-color .2s;letter-spacing:.02em;
+}
+.gate-input:focus{border-color:var(--accent);}
+.gate-btn{
+  margin-top:18px;width:100%;background:var(--cream);color:var(--ink);border:none;
+  padding:13px 18px;border-radius:4px;cursor:pointer;font-family:inherit;font-weight:600;
+  letter-spacing:.05em;font-size:13px;text-transform:uppercase;transition:opacity .2s;
+}
+.gate-btn:hover{opacity:.88;}
+.gate-btn:disabled{opacity:.5;cursor:not-allowed;}
+.gate-err{margin-top:14px;color:var(--danger);font-size:13px;}
+
+/* hidden helpers */
+.hide{display:none !important;}
+
+/* main view */
+.head{padding:36px 0 26px;display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.head-title{font-family:"Cormorant Garamond",serif;font-size:46px;font-weight:500;line-height:1;color:var(--cream);}
+.head-title em{font-style:italic;color:var(--gold);}
+.head-meta{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--cream-faint);}
+.toolbar{
+  display:flex;align-items:center;gap:14px;padding:14px 0 26px;flex-wrap:wrap;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:26px;
+}
+.search{
+  flex:1;min-width:240px;background:rgba(17,19,31,0.7);border:1px solid var(--line);
+  padding:10px 14px;border-radius:4px;color:var(--cream);font-family:inherit;font-size:14px;outline:none;
+}
+.search:focus{border-color:var(--accent);}
+.toolbtn{
+  background:transparent;border:1px solid var(--line-strong);color:var(--cream);
+  padding:9px 16px;border-radius:4px;cursor:pointer;font-family:inherit;font-size:12px;
+  letter-spacing:.12em;text-transform:uppercase;transition:all .2s;
+}
+.toolbtn:hover{border-color:var(--cream-dim);color:var(--cream);}
+.toolbtn.primary{background:var(--accent);color:var(--ink);border-color:var(--accent);}
+.toolbtn.primary:hover{background:var(--accent-deep);border-color:var(--accent-deep);}
+
+/* table */
+.table-wrap{border:1px solid var(--line);border-radius:6px;overflow:hidden;background:rgba(17,19,31,0.5);}
+table{width:100%;border-collapse:collapse;font-size:14px;}
+thead th{
+  background:rgba(11,13,24,0.7);color:var(--cream-faint);
+  font-weight:500;font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  text-align:left;padding:14px 18px;border-bottom:1px solid var(--line-strong);
+  cursor:pointer;user-select:none;
+}
+thead th:hover{color:var(--cream);}
+thead th .arr{opacity:.5;margin-left:6px;font-size:10px;}
+tbody tr{border-bottom:1px solid var(--line);transition:background .15s;cursor:pointer;}
+tbody tr:hover{background:rgba(123,138,255,0.06);}
+tbody tr:last-child{border-bottom:none;}
+tbody td{padding:16px 18px;color:var(--cream-dim);}
+tbody td.strong{color:var(--cream);font-weight:500;}
+tbody td.muted{color:var(--cream-faint);font-size:13px;}
+tbody td a{color:var(--accent);}
+tbody td a:hover{color:var(--cream);}
+
+.empty{padding:54px 24px;text-align:center;color:var(--cream-faint);}
+.empty .em-h{font-family:"Cormorant Garamond",serif;font-size:24px;color:var(--cream-dim);margin-bottom:6px;}
+
+/* drawer */
+.drawer-back{
+  position:fixed;inset:0;background:rgba(11,13,24,0.7);z-index:300;
+  opacity:0;pointer-events:none;transition:opacity .25s;
+  backdrop-filter:blur(4px);
+}
+.drawer-back.show{opacity:1;pointer-events:auto;}
+.drawer{
+  position:fixed;top:0;right:0;height:100vh;width:min(640px,100%);
+  background:var(--ink-2);border-left:1px solid var(--line-strong);z-index:301;
+  transform:translateX(100%);transition:transform .3s ease;
+  overflow-y:auto;
+}
+.drawer.show{transform:translateX(0);}
+.drawer-head{
+  padding:24px 28px;border-bottom:1px solid var(--line);
+  display:flex;align-items:flex-start;justify-content:space-between;gap:18px;
+  position:sticky;top:0;background:var(--ink-2);z-index:2;
+}
+.drawer-title{font-family:"Cormorant Garamond",serif;font-size:28px;font-weight:500;color:var(--cream);line-height:1.15;}
+.drawer-sub{font-size:12px;color:var(--cream-faint);letter-spacing:.1em;text-transform:uppercase;margin-top:6px;}
+.drawer-close{
+  background:transparent;border:1px solid var(--line-strong);color:var(--cream);
+  width:34px;height:34px;border-radius:4px;cursor:pointer;font-size:18px;line-height:1;
+  display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;
+}
+.drawer-close:hover{border-color:var(--cream-dim);}
+.drawer-body{padding:24px 28px 60px;}
+.field{margin-bottom:22px;}
+.field-label{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-faint);margin-bottom:6px;}
+.field-value{font-size:14px;color:var(--cream);line-height:1.6;word-wrap:break-word;white-space:pre-wrap;}
+.field-value a{color:var(--accent);border-bottom:1px solid var(--line-strong);}
+.field-value a:hover{color:var(--cream);border-bottom-color:var(--cream);}
+.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 28px;}
+@media (max-width:520px){.field-grid{grid-template-columns:1fr;}}
+
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid var(--line-strong);border-top-color:var(--accent);border-radius:50%;animation:spin 1s linear infinite;vertical-align:middle;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+.foot{padding:30px 0 50px;color:var(--cream-faint);font-size:12px;text-align:center;}
+</style>
+</head>
+<body>
+
+<!-- Gate -->
+<div id="gate" class="gate">
+  <div class="gate-card">
+    <div class="gate-eyebrow">BRGmcp Admin</div>
+    <div class="gate-h1">Restricted</div>
+    <div class="gate-sub">Enter the admin token to view submitted applications.</div>
+    <label class="gate-label" for="token">Admin Token</label>
+    <input id="token" class="gate-input" type="password" autocomplete="off" spellcheck="false" />
+    <button id="gate-btn" class="gate-btn">Enter</button>
+    <div id="gate-err" class="gate-err hide"></div>
+  </div>
+</div>
+
+<!-- Main -->
+<div id="main" class="hide">
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">BRG <span class="accent">/</span> MCP Admin</div>
+      <div class="meta"><a href="/MCP/">&larr; back to form</a> &nbsp;|&nbsp; <a href="#" id="logout">log out</a></div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <div class="head-title">Submissions <em>Inbox</em></div>
+        <div class="head-meta" id="count-meta">loading...</div>
+      </div>
+      <div class="head-meta" id="updated-meta"></div>
+    </div>
+
+    <div class="toolbar">
+      <input id="search" class="search" type="search" placeholder="Search by company, name, or email..." />
+      <button id="refresh" class="toolbtn">Refresh</button>
+      <button id="export" class="toolbtn primary">Export CSV</button>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th data-sort="submitted_at">Submitted <span class="arr">&#9660;</span></th>
+            <th data-sort="company">Company <span class="arr"></span></th>
+            <th data-sort="full_name">Applicant <span class="arr"></span></th>
+            <th data-sort="email">Email <span class="arr"></span></th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+          <tr><td colspan="4" class="empty"><span class="spinner"></span> &nbsp; Loading submissions...</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="foot">BRGmcp Admin &middot; Bottle Rocket Growth</div>
+  </div>
+</div>
+
+<!-- Drawer -->
+<div id="drawer-back" class="drawer-back"></div>
+<aside id="drawer" class="drawer" aria-hidden="true">
+  <div class="drawer-head">
+    <div>
+      <div id="drawer-title" class="drawer-title">Loading...</div>
+      <div id="drawer-sub" class="drawer-sub"></div>
+    </div>
+    <button id="drawer-close" class="drawer-close" aria-label="Close">&times;</button>
+  </div>
+  <div id="drawer-body" class="drawer-body">
+    <div class="empty"><span class="spinner"></span> &nbsp; Loading details...</div>
+  </div>
+</aside>
+
+<script>
+(function(){
+  const TOKEN_KEY = 'brgmcp_admin_token';
+  let token = sessionStorage.getItem(TOKEN_KEY) || '';
+  let submissions = [];
+  let sortKey = 'submitted_at';
+  let sortDir = 'desc';
+  let filter = '';
+
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const fmtDate = (iso) => {
+    if (!iso) return '';
+    try {
+      const d = new Date(iso);
+      return d.toLocaleString('en-US', { month:'short', day:'numeric', year:'numeric', hour:'numeric', minute:'2-digit' });
+    } catch(e){ return iso; }
+  };
+  const linkify = (text) => {
+    if (!text) return '';
+    const t = esc(text);
+    return t.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
+  };
+
+  // Gate
+  async function tryAuth(t){
+    const r = await fetch('/api/brgmcp-list?token=' + encodeURIComponent(t));
+    if (r.status === 401) return { ok:false, err:'Wrong token.' };
+    if (r.status === 503) return { ok:false, err:'Admin auth not configured on server.' };
+    if (!r.ok) {
+      const txt = await r.text().catch(()=>'');
+      return { ok:false, err:'Server error: ' + r.status + (txt ? ' - ' + txt.slice(0,120) : '') };
+    }
+    const d = await r.json().catch(()=>null);
+    if (!d || !d.ok) return { ok:false, err:'Unexpected response from server.' };
+    return { ok:true, data:d };
+  }
+
+  $('gate-btn').addEventListener('click', async () => {
+    const t = $('token').value.trim();
+    if (!t) return;
+    $('gate-btn').disabled = true; $('gate-btn').textContent = 'Checking...';
+    $('gate-err').classList.add('hide');
+    const res = await tryAuth(t);
+    if (res.ok){
+      token = t;
+      sessionStorage.setItem(TOKEN_KEY, t);
+      submissions = res.data.submissions || [];
+      showMain();
+      render();
+    } else {
+      $('gate-err').textContent = res.err;
+      $('gate-err').classList.remove('hide');
+    }
+    $('gate-btn').disabled = false; $('gate-btn').textContent = 'Enter';
+  });
+  $('token').addEventListener('keydown', (e) => { if (e.key === 'Enter') $('gate-btn').click(); });
+
+  // If we have a stored token, auto-try
+  if (token) {
+    tryAuth(token).then(res => {
+      if (res.ok){
+        submissions = res.data.submissions || [];
+        showMain();
+        render();
+      } else {
+        sessionStorage.removeItem(TOKEN_KEY);
+        token = '';
+      }
+    });
+  }
+
+  function showMain(){
+    $('gate').classList.add('hide');
+    $('main').classList.remove('hide');
+  }
+
+  // Logout
+  $('logout').addEventListener('click', (e) => {
+    e.preventDefault();
+    sessionStorage.removeItem(TOKEN_KEY);
+    token = '';
+    location.reload();
+  });
+
+  // Refresh
+  $('refresh').addEventListener('click', async () => {
+    $('refresh').disabled = true;
+    const res = await tryAuth(token);
+    if (res.ok){
+      submissions = res.data.submissions || [];
+      render();
+    }
+    $('refresh').disabled = false;
+  });
+
+  // Search
+  $('search').addEventListener('input', (e) => { filter = e.target.value.toLowerCase().trim(); render(); });
+
+  // Sort
+  document.querySelectorAll('thead th').forEach(th => {
+    th.addEventListener('click', () => {
+      const key = th.getAttribute('data-sort');
+      if (sortKey === key) sortDir = (sortDir === 'asc' ? 'desc' : 'asc');
+      else { sortKey = key; sortDir = (key === 'submitted_at' ? 'desc' : 'asc'); }
+      render();
+    });
+  });
+
+  function applyFilterAndSort(){
+    let rows = submissions.slice();
+    if (filter){
+      rows = rows.filter(r => {
+        const blob = (r.company + ' ' + r.full_name + ' ' + r.email).toLowerCase();
+        return blob.indexOf(filter) !== -1;
+      });
+    }
+    rows.sort((a,b) => {
+      const av = String(a[sortKey] || '').toLowerCase();
+      const bv = String(b[sortKey] || '').toLowerCase();
+      if (av < bv) return sortDir === 'asc' ? -1 : 1;
+      if (av > bv) return sortDir === 'asc' ? 1 : -1;
+      return 0;
+    });
+    return rows;
+  }
+
+  function render(){
+    const rows = applyFilterAndSort();
+    $('count-meta').textContent = submissions.length + ' total' + (filter ? (' / ' + rows.length + ' shown') : '');
+    $('updated-meta').textContent = 'Updated ' + new Date().toLocaleTimeString();
+
+    // sort indicators
+    document.querySelectorAll('thead th').forEach(th => {
+      const arr = th.querySelector('.arr');
+      if (!arr) return;
+      if (th.getAttribute('data-sort') === sortKey){
+        arr.textContent = sortDir === 'asc' ? '\u25B2' : '\u25BC';
+        arr.style.opacity = '1';
+      } else {
+        arr.textContent = '';
+      }
+    });
+
+    const tbody = $('tbody');
+    if (!rows.length){
+      tbody.innerHTML = '<tr><td colspan="4" class="empty"><div class="em-h">No submissions yet</div><div>They\'ll appear here as applications come in.</div></td></tr>';
+      return;
+    }
+    tbody.innerHTML = rows.map(r => `
+      <tr data-id="${esc(r.id)}">
+        <td class="muted">${esc(fmtDate(r.submitted_at))}</td>
+        <td class="strong">${esc(r.company || '')}</td>
+        <td>${esc(r.full_name || '')}</td>
+        <td><a href="mailto:${esc(r.email)}" onclick="event.stopPropagation();">${esc(r.email || '')}</a></td>
+      </tr>
+    `).join('');
+    Array.from(tbody.querySelectorAll('tr[data-id]')).forEach(tr => {
+      tr.addEventListener('click', () => openDetail(tr.getAttribute('data-id')));
+    });
+  }
+
+  // Detail drawer
+  async function openDetail(id){
+    const summary = submissions.find(s => s.id === id);
+    $('drawer-title').textContent = summary ? (summary.company || 'Submission') : 'Submission';
+    $('drawer-sub').textContent = summary ? (summary.full_name + ' \u00B7 ' + fmtDate(summary.submitted_at)) : '';
+    $('drawer-body').innerHTML = '<div class="empty"><span class="spinner"></span> &nbsp; Loading details...</div>';
+    $('drawer').classList.add('show');
+    $('drawer-back').classList.add('show');
+    document.body.style.overflow = 'hidden';
+
+    try {
+      const r = await fetch('/api/brgmcp-detail?id=' + encodeURIComponent(id) + '&token=' + encodeURIComponent(token));
+      const d = await r.json();
+      if (!r.ok || !d.ok){
+        $('drawer-body').innerHTML = '<div class="empty">Could not load: ' + esc(d.error || r.status) + '</div>';
+        return;
+      }
+      renderDetail(d.submission);
+    } catch (e){
+      $('drawer-body').innerHTML = '<div class="empty">Network error.</div>';
+    }
+  }
+
+  function renderDetail(s){
+    const fields = [
+      { l:'Full Name', v:s.full_name },
+      { l:'Role', v:s.role },
+      { l:'Company', v:s.company },
+      { l:'Website', v:s.website, link:true },
+      { l:'Email', v:s.email, email:true },
+      { l:'LinkedIn', v:s.linkedin, link:true },
+    ];
+    const longFields = [
+      { l:'Offer', v:s.offer },
+      { l:'Price', v:s.price },
+      { l:'Sales Motion', v:s.sales_motion },
+      { l:'ICP', v:s.icp },
+      { l:'TAM', v:s.tam },
+      { l:'Why Fit', v:s.why_fit },
+    ];
+    const meta = [
+      { l:'Submitted', v:fmtDate(s.submitted_at) },
+      { l:'Submission ID', v:s.id },
+      { l:'IP', v:s.ip },
+      { l:'User Agent', v:s.user_agent },
+      { l:'Referer', v:s.referer },
+    ];
+    let html = '<div class="field-grid">';
+    fields.forEach(f => {
+      let val = '';
+      if (!f.v) val = '<span style="color:var(--cream-faint)">--</span>';
+      else if (f.email) val = '<a href="mailto:' + esc(f.v) + '">' + esc(f.v) + '</a>';
+      else if (f.link) {
+        let href = String(f.v);
+        if (!/^https?:\/\//i.test(href)) href = 'https://' + href;
+        val = '<a href="' + esc(href) + '" target="_blank" rel="noopener">' + esc(f.v) + '</a>';
+      } else val = esc(f.v);
+      html += '<div class="field"><div class="field-label">' + esc(f.l) + '</div><div class="field-value">' + val + '</div></div>';
+    });
+    html += '</div>';
+    longFields.forEach(f => {
+      html += '<div class="field"><div class="field-label">' + esc(f.l) + '</div><div class="field-value">' + (f.v ? linkify(f.v) : '<span style="color:var(--cream-faint)">--</span>') + '</div></div>';
+    });
+    html += '<div style="border-top:1px solid var(--line);padding-top:22px;margin-top:14px;">';
+    meta.forEach(f => {
+      html += '<div class="field"><div class="field-label">' + esc(f.l) + '</div><div class="field-value" style="font-size:13px;color:var(--cream-dim);">' + (f.v ? esc(f.v) : '<span style="color:var(--cream-faint)">--</span>') + '</div></div>';
+    });
+    html += '</div>';
+    $('drawer-body').innerHTML = html;
+  }
+
+  function closeDrawer(){
+    $('drawer').classList.remove('show');
+    $('drawer-back').classList.remove('show');
+    document.body.style.overflow = '';
+  }
+  $('drawer-close').addEventListener('click', closeDrawer);
+  $('drawer-back').addEventListener('click', closeDrawer);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
+
+  // CSV export (summary index only -- company/name/email/submitted_at/id)
+  $('export').addEventListener('click', () => {
+    const rows = applyFilterAndSort();
+    const headers = ['submitted_at','company','full_name','email','id'];
+    const csv = [headers.join(',')].concat(rows.map(r => headers.map(h => {
+      const v = (r[h] == null ? '' : String(r[h]));
+      if (v.indexOf(',') !== -1 || v.indexOf('"') !== -1 || v.indexOf('\n') !== -1){
+        return '"' + v.replace(/"/g,'""') + '"';
+      }
+      return v;
+    }).join(','))).join('\n');
+    const blob = new Blob([csv], { type:'text/csv;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'brgmcp-submissions-' + new Date().toISOString().slice(0,10) + '.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  });
+})();
+</script>
+
+</body>
+</html>
