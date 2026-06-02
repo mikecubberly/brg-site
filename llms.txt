@@ -66,6 +66,7 @@ Every engagement starts with a structured ICP workshop. BRG then conducts signal
 - [Team](https://bottlerocketgrowth.com/team.html): BRG leadership and specialist network
 - [Press](https://bottlerocketgrowth.com/press.html): Press kit, boilerplate, founder bio, media contact
 - [Contact](https://bottlerocketgrowth.com/contact.html): Engagement process, inquiry types, response time
+- [Events](https://bottlerocketgrowth.com/events): Growth Consultants for conference floor coverage and next-step meeting booking
 - [Methodology](https://bottlerocketgrowth.com/methodology.html): The four-step BRG outbound methodology
 - [Insights](https://bottlerocketgrowth.com/insights/): Tactical writing on LinkedIn outbound and GTM
   - [How to Define an ICP That Actually Converts](https://bottlerocketgrowth.com/insights/defining-an-icp-that-converts.html)
