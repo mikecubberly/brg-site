@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Signed &amp; Sealed | Bottle Rocket Growth</title>
+<meta name="description" content="Signed & Sealed by Bottle Rocket Growth. A private agreement workspace for sending, signing, tracking, and storing contracts.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://bottlerocketgrowth.com/signedandsealed">
+<link rel="preconnect" href="https://clients.bottlerocketgrowth.com">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:#86c6d1}
+body{overflow:hidden}
+.signedandsealed-frame{position:fixed;inset:0;width:100%;height:100%;border:0;background:#86c6d1}
+.fallback{position:fixed;inset:auto 18px 18px 18px;z-index:2;display:none;justify-content:center;font:14px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#142b3a}
+.fallback a{color:#142b3a;font-weight:700}
+@media(max-width:640px){.fallback{font-size:12px}}
+</style>
+</head>
+<body>
+<iframe class="signedandsealed-frame" id="signedandsealed-frame" title="Signed & Sealed"></iframe>
+<div class="fallback" id="fallback">
+  <span>Having trouble loading Signed &amp; Sealed? <a id="direct-link" href="https://clients.bottlerocketgrowth.com/contracts.html">Open it directly</a>.</span>
+</div>
+<script>
+(function(){
+  var frame = document.getElementById('signedandsealed-frame');
+  var direct = document.getElementById('direct-link');
+  var fallback = document.getElementById('fallback');
+  var target = 'https://clients.bottlerocketgrowth.com/contracts.html' + (window.location.search || '');
+  var loaded = false;
+  frame.addEventListener('load', function(){
+    loaded = true;
+    fallback.style.display = 'none';
+  });
+  frame.src = target;
+  direct.href = target;
+  window.setTimeout(function(){
+    if (!loaded) fallback.style.display = 'flex';
+  }, 6000);
+})();
+</script>
+</body>
+</html>

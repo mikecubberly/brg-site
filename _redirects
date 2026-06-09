@@ -5,6 +5,9 @@
 /growth-consultants /conference-commanders 301
 /growth-consultants.html /conference-commanders 301
 
+/signedandsealed /signedandsealed.html 200
+/signedandsealed/ /signedandsealed.html 200
+
 /BRGMCP/* /MCP/:splat 301
 /BRGMCP /MCP/ 301
 
