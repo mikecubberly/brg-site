@@ -148,13 +148,16 @@ body:after {
   animation: shoot 9s ease-in-out infinite;
 }
 .satellite {
-  width: 28px;
-  height: 14px;
+  width: 34px;
+  height: 18px;
   left: 72%;
   top: 18%;
-  border: 1px solid rgba(226, 194, 122, 0.42);
-  border-radius: 3px;
-  background: rgba(17, 22, 42, 0.8);
+  border: 1px solid rgba(226, 194, 122, 0.5);
+  border-radius: 4px;
+  background:
+    linear-gradient(90deg, rgba(245, 240, 235, 0.08), transparent),
+    rgba(17, 22, 42, 0.84);
+  box-shadow: 0 0 20px rgba(226, 194, 122, 0.12);
   transform: rotate(14deg);
   animation: satelliteDrift 26s ease-in-out infinite;
 }
@@ -162,14 +165,16 @@ body:after {
 .satellite:after {
   content: '';
   position: absolute;
-  top: 3px;
-  width: 22px;
-  height: 8px;
-  border: 1px solid rgba(226, 194, 122, 0.24);
-  background: rgba(197, 165, 90, 0.08);
+  top: 4px;
+  width: 30px;
+  height: 10px;
+  border: 1px solid rgba(226, 194, 122, 0.34);
+  background:
+    repeating-linear-gradient(90deg, rgba(226, 194, 122, 0.18) 0 4px, rgba(5, 7, 15, 0.16) 4px 8px),
+    rgba(197, 165, 90, 0.08);
 }
-.satellite:before { right: 32px; }
-.satellite:after { left: 32px; }
+.satellite:before { right: 42px; }
+.satellite:after { left: 42px; }
 .rocket-trail {
   width: 88px;
   height: 2px;
@@ -658,7 +663,7 @@ footer {
   <section class="section" id="role">
     <div class="section-head">
       <h2>The assignment</h2>
-      <div class="label">Conference Commander</div>
+      <div class="label">Conference Commanders</div>
     </div>
     <p class="section-note">A Conference Commander gives your team more reach at the event without turning the page into a full sales engagement. The job is simple: find the right people, start the conversation, and hand it to your team cleanly.</p>
     <div class="role-list">
@@ -681,7 +686,7 @@ footer {
     <div class="fit-note">
       <h3>Useful when your booth cannot cover the full room.</h3>
       <div>
-        <p>BRG draws from experienced Conference Commanders who can walk into a room and command conversations. Backgrounds may include SaaS, enterprise technology, digital consulting, digital engineering, marketing tools and services, and sporting events.</p>
+        <p>Real hunters are in short supply. BRG has them. We draw from experienced Conference Commanders who can walk into a room and command conversations. Backgrounds may include SaaS, enterprise technology, digital consulting, digital engineering, marketing tools and services, and sporting events.</p>
       </div>
     </div>
   </section>
