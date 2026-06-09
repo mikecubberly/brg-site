@@ -1,5 +1,11 @@
 # Redirect legacy and casing variants to canonical /MCP/
 
+/conference-commanders /conference-commanders.html 200
+/events /conference-commanders 301
+/events.html /conference-commanders 301
+/growth-consultants /conference-commanders 301
+/growth-consultants.html /conference-commanders 301
+
 /BRGMCP/* /MCP/:splat 301
 /BRGMCP /MCP/ 301
 
