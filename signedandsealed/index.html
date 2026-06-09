@@ -21,14 +21,16 @@ body{overflow:hidden}
 <body>
 <iframe class="signedandsealed-frame" id="signedandsealed-frame" title="Signed & Sealed"></iframe>
 <div class="fallback" id="fallback">
-  <span>Having trouble loading Signed &amp; Sealed? <a id="direct-link" href="https://clients.bottlerocketgrowth.com/contracts.html">Open it directly</a>.</span>
+  <span>Having trouble loading Signed &amp; Sealed? <a id="direct-link" href="https://clients.bottlerocketgrowth.com/signedandsealed.html">Open it directly</a>.</span>
 </div>
 <script>
 (function(){
   var frame = document.getElementById('signedandsealed-frame');
   var direct = document.getElementById('direct-link');
   var fallback = document.getElementById('fallback');
-  var target = 'https://clients.bottlerocketgrowth.com/contracts.html' + (window.location.search || '');
+  var query = window.location.search || '';
+  var separator = query ? '&' : '?';
+  var target = 'https://clients.bottlerocketgrowth.com/signedandsealed.html' + query + separator + 'v=5f64971';
   var loaded = false;
   frame.addEventListener('load', function(){
     loaded = true;
