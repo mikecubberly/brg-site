@@ -21,7 +21,7 @@ body{overflow:hidden}
 <body>
 <iframe class="signedandsealed-frame" id="signedandsealed-frame" title="Signed & Sealed"></iframe>
 <div class="fallback" id="fallback">
-  <span>Having trouble loading Signed &amp; Sealed? <a id="direct-link" href="https://clients.bottlerocketgrowth.com/signedandsealed.html">Open it directly</a>.</span>
+  <span>Having trouble loading Signed &amp; Sealed? <a id="direct-link" href="/signedandsealed/">Reload the tool</a>.</span>
 </div>
 <script>
 (function(){
@@ -37,7 +37,7 @@ body{overflow:hidden}
     fallback.style.display = 'none';
   });
   frame.src = target;
-  direct.href = target;
+  direct.href = '/signedandsealed/' + query;
   window.setTimeout(function(){
     if (!loaded) fallback.style.display = 'flex';
   }, 6000);
