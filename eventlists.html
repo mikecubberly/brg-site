@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Lists | Bottle Rocket Growth</title>
+<meta name="description" content="Event-driven outbound list building and outreach for conferences, summits, and trade shows from Bottle Rocket Growth.">
+<link rel="canonical" href="https://bottlerocketgrowth.com/eventlists">
+<link rel="icon" type="image/jpeg" href="/favicon.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FAF7F2;
+    --ink: #1A1815;
+    --ink-soft: #3D3A34;
+    --gray: #8A8680;
+    --gray-light: #C9C4BC;
+    --rust: #B84A1F;
+    --rust-dark: #8F3513;
+    --forest: #2B4C3F;
+    --forest-light: #E8EDE9;
+    --rule: #221F1A;
+    --amber: #D4A04A;
+    --card: #FFFFFF;
+    --card-soft: #F2EBDD;
+    --shadow: 0 1px 0 rgba(26,24,21,0.06), 0 8px 24px -16px rgba(26,24,21,0.18);
+  }
+
+  body.dark {
+    --paper: #12100E;
+    --ink: #F8F1E7;
+    --ink-soft: #DDD2C4;
+    --gray: #B5AA9B;
+    --gray-light: #5A5148;
+    --rust: #F08A55;
+    --rust-dark: #B84A1F;
+    --forest: #8EBAA5;
+    --forest-light: #1C2A24;
+    --rule: #3A332C;
+    --amber: #F0C96C;
+    --card: #1D1A16;
+    --card-soft: #28231D;
+    --shadow: 0 1px 0 rgba(255,255,255,0.04), 0 12px 32px -18px rgba(0,0,0,0.7);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 48px; }
+  @media (max-width: 768px) { .container { padding: 0 20px; } }
+
+  /* Top strip */
+  .strip {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 14px 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  body.dark .strip { background: #050403; }
+  .strip-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .strip-brand { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .strip-brg { display: flex; align-items: center; gap: 10px; }
+  .strip-brg-logo { width: 28px; height: 28px; display: block; flex-shrink: 0; }
+  body.dark .strip-brg-logo,
+  body.dark .product-brg-logo.dark-only {
+    opacity: 0.96;
+    filter: invert(1) brightness(1.45) contrast(1.08);
+  }
+  .strip-wordmark { display: flex; flex-direction: column; gap: 2px; line-height: 1; }
+  .strip-wordmark-main {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    text-transform: none;
+    color: var(--paper);
+    font-variation-settings: "opsz" 72;
+  }
+  .strip-wordmark-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8.5px;
+    letter-spacing: 0.16em;
+    color: var(--amber);
+    text-transform: uppercase;
+    opacity: 0.92;
+  }
+  .strip-divider {
+    color: var(--gray);
+    font-size: 16px;
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    text-transform: none;
+    line-height: 1;
+  }
+  .strip-product { color: var(--amber); }
+  .theme-toggle {
+    background: transparent;
+    border: 1px solid rgba(250,247,242,0.25);
+    color: var(--paper);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    padding: 6px 12px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+  }
+  .theme-toggle:hover { border-color: var(--amber); color: var(--amber); }
+
+  /* Masthead */
+  .masthead { padding: 80px 0 48px; }
+  @media (max-width: 768px) { .masthead { padding: 56px 0 32px; } }
+
+  .product-lockup {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .product-brg-logo { width: 36px; height: 36px; display: block; flex-shrink: 0; }
+  body:not(.dark) .product-brg-logo.light-only { display: none; }
+  body.dark .product-brg-logo.dark-only { display: none; }
+  .product-by {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+
+  .masthead-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 22px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+  }
+  .masthead-meta strong { color: var(--rust); font-weight: 700; }
+  .masthead-meta .dot { color: var(--gray-light); }
+
+  .masthead h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(48px, 7vw, 96px);
+    font-weight: 300;
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+    margin-bottom: 28px;
+    font-variation-settings: "opsz" 144;
+  }
+  .masthead h1 em {
+    font-style: italic;
+    color: var(--rust);
+    font-weight: 400;
+  }
+
+  .masthead-lede {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(20px, 2vw, 24px);
+    line-height: 1.45;
+    color: var(--ink-soft);
+    max-width: 780px;
+    font-weight: 400;
+    font-variation-settings: "opsz" 72;
+    margin-bottom: 36px;
+  }
+
+  .masthead-cta-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .cta-primary, .cta-ghost {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 14px 22px;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid var(--ink);
+    transition: all 0.2s ease;
+    display: inline-block;
+  }
+  .cta-primary { background: var(--ink); color: var(--paper); }
+  .cta-primary:hover { background: var(--rust); border-color: var(--rust); }
+  .cta-ghost { background: transparent; color: var(--ink); }
+  .cta-ghost:hover { background: var(--ink); color: var(--paper); }
+
+  /* Section nav */
+  .section-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--paper);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 14px 0;
+    margin: 24px 0 64px;
+  }
+  .section-nav-inner {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .section-nav-inner::-webkit-scrollbar { display: none; }
+  .section-nav a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray);
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 6px 0;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .section-nav a:hover { color: var(--ink); border-color: var(--rust); }
+  body.dark .section-nav {
+    background: rgba(18, 16, 14, 0.96);
+    border-color: #423A31;
+  }
+
+  /* Section style */
+  section { padding: 64px 0; }
+  @media (max-width: 768px) { section { padding: 48px 0; } }
+
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--rust);
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    font-variation-settings: "opsz" 144;
+  }
+  .section-title em { font-style: italic; color: var(--rust); font-weight: 400; }
+  .section-lede {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(18px, 1.8vw, 22px);
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 780px;
+    font-weight: 400;
+    font-variation-settings: "opsz" 72;
+    margin-bottom: 40px;
+  }
+
+  /* Thesis */
+  .thesis-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin-top: 40px;
+  }
+  @media (max-width: 900px) {
+    .thesis-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 520px) {
+    .thesis-grid { grid-template-columns: 1fr; }
+  }
+  .thesis-card {
+    border-top: 2px solid var(--ink);
+    padding-top: 18px;
+  }
+  .thesis-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    color: var(--rust);
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+  .thesis-h {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-variation-settings: "opsz" 72;
+  }
+  .thesis-p {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+
+  /* Delivery models */
+  .models-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+  @media (max-width: 980px) {
+    .models-grid { grid-template-columns: 1fr; gap: 20px; }
+  }
+  .model-card {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    padding: 36px 32px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow);
+  }
+  .model-card.featured {
+    border: 2px solid var(--rust);
+    background: var(--card-soft);
+  }
+  body.dark .model-card {
+    background: #211D18;
+    border-color: #443B31;
+  }
+  body.dark .model-card.featured {
+    background: #2C241D;
+    border-color: var(--rust);
+  }
+  .featured-tag {
+    position: absolute;
+    top: -12px;
+    left: 24px;
+    background: var(--rust);
+    color: #FFF;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    padding: 5px 12px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .model-kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--gray);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .model-name {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    line-height: 1.05;
+    font-weight: 400;
+    margin-bottom: 8px;
+    font-variation-settings: "opsz" 96;
+  }
+  .model-name em { font-style: italic; color: var(--rust); }
+  .model-tagline {
+    font-size: 14px;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin-bottom: 24px;
+  }
+  .model-summary {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+  }
+  .model-includes {
+    list-style: none;
+    padding: 18px 0 0;
+    margin: 18px 0 0;
+    border-top: 1px solid var(--rule);
+    flex: 1;
+  }
+  .model-includes li {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    padding: 5px 0 5px 22px;
+    position: relative;
+  }
+  .model-includes li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    color: var(--rust);
+    font-weight: 700;
+  }
+  .model-best {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--gray);
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.04em;
+  }
+  .model-best strong { color: var(--ink); font-weight: 700; }
+
+  .model-price {
+    margin: 24px 0 8px;
+    padding: 20px 0 4px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 18px;
+  }
+  .model-price-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--gray);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-weight: 700;
+  }
+  .model-card.featured .model-price-label { color: var(--rust); }
+  .model-price-amount {
+    font-family: 'Fraunces', serif;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1;
+    font-variation-settings: "opsz" 96;
+    color: var(--ink);
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .model-price-unit {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--gray);
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+  .model-price-detail {
+    margin-top: 12px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+  .model-price-detail strong { color: var(--ink); font-weight: 600; }
+
+  /* Pricing matrix */
+  .pricing-wrap {
+    margin-top: 40px;
+    border: 1px solid var(--rule);
+    background: var(--card);
+    overflow: hidden;
+  }
+  .pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .pricing-table th, .pricing-table td {
+    padding: 18px 20px;
+    text-align: left;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  .pricing-table thead th {
+    background: var(--card-soft);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+    font-weight: 700;
+  }
+  .pricing-table thead th.featured-col {
+    background: var(--rust);
+    color: #FFF;
+    position: relative;
+  }
+  .pricing-table tbody td.featured-col {
+    background: rgba(184, 74, 31, 0.06);
+    font-weight: 600;
+  }
+  body.dark .pricing-table tbody td.featured-col {
+    background: rgba(224, 120, 71, 0.1);
+  }
+  body.dark .pricing-wrap,
+  body.dark .example-card,
+  body.dark .events-matrix,
+  body.dark .proof-block {
+    border-color: #443B31;
+  }
+  .pricing-tier-label {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    line-height: 1.2;
+    font-weight: 500;
+    color: var(--ink);
+    font-variation-settings: "opsz" 72;
+  }
+  .pricing-tier-meta {
+    display: block;
+    margin-top: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--gray);
+    font-weight: 400;
+    text-transform: none;
+  }
+  .price-num {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1;
+    font-variation-settings: "opsz" 96;
+  }
+  .price-unit {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--gray);
+    margin-top: 4px;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+  .pricing-table tbody tr:last-child td { border-bottom: none; }
+  .pricing-foot {
+    background: var(--card-soft);
+    padding: 16px 20px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule);
+  }
+  .pricing-foot strong { color: var(--ink); font-weight: 600; }
+
+  @media (max-width: 768px) {
+    .pricing-wrap { overflow-x: auto; }
+    .pricing-table { min-width: 600px; }
+  }
+
+  .pricing-sub-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--rust);
+    font-weight: 700;
+    margin: 40px 0 14px;
+  }
+
+  .pricing-example {
+    margin-top: 32px;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--rust);
+    padding: 24px 28px;
+  }
+  .example-kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--rust);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .example-body {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.01em;
+  }
+  .example-body strong { color: var(--ink); font-weight: 600; }
+
+  /* Events grid */
+  .events-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-top: 40px;
+    border: 1px solid var(--rule);
+    background: var(--card);
+  }
+  @media (max-width: 880px) {
+    .events-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 520px) {
+    .events-grid { grid-template-columns: 1fr; }
+  }
+  .events-cell {
+    padding: 24px 22px;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .events-cell:nth-child(3n) { border-right: none; }
+  @media (max-width: 880px) {
+    .events-cell:nth-child(3n) { border-right: 1px solid var(--rule); }
+    .events-cell:nth-child(2n) { border-right: none; }
+  }
+  @media (max-width: 520px) {
+    .events-cell:nth-child(n) { border-right: none; }
+  }
+  .events-cat {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--rust);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .events-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .events-list li {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    padding-left: 12px;
+    position: relative;
+  }
+  .events-list li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--rust);
+    font-weight: 700;
+  }
+
+  /* Process */
+  .process-list {
+    list-style: none;
+    padding: 0;
+    margin: 40px 0 0;
+    counter-reset: step;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+  @media (max-width: 720px) {
+    .process-list { grid-template-columns: 1fr; }
+  }
+  .process-list li {
+    counter-increment: step;
+    background: var(--card);
+    padding: 28px 28px 32px;
+    position: relative;
+  }
+  .process-list li::before {
+    content: counter(step, decimal-leading-zero);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--rust);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .process-h {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-variation-settings: "opsz" 72;
+  }
+  .process-p {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+
+  /* Proof */
+  .proof-block {
+    background: var(--card-soft);
+    border-left: 4px solid var(--rust);
+    padding: 40px 44px;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  @media (max-width: 880px) {
+    .proof-block { grid-template-columns: 1fr; gap: 24px; padding: 28px; }
+  }
+  .proof-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .proof-stat-num {
+    font-family: 'Fraunces', serif;
+    font-size: 56px;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--rust);
+    font-variation-settings: "opsz" 144;
+  }
+  .proof-stat-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+  .proof-body {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--ink);
+    font-variation-settings: "opsz" 72;
+  }
+  .proof-caveat {
+    margin-top: 18px;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 13px;
+    color: var(--gray);
+    font-style: italic;
+  }
+
+  /* CTA section */
+  .cta-section {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 80px 0;
+    margin-top: 64px;
+  }
+  body.dark .cta-section { background: #050403; }
+  body.dark .cta-section h2 {
+    color: #F8F1E7;
+  }
+  body.dark .cta-section .cta-primary {
+    color: #12100E;
+  }
+  body.dark .cta-section .cta-ghost {
+    color: #F8F1E7;
+    border-color: rgba(248,241,231,0.5);
+  }
+  body.dark .cta-section .cta-ghost:hover {
+    background: #F8F1E7;
+    border-color: #F8F1E7;
+    color: #12100E;
+  }
+  .cta-section h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(32px, 4vw, 56px);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    color: var(--paper);
+    font-variation-settings: "opsz" 144;
+  }
+  .cta-section h2 em { font-style: italic; color: var(--amber); font-weight: 400; }
+  .cta-section p {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--gray-light);
+    max-width: 640px;
+    margin-bottom: 32px;
+  }
+  body.dark .cta-section p { color: #C9C4BC; }
+  .cta-section .cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
+  .cta-section .cta-primary {
+    background: var(--amber);
+    color: var(--ink);
+    border-color: var(--amber);
+  }
+  .cta-section .cta-primary:hover {
+    background: #FFF;
+    border-color: #FFF;
+  }
+  .cta-section .cta-ghost {
+    color: var(--paper);
+    border-color: rgba(250,247,242,0.4);
+  }
+  .cta-section .cta-ghost:hover {
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 32px 0 48px;
+  }
+  .foot-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--gray);
+    text-transform: uppercase;
+  }
+
+  #bre-content { display: block; }
+
+</style>
+</head>
+<body class="dark">
+
+<div id="bre-content">
+
+<!-- Strip -->
+<div class="strip">
+  <div class="container strip-inner">
+    <div class="strip-brand">
+      <div class="strip-brg">
+        <img src="/brg-logo-mark.png" alt="BRG" class="strip-brg-logo">
+        <div class="strip-wordmark">
+          <span class="strip-wordmark-main">Bottle Rocket Growth</span>
+          <span class="strip-wordmark-sub">Signal-Driven Outbound</span>
+        </div>
+      </div>
+      <span class="strip-divider">/</span>
+      <span class="strip-product">BottleRocketEvents</span>
+    </div>
+    <button class="theme-toggle" id="theme-toggle">Light</button>
+  </div>
+</div>
+
+<!-- Masthead -->
+<header class="masthead">
+  <div class="container">
+    <div class="product-lockup">
+      <img src="/brg-logo-mark.png" alt="BRG" class="product-brg-logo dark-only">
+      <img src="/brg-logo-mark.png" alt="BRG" class="product-brg-logo light-only">
+      <span class="product-by">a Bottle Rocket Growth offering</span>
+    </div>
+    <div class="masthead-meta">
+      <strong>BottleRocketEvents</strong>
+      <span class="dot">·</span>
+      <span>Event-Driven Outbound</span>
+      <span class="dot">·</span>
+      <span>List Building &amp; Outreach</span>
+    </div>
+    <h1>Outbound, aimed at <em>events</em>.</h1>
+    <p class="masthead-lede">
+      Conferences, summits, and trade shows are the highest-density buying signal in B2B. Attendees have committed travel, time, and budget around a topic. We turn that into a targeted list and a campaign that lands while the topic is still front of mind.
+    </p>
+    <div class="masthead-cta-row">
+      <a href="#models" class="cta-primary">See the Three Models</a>
+      <a href="#process" class="cta-ghost">How It Works</a>
+    </div>
+  </div>
+</header>
+
+<!-- Section nav -->
+<nav class="section-nav" aria-label="Sections">
+  <div class="container section-nav-inner">
+    <a href="#why">§01 Why Events</a>
+    <a href="#models">§02 Delivery Models</a>
+    <a href="#coverage">§03 Event Coverage</a>
+    <a href="#process">§04 Process</a>
+    <a href="#proof">§05 Proof</a>
+  </div>
+</nav>
+
+<!-- §01 Why Events -->
+<section id="why">
+  <div class="container">
+    <div class="section-num">§01 / Why Events</div>
+    <h2 class="section-title">Registration is a <em>declaration</em>.</h2>
+    <p class="section-lede">
+      Most intent signals are inferred. Event attendance is voluntary, public, and time-bound. When a buyer registers, they have already done four things you would otherwise spend months trying to read between the lines on.
+    </p>
+    <div class="thesis-grid">
+      <div class="thesis-card">
+        <div class="thesis-num">01</div>
+        <div class="thesis-h">Topic commitment</div>
+        <div class="thesis-p">They opted into a specific subject, vendor ecosystem, or category. The category is the qualifier.</div>
+      </div>
+      <div class="thesis-card">
+        <div class="thesis-num">02</div>
+        <div class="thesis-h">Budget posture</div>
+        <div class="thesis-p">Travel approved, time blocked, ticket paid. The internal sign-off has already happened.</div>
+      </div>
+      <div class="thesis-card">
+        <div class="thesis-num">03</div>
+        <div class="thesis-h">Time-bound window</div>
+        <div class="thesis-p">There is a before, during, and after. Each has a different optimal message.</div>
+      </div>
+      <div class="thesis-card">
+        <div class="thesis-num">04</div>
+        <div class="thesis-h">High-attention mode</div>
+        <div class="thesis-p">During the event, attendees are on their phones, on LinkedIn, between sessions. Reply rates rise.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §02 Delivery Models -->
+<section id="models" style="background: var(--card-soft);">
+  <div class="container">
+    <div class="section-num">§02 / Delivery Models</div>
+    <h2 class="section-title">Three ways to <em>run it</em>.</h2>
+    <p class="section-lede">
+      Data is the foundation. The difference between models is how much of the campaign BRG runs and which sender profiles do the outreach. Sender profiles are billed separately, monthly. Pricing details below.
+    </p>
+
+    <div class="models-grid">
+      <!-- DFY -->
+      <div class="model-card">
+        <div class="model-kicker">Tier 01 / Done For You</div>
+        <h3 class="model-name">DFY</h3>
+        <p class="model-tagline">We source. We send. We triage.</p>
+
+        <div class="model-price">
+          <div class="model-price-label">Starting at</div>
+          <div class="model-price-amount">$6,000<span class="model-price-unit">/ month</span></div>
+          <div class="model-price-detail">
+            $2,000 per rented profile, per month. <strong>Three profile minimum.</strong> 1 to 3 month term based on event proximity. <strong>Data included.</strong>
+          </div>
+        </div>
+
+        <p class="model-summary">
+          We build the list, set up the campaign and messaging in HeyReach, and execute through rented LinkedIn profiles we provide. Replies route to inboxes BRG monitors. Meetings come back to your calendar.
+        </p>
+        <ul class="model-includes">
+          <li>Targeted attendee list (data included)</li>
+          <li>HeyReach campaign &amp; messaging built</li>
+          <li>Sequencing &amp; sender pacing configured</li>
+          <li>Rented profiles run by BRG</li>
+          <li>Reply triage &amp; meeting hand-off</li>
+          <li>Weekly reporting</li>
+        </ul>
+        <div class="model-best"><strong>Best for:</strong> teams without sender capacity, or one-off events where the org does not want to spin up internal motion.</div>
+      </div>
+
+      <!-- IOY featured -->
+      <div class="model-card featured">
+        <div class="featured-tag">Most Popular</div>
+        <div class="model-kicker">Tier 02 / It's On You</div>
+        <h3 class="model-name">IOY</h3>
+        <p class="model-tagline">We build the campaign. You handle the replies.</p>
+
+        <div class="model-price">
+          <div class="model-price-label">Starting at</div>
+          <div class="model-price-amount">$1,000<span class="model-price-unit">/ month</span></div>
+          <div class="model-price-detail">
+            $1,000 per BYO profile, per month. <strong>No quantity minimum.</strong> 1 to 3 month term based on event proximity. <strong>Data included.</strong>
+          </div>
+        </div>
+
+        <p class="model-summary">
+          We build the list and stand up the full campaign in HeyReach: messaging, segments, sequence, pacing rules. You connect your own LinkedIn profiles and handle the replies in your own inbox. Relationship continuity stays with your team.
+        </p>
+        <ul class="model-includes">
+          <li>Targeted attendee list (data included)</li>
+          <li>HeyReach campaign &amp; messaging built</li>
+          <li>Sequencing &amp; sender pacing configured</li>
+          <li>Your profiles connected to HeyReach</li>
+          <li>Replies route to your inbox</li>
+          <li>You own the conversation</li>
+        </ul>
+        <div class="model-best"><strong>Best for:</strong> teams with internal sender capacity (AEs, BDRs, exec sponsors) who want event intelligence and full campaign infrastructure without surrendering the relationship.</div>
+      </div>
+
+      <!-- Data Only -->
+      <div class="model-card">
+        <div class="model-kicker">Tier 03 / Data Only</div>
+        <h3 class="model-name">Data</h3>
+        <p class="model-tagline">Just the list. You take it from there.</p>
+
+        <div class="model-price">
+          <div class="model-price-label">Starting at</div>
+          <div class="model-price-amount">$500<span class="model-price-unit">/ event</span></div>
+          <div class="model-price-detail">
+            One-time fee per event. Scales with contact volume. No profiles, no campaign setup, no monthly term.
+          </div>
+        </div>
+
+        <p class="model-summary">
+          The targeted attendee list, fit-scored and priority-tiered, in CSV. No campaign setup, no sending, no profile management. Just data.
+        </p>
+        <ul class="model-includes">
+          <li>Companies &amp; titles matched to people</li>
+          <li>LinkedIn URLs where verifiable</li>
+          <li>Fit score (0 to 100)</li>
+          <li>Priority tier classification</li>
+          <li>CSV delivery, ready for any tool</li>
+        </ul>
+        <div class="model-best"><strong>Best for:</strong> teams with their own outbound infrastructure who need targeted event data fast.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §03 Coverage -->
+<section id="coverage" style="background: var(--card-soft);">
+  <div class="container">
+    <div class="section-num">§03 / Event Coverage</div>
+    <h2 class="section-title">Any event with a <em>discoverable audience</em>.</h2>
+    <p class="section-lede">
+      Vendor conferences, vertical summits, regional roadshows, association meetings. If there is a registration list, an exhibitor floor, a public attendee profile, or a session catalog, we can build around it. Examples below are illustrative, not exhaustive.
+    </p>
+
+    <div class="events-grid">
+      <div class="events-cell">
+        <div class="events-cat">Enterprise Software</div>
+        <ul class="events-list">
+          <li>SAP Sapphire</li>
+          <li>Salesforce Dreamforce</li>
+          <li>Oracle CloudWorld</li>
+          <li>ServiceNow Knowledge</li>
+          <li>Workday Rising</li>
+        </ul>
+      </div>
+      <div class="events-cell">
+        <div class="events-cat">Cloud &amp; Infra</div>
+        <ul class="events-list">
+          <li>AWS re:Invent</li>
+          <li>Microsoft Ignite</li>
+          <li>Google Cloud Next</li>
+          <li>HashiConf</li>
+          <li>KubeCon</li>
+        </ul>
+      </div>
+      <div class="events-cell">
+        <div class="events-cat">Marketing &amp; GTM</div>
+        <ul class="events-list">
+          <li>HubSpot Inbound</li>
+          <li>Adobe Summit</li>
+          <li>SaaStr Annual</li>
+          <li>MAU Vegas</li>
+          <li>Pavilion CMO Summit</li>
+        </ul>
+      </div>
+      <div class="events-cell">
+        <div class="events-cat">Healthcare &amp; Life Sciences</div>
+        <ul class="events-list">
+          <li>HIMSS Global</li>
+          <li>HLTH</li>
+          <li>BIO International</li>
+          <li>JPM Healthcare</li>
+          <li>RSNA</li>
+        </ul>
+      </div>
+      <div class="events-cell">
+        <div class="events-cat">Financial Services</div>
+        <ul class="events-list">
+          <li>Money 20/20</li>
+          <li>Finovate</li>
+          <li>Sibos</li>
+          <li>Fintech Meetup</li>
+          <li>Insuretech Connect</li>
+        </ul>
+      </div>
+      <div class="events-cell">
+        <div class="events-cat">Security &amp; Risk</div>
+        <ul class="events-list">
+          <li>RSA Conference</li>
+          <li>Black Hat / DEF CON</li>
+          <li>Gartner Security &amp; Risk</li>
+          <li>FS-ISAC Summit</li>
+          <li>Identiverse</li>
+        </ul>
+      </div>
+      <div class="events-cell">
+        <div class="events-cat">Retail &amp; Commerce</div>
+        <ul class="events-list">
+          <li>NRF Big Show</li>
+          <li>Shoptalk</li>
+          <li>Groceryshop</li>
+          <li>eTail</li>
+          <li>CommerceNext</li>
+        </ul>
+      </div>
+      <div class="events-cell">
+        <div class="events-cat">Industrial &amp; Logistics</div>
+        <ul class="events-list">
+          <li>Manifest</li>
+          <li>MODEX</li>
+          <li>FABTECH</li>
+          <li>CONEXPO</li>
+          <li>WasteExpo</li>
+        </ul>
+      </div>
+      <div class="events-cell">
+        <div class="events-cat">Vertical &amp; Niche</div>
+        <ul class="events-list">
+          <li>Industry association annuals</li>
+          <li>Regional roadshows</li>
+          <li>Private partner summits</li>
+          <li>Customer advisory boards</li>
+          <li>Awards &amp; analyst events</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §04 Process -->
+<section id="process">
+  <div class="container">
+    <div class="section-num">§04 / Process</div>
+    <h2 class="section-title">Five steps from event <em>to inbox</em>.</h2>
+    <p class="section-lede">
+      The mechanics are tight enough to run a campaign in under two weeks for most events, including same-week launches if the event is already underway.
+    </p>
+
+    <ol class="process-list">
+      <li>
+        <div class="process-h">Name the event &amp; the slice</div>
+        <div class="process-p">You tell us the event and your target audience. We confirm the contact volume, the timeline, and which delivery model fits.</div>
+      </li>
+      <li>
+        <div class="process-h">List built within 48 hours</div>
+        <div class="process-p">We pull from public attendee data, exhibitor lists, session speakers, and signal sources. Fit-scored, priority-tiered, ready to review.</div>
+      </li>
+      <li>
+        <div class="process-h">Strategy &amp; copy approved</div>
+        <div class="process-p">For DFY and IOY, we propose the sequence, the sender voice, and the message variants. You sign off before anything ships.</div>
+      </li>
+      <li>
+        <div class="process-h">Outreach runs</div>
+        <div class="process-p">DFY: we execute. IOY: your team runs the playbook through your profiles. Data: we hand over the file. All paths kick off the same week.</div>
+      </li>
+      <li>
+        <div class="process-h">Reporting &amp; reuse</div>
+        <div class="process-p">Acceptance, reply, and meeting metrics by sender and segment. The list and the playbook are reusable for the next event in the calendar.</div>
+      </li>
+      <li>
+        <div class="process-h">Iterate or stand down</div>
+        <div class="process-p">After the event window, decide: retainer the motion across the next quarter's events, or hold for the next conference your team cares about.</div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- §05 Proof -->
+<section id="proof" style="background: var(--card-soft);">
+  <div class="container">
+    <div class="section-num">§05 / Proof</div>
+    <h2 class="section-title">A recent <em>mid-cycle test</em>.</h2>
+    <p class="section-lede">
+      Numbers from a recent event campaign launched after the conference had already started. The cycle was already in motion when outreach began, which compresses the working window and biases attendee attention toward LinkedIn during sessions.
+    </p>
+
+    <div class="proof-block">
+      <div class="proof-stats">
+        <div>
+          <div class="proof-stat-num">70%</div>
+          <div class="proof-stat-label">LinkedIn Acceptance</div>
+        </div>
+        <div>
+          <div class="proof-stat-num">60%</div>
+          <div class="proof-stat-label">Reply Rate</div>
+        </div>
+      </div>
+      <div>
+        <div class="proof-body">
+          One reply across the run came back as "I'm not attending." Every other response engaged with the topic. The combination of relevance (registered attendee) and timing (mid-event attention) pulled response rates well above what cold outbound typically clears.
+        </div>
+        <div class="proof-caveat">
+          Caveat worth stating: events drive elevated LinkedIn activity, so mid-event windows are easier than pre- or post-event. Pre-event windows still outperform topic-only cold lists, but expect the spread to narrow.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Tell us the event.<br>We'll come back with the <em>list</em>.</h2>
+    <p>
+      Send the conference, the date, and the slice you want. We'll come back with a list size estimate, a model recommendation, and a delivery timeline within one business day.
+    </p>
+    <div class="cta-row">
+      <a href="mailto:mike@bottlerocketgrowth.com?subject=BottleRocketEvents%20inquiry" class="cta-primary">Start an Event</a>
+      <a href="https://bottlerocketgrowth.com" target="_blank" rel="noopener" class="cta-ghost">More on BRG</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container foot-inner">
+    <div>BottleRocketEvents · A Bottle Rocket Growth offering</div>
+    <div>Signal-Driven Outbound</div>
+  </div>
+</footer>
+
+</div><!-- /#bre-content -->
+
+<script>
+// Theme toggle
+(function(){
+  var body = document.body;
+  var btn = document.getElementById('theme-toggle');
+  function setLabel(){
+    if(!btn) return;
+    btn.textContent = body.classList.contains('dark') ? 'Light' : 'Dark';
+  }
+  // Restore preference
+  try {
+    var saved = localStorage.getItem('eventlists-theme');
+    if(saved === 'light'){ body.classList.remove('dark'); }
+    else { body.classList.add('dark'); }
+  } catch(e) { body.classList.add('dark'); }
+  setLabel();
+  if(btn) btn.addEventListener('click', function(){
+    body.classList.toggle('dark');
+    try { localStorage.setItem('eventlists-theme', body.classList.contains('dark') ? 'dark' : 'light'); } catch(e) {}
+    setLabel();
+  });
+})();
+</script>
+
+
+</body>
+</html>
