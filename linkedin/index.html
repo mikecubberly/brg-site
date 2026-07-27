@@ -82,19 +82,20 @@ h1 .beam{color:#FFC24B;filter:drop-shadow(0 0 34px rgba(255,194,75,.13))}
 @keyframes sweep{0%{left:-30%}55%,100%{left:120%}}
 .mock-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:16px;min-width:0}
 .mock-title{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:34px;text-transform:uppercase;color:#FFC24B;filter:drop-shadow(0 0 20px rgba(255,194,75,.22))}
-.mock-meta{font-family:"IBM Plex Mono",monospace;font-size:12px;color:#5F6B78;margin-top:2px;overflow-wrap:anywhere}
-.client-brand{display:flex;align-items:center;gap:9px;margin-bottom:9px}
-.client-brand-logo{position:relative;display:grid;place-items:center;width:34px;height:34px;overflow:hidden;clip-path:polygon(25% 2%,75% 2%,98% 25%,98% 75%,75% 98%,25% 98%,2% 75%,2% 25%);background:linear-gradient(145deg,#8BF2F5 0%,#27C4D3 48%,#08788D 100%);box-shadow:0 4px 12px rgba(39,196,211,.22)}
+.client-brand{display:flex;align-items:center;gap:9px;min-width:0}
+.client-brand-logo{position:relative;display:grid;place-items:center;width:30px;height:30px;overflow:hidden;flex:none;clip-path:polygon(25% 2%,75% 2%,98% 25%,98% 75%,75% 98%,25% 98%,2% 75%,2% 25%);background:linear-gradient(145deg,#8BF2F5 0%,#27C4D3 48%,#08788D 100%);box-shadow:0 4px 12px rgba(39,196,211,.22)}
 .client-brand-logo::before,.client-brand-logo::after{content:"";position:absolute;width:6px;height:27px;border-radius:2px;background:rgba(255,255,255,.9)}
 .client-brand-logo::before{transform:rotate(45deg)}
 .client-brand-logo::after{transform:rotate(-45deg)}
 .client-brand-logo i{position:relative;z-index:1;width:5px;height:5px;border:1px solid #0B7184;background:#C8FAFC;transform:rotate(45deg)}
-.client-brand-name{font-family:"Barlow Condensed",sans-serif;font-size:18px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#F2F4F6}
+.client-brand-copy{min-width:0}
+.client-brand-name{display:block;font-family:"IBM Plex Mono",monospace;font-size:9px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#8D98A5}
+.campaign-dashboard .mock-title{margin-top:2px;font-size:29px;line-height:1;white-space:nowrap}
 .status-pill{font-size:10.5px;font-weight:700;padding:4px 10px;border-radius:999px;letter-spacing:.04em;text-transform:uppercase;border:1px solid rgba(61,220,138,.28);background:rgba(61,220,138,.10);color:#3DDC8A;white-space:nowrap}
 .dashboard-showcase-grid{display:grid;grid-template-columns:1fr;gap:14px;align-items:stretch}
 .campaign-dashboard{min-width:0;overflow:hidden;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:#0C1016}
-.campaign-dashboard .mock-head{margin:0;padding:18px;border-bottom:1px solid rgba(255,255,255,.07)}
-.campaign-dashboard .dashboard-grid{padding:14px}
+.campaign-dashboard .mock-head{align-items:center;gap:9px;margin:0;padding:13px 14px;border-bottom:1px solid rgba(255,255,255,.07)}
+.campaign-dashboard .dashboard-grid{padding:10px}
 .dashboard-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:14px;min-width:0}
 .lane,.side-panel,.campaign-row{background:rgba(255,255,255,.028);border:1px solid rgba(255,255,255,.06);border-radius:13px;min-width:0}
 .lane{padding:14px}
@@ -196,11 +197,13 @@ h1 .beam{color:#FFC24B;filter:drop-shadow(0 0 34px rgba(255,194,75,.13))}
   .dashboard-showcase-grid{grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr)}
   .campaign-dashboard{display:flex;flex-direction:column}
   .campaign-dashboard .dashboard-grid{flex:1;grid-template-columns:1fr}
-  .campaign-dashboard .campaign-row{grid-template-columns:minmax(0,1fr) 56px 56px;gap:8px;padding:10px}
+  .campaign-dashboard .lane{padding:10px}
+  .campaign-dashboard .campaign-row{grid-template-columns:minmax(0,1fr) 56px 56px;gap:8px;margin-top:7px;padding:8px}
   .campaign-dashboard .tag{display:none}
   .campaign-dashboard .side-panel{grid-template-columns:1fr 1fr;gap:8px;padding:0;border:0;background:transparent}
-  .campaign-dashboard .side-stat{padding:10px}
-  .campaign-dashboard .side-stat span{font-size:11px}
+  .campaign-dashboard .side-stat{padding:9px}
+  .campaign-dashboard .side-stat strong{font-size:24px}
+  .campaign-dashboard .side-stat span{font-size:10.5px}
   .sender-tabs{padding:10px}
   .sender-tab{min-width:160px}
   .sender-stage{flex:1;grid-template-columns:minmax(0,1fr) 180px;gap:10px;padding:10px}
@@ -295,10 +298,12 @@ footer a:hover{color:#F2F4F6}
             <div class="dashboard-showcase-grid">
               <section class="campaign-dashboard" aria-label="Client dashboard">
                 <div class="mock-head">
-                  <div>
-                    <div class="client-brand"><span class="client-brand-logo" aria-hidden="true"><i></i></span><span class="client-brand-name">XYZ Company</span></div>
-                    <div class="mock-title">Client dashboard</div>
-                    <div class="mock-meta">Agency-managed view | ABC campaign family</div>
+                  <div class="client-brand">
+                    <span class="client-brand-logo" aria-hidden="true"><i></i></span>
+                    <div class="client-brand-copy">
+                      <span class="client-brand-name">XYZ Company</span>
+                      <div class="mock-title">Client dashboard</div>
+                    </div>
                   </div>
                   <span class="status-pill">Agency managed</span>
                 </div>
@@ -369,20 +374,19 @@ footer a:hover{color:#F2F4F6}
                   <aside class="side-panel">
                     <div class="side-stat">
                       <strong>8,220</strong>
-                      <span>Total leads reached across the campaign family.</span>
+                      <span>Leads reached.</span>
                     </div>
                     <div class="side-stat">
                       <strong>261</strong>
-                      <span>Total meetings booked.</span>
+                      <span>Meetings booked.</span>
                     </div>
                     <div class="side-stat">
                       <strong>$546K</strong>
-                      <span>Pipeline total from 13 opportunities.</span>
-                      <small>$42K average contract value.</small>
+                      <span>Pipeline generated.</span>
                     </div>
                     <div class="side-stat">
                       <strong>209</strong>
-                      <span>Total SQLs generated.</span>
+                      <span>Total SQLs.</span>
                     </div>
                   </aside>
                 </div>
