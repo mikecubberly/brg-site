@@ -72,7 +72,7 @@ h1 .beam{color:#FFC24B;filter:drop-shadow(0 0 34px rgba(255,194,75,.13))}
 .sub{color:#9AA4B0;font-size:17.5px;max-width:700px;margin:22px auto 0}
 .sub b{color:#F2F4F6}
 .hero-actions{display:flex;gap:12px;justify-content:center;margin-top:32px;flex-wrap:wrap}
-.mockwrap{margin:58px auto 0;max-width:930px;position:relative;overflow:hidden;border-radius:22px}
+.mockwrap{margin:58px auto 0;max-width:1080px;position:relative;overflow:hidden;border-radius:22px}
 .mockwrap::before{content:"";position:absolute;inset:-42px -60px;background:radial-gradient(60% 70% at 50% 40%,rgba(255,194,75,.08),transparent 70%);pointer-events:none}
 .mock{position:relative;background:#11151C;border:1px solid rgba(255,255,255,.09);border-radius:18px;box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 30px 70px -28px rgba(0,0,0,.85);overflow:hidden;text-align:left;min-width:0}
 .mbar{display:flex;gap:6px;padding:13px 16px;border-bottom:1px solid rgba(255,255,255,.06)}
@@ -84,6 +84,10 @@ h1 .beam{color:#FFC24B;filter:drop-shadow(0 0 34px rgba(255,194,75,.13))}
 .mock-title{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:34px;text-transform:uppercase;color:#FFC24B;filter:drop-shadow(0 0 20px rgba(255,194,75,.22))}
 .mock-meta{font-family:"IBM Plex Mono",monospace;font-size:12px;color:#5F6B78;margin-top:2px;overflow-wrap:anywhere}
 .status-pill{font-size:10.5px;font-weight:700;padding:4px 10px;border-radius:999px;letter-spacing:.04em;text-transform:uppercase;border:1px solid rgba(61,220,138,.28);background:rgba(61,220,138,.10);color:#3DDC8A;white-space:nowrap}
+.dashboard-showcase-grid{display:grid;grid-template-columns:1fr;gap:14px;align-items:stretch}
+.campaign-dashboard{min-width:0;overflow:hidden;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:#0C1016}
+.campaign-dashboard .mock-head{margin:0;padding:18px;border-bottom:1px solid rgba(255,255,255,.07)}
+.campaign-dashboard .dashboard-grid{padding:14px}
 .dashboard-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:14px;min-width:0}
 .lane,.side-panel,.campaign-row{background:rgba(255,255,255,.028);border:1px solid rgba(255,255,255,.06);border-radius:13px;min-width:0}
 .lane{padding:14px}
@@ -104,7 +108,7 @@ h1 .beam{color:#FFC24B;filter:drop-shadow(0 0 34px rgba(255,194,75,.13))}
 .side-stat strong{display:block;font-family:"Barlow Condensed",sans-serif;font-size:26px;line-height:1;text-transform:uppercase;color:#F2F4F6}
 .side-stat span{display:block;color:#9AA4B0;font-size:12.5px;margin-top:6px}
 .side-stat small{display:block;color:#5F6B78;font-size:11.5px;margin-top:6px}
-.sender-showcase{margin-top:16px;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:#0C1016;overflow:hidden}
+.sender-showcase{height:100%;display:flex;flex-direction:column;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:#0C1016;overflow:hidden}
 .sender-showcase-head{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;padding:18px 18px 15px;border-bottom:1px solid rgba(255,255,255,.07)}
 .sender-showcase-head h3{font-family:"Barlow Condensed",sans-serif;font-size:27px;line-height:1;text-transform:uppercase;letter-spacing:.025em;color:#F2F4F6}
 .sender-showcase-head p{max-width:520px;margin-top:7px;color:#7D8793;font-size:12.5px;line-height:1.55}
@@ -178,6 +182,21 @@ h1 .beam{color:#FFC24B;filter:drop-shadow(0 0 34px rgba(255,194,75,.13))}
 .sender-arrows{display:flex;gap:7px}
 .sender-arrow{width:34px;height:30px;border:1px solid rgba(255,255,255,.1);border-radius:9px;background:rgba(255,255,255,.03);color:#C7CDD4;cursor:pointer;font-size:15px}
 .sender-arrow:hover{border-color:rgba(255,194,75,.4);color:#FFC24B}
+@media(min-width:1001px){
+  .dashboard-showcase-grid{grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr)}
+  .campaign-dashboard{display:flex;flex-direction:column}
+  .campaign-dashboard .dashboard-grid{flex:1;grid-template-columns:1fr}
+  .campaign-dashboard .campaign-row{grid-template-columns:minmax(0,1fr) 56px 56px;gap:8px;padding:10px}
+  .campaign-dashboard .tag{display:none}
+  .campaign-dashboard .side-panel{grid-template-columns:1fr 1fr;gap:8px;padding:0;border:0;background:transparent}
+  .campaign-dashboard .side-stat{padding:10px}
+  .campaign-dashboard .side-stat span{font-size:11px}
+  .sender-tabs{padding:10px}
+  .sender-tab{min-width:160px}
+  .sender-stage{flex:1;grid-template-columns:minmax(0,1fr) 180px;gap:10px;padding:10px}
+  .sender-guide{padding:13px}
+  .sender-guide h4{font-size:21px}
+}
 .section{padding:86px 0 0}
 .section-head{text-align:center;max-width:710px;margin:0 auto 40px}
 .section-head .eyebrow{justify-content:center}
@@ -263,121 +282,124 @@ footer a:hover{color:#F2F4F6}
           <div class="mbar"><i></i><i></i><i></i></div>
           <div class="mbody">
             <div class="scan"></div>
-            <div class="mock-head">
-              <div>
-                <div class="mock-title">Campaign dashboard</div>
-                <div class="mock-meta">Agency dashboard | ABC campaign family | $42K target ACV</div>
-              </div>
-              <span class="status-pill">Agency managed</span>
-            </div>
-            <div class="dashboard-grid">
-              <div class="lane">
-                <div class="lane-title">Campaign performance snapshot</div>
-                <div class="campaign-row">
-                  <div class="campaign-name">
-                    <b>ABC042: Finance Ops Modernization</b>
-                    <span>2,080 reached</span>
+            <div class="dashboard-showcase-grid">
+              <section class="campaign-dashboard" aria-label="Campaign dashboard">
+                <div class="mock-head">
+                  <div>
+                    <div class="mock-title">Campaign dashboard</div>
+                    <div class="mock-meta">Agency dashboard | ABC campaign family | $42K target ACV</div>
                   </div>
-                  <div class="metric-cell">
-                    <span>Accept</span>
-                    <strong>18.2%</strong>
-                  </div>
-                  <div class="metric-cell">
-                    <span>Reply</span>
-                    <strong>43.8%</strong>
-                  </div>
-                  <span class="tag good">Top</span>
+                  <span class="status-pill">Agency managed</span>
                 </div>
-                <div class="campaign-row">
-                  <div class="campaign-name">
-                    <b>ABC043: Platform Migration Signals</b>
-                    <span>2,140 reached</span>
+                <div class="dashboard-grid">
+                  <div class="lane">
+                    <div class="lane-title">Campaign performance snapshot</div>
+                    <div class="campaign-row">
+                      <div class="campaign-name">
+                        <b>ABC042: Finance Ops Modernization</b>
+                        <span>2,080 reached</span>
+                      </div>
+                      <div class="metric-cell">
+                        <span>Accept</span>
+                        <strong>18.2%</strong>
+                      </div>
+                      <div class="metric-cell">
+                        <span>Reply</span>
+                        <strong>43.8%</strong>
+                      </div>
+                      <span class="tag good">Top</span>
+                    </div>
+                    <div class="campaign-row">
+                      <div class="campaign-name">
+                        <b>ABC043: Platform Migration Signals</b>
+                        <span>2,140 reached</span>
+                      </div>
+                      <div class="metric-cell">
+                        <span>Accept</span>
+                        <strong>22.4%</strong>
+                      </div>
+                      <div class="metric-cell">
+                        <span>Reply</span>
+                        <strong>31.3%</strong>
+                      </div>
+                      <span class="tag good">Active</span>
+                    </div>
+                    <div class="campaign-row">
+                      <div class="campaign-name">
+                        <b>ABC044: Regional Expansion Buyers</b>
+                        <span>1,960 reached</span>
+                      </div>
+                      <div class="metric-cell">
+                        <span>Accept</span>
+                        <strong>13.8%</strong>
+                      </div>
+                      <div class="metric-cell">
+                        <span>Reply</span>
+                        <strong>57.1%</strong>
+                      </div>
+                      <span class="tag hot">Review</span>
+                    </div>
+                    <div class="campaign-row">
+                      <div class="campaign-name">
+                        <b>ABC045: PE Portfolio Operators</b>
+                        <span>2,040 reached</span>
+                      </div>
+                      <div class="metric-cell">
+                        <span>Accept</span>
+                        <strong>24.5%</strong>
+                      </div>
+                      <div class="metric-cell">
+                        <span>Reply</span>
+                        <strong>26.0%</strong>
+                      </div>
+                      <span class="tag">Scaled</span>
+                    </div>
                   </div>
-                  <div class="metric-cell">
-                    <span>Accept</span>
-                    <strong>22.4%</strong>
-                  </div>
-                  <div class="metric-cell">
-                    <span>Reply</span>
-                    <strong>31.3%</strong>
-                  </div>
-                  <span class="tag good">Active</span>
+                  <aside class="side-panel">
+                    <div class="side-stat">
+                      <strong>8,220</strong>
+                      <span>Total leads reached across the campaign family.</span>
+                    </div>
+                    <div class="side-stat">
+                      <strong>261</strong>
+                      <span>Total meetings booked.</span>
+                    </div>
+                    <div class="side-stat">
+                      <strong>$546K</strong>
+                      <span>Pipeline total from 13 opportunities.</span>
+                      <small>$42K average contract value.</small>
+                    </div>
+                    <div class="side-stat">
+                      <strong>$42K</strong>
+                      <span>Target ACV for a company that can support a managed LinkedIn outbound motion.</span>
+                    </div>
+                  </aside>
                 </div>
-                <div class="campaign-row">
-                  <div class="campaign-name">
-                    <b>ABC044: Regional Expansion Buyers</b>
-                    <span>1,960 reached</span>
-                  </div>
-                  <div class="metric-cell">
-                    <span>Accept</span>
-                    <strong>13.8%</strong>
-                  </div>
-                  <div class="metric-cell">
-                    <span>Reply</span>
-                    <strong>57.1%</strong>
-                  </div>
-                  <span class="tag hot">Review</span>
-                </div>
-                <div class="campaign-row">
-                  <div class="campaign-name">
-                    <b>ABC045: PE Portfolio Operators</b>
-                    <span>2,040 reached</span>
-                  </div>
-                  <div class="metric-cell">
-                    <span>Accept</span>
-                    <strong>24.5%</strong>
-                  </div>
-                  <div class="metric-cell">
-                    <span>Reply</span>
-                    <strong>26.0%</strong>
-                  </div>
-                  <span class="tag">Scaled</span>
-                </div>
-              </div>
-              <aside class="side-panel">
-                <div class="side-stat">
-                  <strong>8,220</strong>
-                  <span>Total leads reached across the campaign family.</span>
-                </div>
-                <div class="side-stat">
-                  <strong>261</strong>
-                  <span>Total meetings booked.</span>
-                </div>
-                <div class="side-stat">
-                  <strong>$546K</strong>
-                  <span>Pipeline total from 13 opportunities.</span>
-                  <small>$42K average contract value.</small>
-                </div>
-                <div class="side-stat">
-                  <strong>$42K</strong>
-                  <span>Target ACV for a company that can support a managed LinkedIn outbound motion.</span>
-                </div>
-              </aside>
-            </div>
+              </section>
 
-            <section class="sender-showcase" aria-labelledby="sender-showcase-title">
-              <div class="sender-showcase-head">
-                <div>
-                  <h3 id="sender-showcase-title">Borrowed sender profiles</h3>
-                  <p>BRG provides established LinkedIn profiles and dresses each one to represent your company before outreach begins.</p>
+              <section class="sender-showcase" aria-labelledby="sender-showcase-title">
+                <div class="sender-showcase-head">
+                  <div>
+                    <h3 id="sender-showcase-title">Borrowed sender profiles</h3>
+                    <p>BRG provides established LinkedIn profiles and dresses each one to represent your company before outreach begins.</p>
+                  </div>
+                  <span class="sender-example-tag">Fictional example</span>
                 </div>
-                <span class="sender-example-tag">Fictional example</span>
-              </div>
 
-              <div class="sender-tabs" role="tablist" aria-label="Example sender profiles">
-                <button class="sender-tab" id="sender-tab-1" type="button" role="tab" aria-selected="true" aria-controls="sender-profile-1" data-sender-index="0">
-                  <span class="sender-tab-avatar portrait-one" aria-hidden="true"></span>
-                  <span><b>Maya Thompson</b><span>Revenue Operations</span></span>
-                </button>
-                <button class="sender-tab" id="sender-tab-2" type="button" role="tab" aria-selected="false" aria-controls="sender-profile-2" data-sender-index="1" tabindex="-1">
-                  <span class="sender-tab-avatar portrait-two" aria-hidden="true"></span>
-                  <span><b>Daniel Park</b><span>Strategic Partnerships</span></span>
-                </button>
-                <button class="sender-tab" id="sender-tab-3" type="button" role="tab" aria-selected="false" aria-controls="sender-profile-3" data-sender-index="2" tabindex="-1">
-                  <span class="sender-tab-avatar portrait-three" aria-hidden="true"></span>
-                  <span><b>Priya Shah</b><span>Growth</span></span>
-                </button>
-              </div>
+                <div class="sender-tabs" role="tablist" aria-label="Example sender profiles">
+                  <button class="sender-tab" id="sender-tab-1" type="button" role="tab" aria-selected="true" aria-controls="sender-profile-1" data-sender-index="0">
+                    <span class="sender-tab-avatar portrait-one" aria-hidden="true"></span>
+                    <span><b>Maya Thompson</b><span>Revenue Operations</span></span>
+                  </button>
+                  <button class="sender-tab" id="sender-tab-2" type="button" role="tab" aria-selected="false" aria-controls="sender-profile-2" data-sender-index="1" tabindex="-1">
+                    <span class="sender-tab-avatar portrait-two" aria-hidden="true"></span>
+                    <span><b>Daniel Park</b><span>Strategic Partnerships</span></span>
+                  </button>
+                  <button class="sender-tab" id="sender-tab-3" type="button" role="tab" aria-selected="false" aria-controls="sender-profile-3" data-sender-index="2" tabindex="-1">
+                    <span class="sender-tab-avatar portrait-three" aria-hidden="true"></span>
+                    <span><b>Priya Shah</b><span>Growth</span></span>
+                  </button>
+                </div>
 
               <div class="sender-stage">
                 <div>
@@ -530,6 +552,7 @@ footer a:hover{color:#F2F4F6}
                 </div>
               </div>
             </section>
+            </div>
           </div>
         </div>
       </div>
