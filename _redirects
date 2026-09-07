@@ -10,6 +10,12 @@
 /signedsealed /signedandsealed/ 301
 /signed-sealed /signedandsealed/ 301
 
+/racing /racing/index.html 200
+/racing/about /racing/about.html 200
+/racing/contact /racing/contact.html 200
+/racing/press /racing/press.html 200
+/racing/kordyn-47 /racing/kordyn-47.html 200
+
 /BRGMCP/* /MCP/:splat 301
 /BRGMCP /MCP/ 301
 
