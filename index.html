@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-US" data-theme="dark">
 <head>
 <script>!function(key) {if (window.reb2b) return;window.reb2b = {loaded: true};var s = document.createElement("script");s.async = true;s.src = "https://ddwl4m2hdecbv.cloudfront.net/b/" + key + "/" + key + ".js.gz";document.getElementsByTagName("script")[0].parentNode.insertBefore(s, document.getElementsByTagName("script")[0]);}("GNLKQH7GQG6Q");</script>
 <meta charset="UTF-8">
@@ -9,13 +9,14 @@
 <meta name="keywords" content="LinkedIn outbound agency, GTM consultancy, B2B outbound, LinkedIn outreach, HeyReach agency, ICP building, signal-based prospecting, startup growth agency, Chicago marketing agency, Mike Cubberly, Bottle Rocket Growth, BRG">
 <meta name="author" content="Mike Cubberly">
 <meta name="publisher" content="Bottle Rocket Growth">
-<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-<meta name="googlebot" content="index, follow">
+<meta name="robots" content="noindex, follow">
+<meta name="googlebot" content="noindex, follow">
 <meta name="geo.region" content="US-IL">
 <meta name="geo.placename" content="Chicago">
 <meta name="language" content="English">
 <meta name="revisit-after" content="7 days">
-<meta name="theme-color" content="#1a1d2e">
+<meta name="theme-color" content="#050506">
+<script defer src="/alternate/theme.js"></script>
 
 <link rel="canonical" href="https://bottlerocketgrowth.com/">
 <link rel="alternate" type="application/rss+xml" title="BRG Insights Feed" href="https://bottlerocketgrowth.com/feed.xml">
@@ -489,7 +490,6 @@ body{overflow:hidden;}
 
 
 
-80%{transform:translateX(-50%) translateY(10px);opacity:0;}100%{transform:translateX(-50%) translateY(0);opacity:0;}}
 
 
 
@@ -632,8 +632,16 @@ body::after{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opac
 .mini-nav .dot{color:var(--silver);font-size:9px;line-height:1;opacity:.6;}
 @media(max-width:700px){.mini-nav{font-size:8px;gap:6px;bottom:10px;letter-spacing:.14em;}}
 </style>
+<link rel="stylesheet" href="/alternate/theme.css">
 </head>
 <body>
+<div class="cosmic-backdrop" aria-hidden="true"></div>
+<button class="theme-toggle" id="theme-toggle" type="button" role="switch" aria-checked="true" aria-label="Dark mode">
+  <svg class="theme-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg>
+  <span class="theme-toggle-label" id="theme-toggle-label">Dark</span>
+  <span class="theme-toggle-track" aria-hidden="true"><span class="theme-toggle-thumb"></span></span>
+  <svg class="theme-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 13.1A8.5 8.5 0 0 1 10.9 3.2a8.5 8.5 0 1 0 9.9 9.9Z"></path></svg>
+</button>
 <canvas id="space-canvas"></canvas>
 <main class="hero">
   <img class="brg-mark" src="/brg-logo-mark.png" srcset="/brg-logo-mark.png 1x, /brg-logo-mark-2x.png 2x" alt="Bottle Rocket Growth logo" width="220" height="220">
@@ -662,8 +670,7 @@ body::after{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opac
     <button class="btn btn-ghost" id="brandsBtn">Brands</button>
   </div>
 </main>
-<span>Scroll</span></div>
-<div class="status-badge" id="statusBadge"><span class="status-dot"></span>Currently fueling new growth &#x1F680;</div>
+<div class="status-badge" id="statusBadge"><span class="status-dot"></span>Currently fueling new growth</div>
 <div class="brands-page" id="brandsPage">
   <canvas id="brands-canvas"></canvas>
   <button class="brands-back" id="backBtn">
@@ -779,6 +786,8 @@ function spaceCanvas(id){
   var ctx=canvas.getContext("2d");
   var par=canvas.parentElement;
   var W,H,ents=[],shots=[],plPos=[],frame=0,nxt=100;
+  var motionQuery=window.matchMedia('(prefers-reduced-motion: reduce)');
+  var frameId=null;
   function rand(a,b){return a+Math.random()*(b-a);}
   function resize(){W=canvas.width=par?par.clientWidth:window.innerWidth;H=canvas.height=par?par.clientHeight:window.innerHeight;}
   function Star(){
@@ -800,26 +809,47 @@ function spaceCanvas(id){
     this.draw=function(){ctx.fillStyle="rgba(190,200,235,"+this.a+")";var s=this.s;this.blob(this.x,this.y,68*s,25*s);this.blob(this.x+48*s,this.y-14*s,46*s,21*s);this.blob(this.x-36*s,this.y-9*s,40*s,18*s);this.blob(this.x+9*s,this.y-22*s,32*s,16*s);};
     this.spawn(init);
   }
-  function Planet(){
+  function Planet(kind){
     var self=this;
     this.spawn=function(){
       var tries=0,ok=false,r,ix,iy;
       while(!ok&&tries<40){r=rand(20,50);ix=rand(r*4,W-r*4);iy=rand(r*4,H-r*4);ok=true;
         for(var p=0;p<plPos.length;p++){var dx=ix-plPos[p].x,dy=iy-plPos[p].y;if(Math.sqrt(dx*dx+dy*dy)<r+plPos[p].r+90){ok=false;break;}}tries++;}
-      self.r=r;self.ix=ix;self.iy=iy;self.x=ix;self.y=iy;self.a=rand(.09,.19);self.hue=rand(195,260);self.sat=rand(16,36);
-      self.hasRing=Math.random()>.45;self.ringTilt=rand(.25,.48);self.phase=rand(0,Math.PI*2);self.period=rand(300,700);self.bands=Math.floor(rand(2,5));
+      var styles=[{r:46,h:36,s:58},{r:23,h:220,s:5},{r:34,h:185,s:65},{r:29,h:15,s:62}];
+      var style=styles[kind];
+      self.r=Math.min(r,style.r);self.ix=ix;self.iy=iy;self.x=ix;self.y=iy;self.a=.23;self.hue=style.h;self.sat=style.s;
+      self.hasRing=kind===0;self.ringTilt=.36;self.tilt=[-.35,.2,.65,-.2][kind];self.phase=rand(0,Math.PI*2);self.period=rand(300,700);self.bands=7;
+      // Surface details are generated once, so they never flicker between frames.
+      self.details=[];
+      for(var d=0;d<22;d++){var angle=rand(0,Math.PI*2),distance=Math.sqrt(Math.random())*.86;self.details.push({x:Math.cos(angle)*distance,y:Math.sin(angle)*distance,r:rand(.035,.16),angle:angle});}
       plPos.push({x:self.ix,y:self.iy,r:self.r});
     };
     this.update=function(){this.phase+=(Math.PI*2)/this.period;this.x=this.ix+Math.cos(this.phase)*7;this.y=this.iy+Math.sin(this.phase*.65)*5;};
     this.draw=function(){
       var x=this.x,y=this.y,r=this.r,hue=this.hue,sat=this.sat,a=this.a;
-      var atm=ctx.createRadialGradient(x,y,r*.6,x,y,r*1.6);atm.addColorStop(0,"hsla("+hue+","+sat+"%,78%,0)");atm.addColorStop(1,"hsla("+hue+","+(sat+10)+"%,70%,"+(a*.25)+")");ctx.beginPath();ctx.arc(x,y,r*1.6,0,Math.PI*2);ctx.fillStyle=atm;ctx.fill();
+      ctx.save();ctx.translate(x,y);ctx.rotate(self.tilt);x=0;y=0;
+      function ring(start,end){ctx.save();ctx.scale(1,self.ringTilt);ctx.beginPath();ctx.arc(0,0,r*1.72,start,end);ctx.strokeStyle="hsla(36,48%,70%,"+(a*.85)+")";ctx.lineWidth=r*.23;ctx.stroke();ctx.beginPath();ctx.arc(0,0,r*1.96,start,end);ctx.strokeStyle="hsla(40,38%,84%,"+(a*.55)+")";ctx.lineWidth=r*.045;ctx.stroke();ctx.restore();}
+      if(self.hasRing)ring(Math.PI,Math.PI*2);
+      if(kind===0||kind===2){var atm=ctx.createRadialGradient(x,y,r*.85,x,y,r*1.35);atm.addColorStop(0,"hsla("+hue+","+sat+"%,70%,"+(a*.22)+")");atm.addColorStop(1,"hsla("+hue+","+sat+"%,70%,0)");ctx.beginPath();ctx.arc(x,y,r*1.35,0,Math.PI*2);ctx.fillStyle=atm;ctx.fill();}
       var sph=ctx.createRadialGradient(x-r*.32,y-r*.32,r*.08,x,y,r);sph.addColorStop(0,"hsla("+hue+","+(sat+8)+"%,92%,"+(a*1.5)+")");sph.addColorStop(.55,"hsla("+hue+","+sat+"%,78%,"+(a*1.2)+")");sph.addColorStop(1,"hsla("+(hue-10)+","+(sat-5)+"%,62%,"+a+")");ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fillStyle=sph;ctx.fill();
       ctx.save();ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.clip();
-      for(var i=0;i<self.bands;i++){var by=y-r+(r*2/(self.bands+1))*(i+1);ctx.fillStyle="hsla("+(hue+10)+","+(sat+5)+"%,68%,"+(a*.28)+")";ctx.fillRect(x-r,by-r*.06,r*2,r*.12);}
+      if(kind===0){
+        for(var i=0;i<self.bands;i++){var by=-r+(r*2/(self.bands+1))*(i+1);ctx.beginPath();ctx.moveTo(-r,by);ctx.bezierCurveTo(-r*.4,by+r*.16,r*.4,by-r*.12,r,by+r*.04);ctx.strokeStyle=i%2?"rgba(125,71,32,.24)":"rgba(247,215,149,.22)";ctx.lineWidth=r*(i%2?.13:.07);ctx.stroke();}
+        ctx.beginPath();ctx.ellipse(r*.3,r*.28,r*.22,r*.1,-.1,0,Math.PI*2);ctx.fillStyle="rgba(163,89,47,.3)";ctx.fill();
+      }else if(kind===1){
+        self.details.forEach(function(d){var cx=d.x*r,cy=d.y*r,cr=d.r*r;ctx.beginPath();ctx.arc(cx,cy,cr,0,Math.PI*2);ctx.fillStyle="rgba(24,28,40,.24)";ctx.fill();ctx.beginPath();ctx.arc(cx,cy,cr,-.3,Math.PI*.8);ctx.strokeStyle="rgba(231,237,246,.27)";ctx.lineWidth=Math.max(.65,r*.025);ctx.stroke();});
+      }else if(kind===2){
+        self.details.slice(0,12).forEach(function(d){ctx.beginPath();ctx.moveTo(d.x*r,d.y*r);ctx.lineTo((d.x+.12)*r,(d.y+.18)*r);ctx.lineTo((d.x+.07)*r,(d.y+.32)*r);ctx.strokeStyle="rgba(49,139,168,.3)";ctx.lineWidth=r*.024;ctx.stroke();});
+        ctx.beginPath();ctx.ellipse(0,-r*.86,r*.65,r*.22,0,0,Math.PI*2);ctx.fillStyle="rgba(229,253,255,.38)";ctx.fill();
+      }else{
+        self.details.forEach(function(d){ctx.beginPath();ctx.ellipse(d.x*r,d.y*r,d.r*r*1.7,d.r*r,d.angle,0,Math.PI*2);ctx.fillStyle="rgba(100,41,25,.22)";ctx.fill();});
+        ctx.beginPath();ctx.moveTo(-r*.8,r*.05);ctx.bezierCurveTo(-r*.3,-r*.25,r*.1,r*.45,r*.8,r*.12);ctx.strokeStyle="rgba(76,33,27,.3)";ctx.lineWidth=r*.055;ctx.stroke();
+      }
+      var shadow=ctx.createLinearGradient(-r,0,r,0);shadow.addColorStop(0,"rgba(4,5,12,0)");shadow.addColorStop(.55,"rgba(4,5,12,.04)");shadow.addColorStop(1,"rgba(4,5,12,.38)");ctx.fillStyle=shadow;ctx.fillRect(-r,-r,r*2,r*2);
       ctx.restore();
-      if(self.hasRing){ctx.save();ctx.translate(x,y);ctx.scale(1,self.ringTilt);ctx.beginPath();ctx.arc(0,0,r*1.72,0,Math.PI*2);ctx.strokeStyle="hsla("+hue+","+(sat-5)+"%,65%,"+(a*.45)+")";ctx.lineWidth=r*.22;ctx.stroke();ctx.beginPath();ctx.arc(0,0,r*1.55,0,Math.PI*2);ctx.strokeStyle="hsla("+(hue+15)+","+(sat+10)+"%,88%,"+(a*.3)+")";ctx.lineWidth=r*.06;ctx.stroke();ctx.restore();}
+      if(self.hasRing)ring(0,Math.PI);
       var spec=ctx.createRadialGradient(x-r*.4,y-r*.4,0,x-r*.4,y-r*.4,r*.42);spec.addColorStop(0,"rgba(255,255,255,"+(a*.55)+")");spec.addColorStop(1,"rgba(255,255,255,0)");ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fillStyle=spec;ctx.fill();
+      ctx.restore();
     };
     this.spawn();
   }
@@ -838,9 +868,12 @@ function spaceCanvas(id){
     };
     this.spawn(init);
   }
-  function init(){resize();ents=[];plPos=[];for(var i=0;i<130;i++)ents.push(new Star());for(var i=0;i<6;i++)ents.push(new Cloud(true));for(var i=0;i<4;i++)ents.push(new Planet());for(var i=0;i<5;i++)ents.push(new Rocket(true));}
-  function loop(){requestAnimationFrame(loop);ctx.clearRect(0,0,W,H);frame++;if(frame>=nxt){shots.push(new Shoot());nxt=frame+Math.floor(rand(160,450));}shots=shots.filter(function(s){return s.update();});ents.forEach(function(e){e.update();e.draw();});shots.forEach(function(s){s.draw();});}
-  window.addEventListener("resize",function(){resize();});
+  function init(){resize();ents=[];plPos=[];for(var i=0;i<130;i++)ents.push(new Star());for(var i=0;i<6;i++)ents.push(new Cloud(true));for(var i=0;i<4;i++)ents.push(new Planet(i));for(var i=0;i<5;i++)ents.push(new Rocket(true));}
+  function loop(){frameId=null;ctx.clearRect(0,0,W,H);if(!motionQuery.matches){frame++;if(frame>=nxt){shots.push(new Shoot());nxt=frame+Math.floor(rand(160,450));}shots=shots.filter(function(s){return s.update();});}ents.forEach(function(e){if(!motionQuery.matches)e.update();e.draw();});if(!motionQuery.matches)shots.forEach(function(s){s.draw();});if(!motionQuery.matches&&!document.hidden)frameId=requestAnimationFrame(loop);}
+  function resumeMotion(){if(frameId!==null)cancelAnimationFrame(frameId);frameId=null;loop();}
+  window.addEventListener("resize",function(){init();resumeMotion();});
+  motionQuery.addEventListener('change',resumeMotion);
+  document.addEventListener('visibilitychange',resumeMotion);
   init();loop();
 }
 spaceCanvas("space-canvas");
