@@ -17,6 +17,7 @@
     chatFrames.forEach(function (frame) {
       if (!frame.isConnected) { chatFrames.delete(frame); return; }
       if (frame.style.borderRadius !== '4px') frame.style.setProperty('border-radius', '4px', 'important');
+      if (frame.style.backgroundColor !== 'rgb(23, 22, 28)') frame.style.setProperty('background-color', 'rgb(23, 22, 28)', 'important');
       var shadow = 'none';
       if (frame.style.boxShadow !== shadow) frame.style.setProperty('box-shadow', shadow, 'important');
     });
