@@ -1,0 +1,159 @@
+/* Alternate homepage: the original composition with a reversible night theme. */
+html { color-scheme: light; }
+html, body { transition: background-color 650ms ease, color 450ms ease; }
+
+.theme-toggle {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  z-index: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 9px 14px;
+  border: 1px solid #e4e7ef;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .88);
+  color: #42485e;
+  font: 500 14px/1 "DM Sans", sans-serif;
+  box-shadow: 0 3px 18px rgba(26, 29, 46, .045);
+  backdrop-filter: blur(16px);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 450ms ease, color 450ms ease, border-color 450ms ease;
+}
+.theme-toggle:hover { border-color: #bac0d4; }
+.theme-toggle:focus-visible, .btn:focus-visible, .brands-back:focus-visible,
+.mini-nav a:focus-visible, .dropdown-item:focus-visible {
+  outline: 2px solid #7f87ff;
+  outline-offset: 5px;
+}
+.theme-toggle-label { width: 34px; text-align: left; }
+.theme-toggle-track {
+  width: 32px;
+  height: 19px;
+  flex: 0 0 auto;
+  padding: 3px;
+  border-radius: 999px;
+  background: #e3e6ef;
+  transition: background-color 400ms ease;
+}
+.theme-toggle-thumb {
+  display: block;
+  height: 13px;
+  width: 13px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .15);
+  transition: transform 400ms cubic-bezier(.22, 1, .36, 1);
+}
+.theme-moon { opacity: .4; transition: opacity 400ms ease; }
+.theme-sun { opacity: .9; transition: opacity 400ms ease; }
+
+.cosmic-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: #050506;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 800ms ease;
+}
+.cosmic-backdrop::before {
+  content: "";
+  position: absolute;
+  inset: -5%;
+  background: url("/alternate/cosmic-nebula.jpg") center / cover no-repeat;
+  filter: saturate(.68);
+  transform: scale(1.02);
+  animation: nebula-drift 70s ease-in-out infinite alternate;
+  animation-play-state: paused;
+}
+.cosmic-backdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 49% 46%, rgba(3, 3, 5, .44), transparent 62%),
+    linear-gradient(180deg, rgba(5, 5, 6, .12), transparent 52%, rgba(5, 5, 6, .45));
+}
+.wordmark, .eyebrow, .tagline, .brands-header, .brand-name {
+  transition: color 500ms ease, text-shadow 500ms ease;
+}
+.brg-mark { transition: filter 600ms ease; }
+#space-canvas, #brands-canvas { transition: filter 600ms ease; }
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #f5f5f7;
+  --slate: #a9a8b2;
+  --silver: #53515d;
+  --light: #242329;
+  --accent: #aa98f3;
+  background: #050506;
+}
+html[data-theme="dark"] body { background: #050506; }
+html[data-theme="dark"] .cosmic-backdrop { opacity: 1; }
+html[data-theme="dark"] .cosmic-backdrop::before { animation-play-state: running; }
+html[data-theme="dark"] body::after { opacity: .18; }
+html[data-theme="dark"] #space-canvas,
+html[data-theme="dark"] #brands-canvas { filter: saturate(.4) brightness(2.2); }
+html[data-theme="dark"] .brg-mark { filter: brightness(0) invert(1) drop-shadow(0 0 22px rgba(190, 184, 226, .09)); }
+html[data-theme="dark"] .wordmark { color: #fafafa; text-shadow: 0 3px 44px rgba(0, 0, 0, .5); }
+html[data-theme="dark"] .accent-bar { background: #9984e9; box-shadow: 0 0 22px rgba(153, 132, 233, .42); }
+html[data-theme="dark"] .theme-toggle {
+  color: #e9e8ed;
+  background: rgba(15, 15, 18, .8);
+  border-color: rgba(255, 255, 255, .17);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, .18);
+}
+html[data-theme="dark"] .theme-toggle:hover { border-color: rgba(255, 255, 255, .38); }
+html[data-theme="dark"] .theme-toggle-track { background: #7e6ba8; }
+html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(13px); }
+html[data-theme="dark"] .theme-sun { opacity: .4; }
+html[data-theme="dark"] .theme-moon { opacity: 1; }
+html[data-theme="dark"] .btn-primary { background: #fff; color: #09090c; box-shadow: 0 4px 26px rgba(0, 0, 0, .25); }
+html[data-theme="dark"] .btn-primary:hover { background: #e9e7f0; box-shadow: 0 8px 34px rgba(0, 0, 0, .3); }
+html[data-theme="dark"] .btn-ghost { background: rgba(10, 10, 12, .5); color: #d2d0d9; border-color: rgba(255, 255, 255, .25); }
+html[data-theme="dark"] .btn-ghost:hover { border-color: #aaa1c5; color: white; }
+html[data-theme="dark"] .status-badge { background: rgba(15, 15, 18, .76); border-color: rgba(255, 255, 255, .12); color: #b8b6c0; box-shadow: 0 4px 24px rgba(0, 0, 0, .15); }
+html[data-theme="dark"] .dropdown-menu,
+html[data-theme="dark"] #brand-popup { background: #121215; border-color: #323039; box-shadow: 0 20px 56px rgba(0, 0, 0, .4); }
+html[data-theme="dark"] .dropdown-item:hover { background: #242329; }
+html[data-theme="dark"] .di-icon { background: #23212b; }
+html[data-theme="dark"] .brands-page { background: #08080a; }
+html[data-theme="dark"] .brand-card { background: rgba(22, 22, 26, .9); border-color: #333139; }
+html[data-theme="dark"] .brand-card:hover { border-color: #6e617f; box-shadow: 0 8px 40px rgba(0, 0, 0, .3); }
+html[data-theme="dark"] .brand-card > img { background: #fff; border-radius: 8px; padding: 7px; }
+html[data-theme="dark"] .mini-nav { animation: none; opacity: .8; }
+html[data-theme="dark"] .mini-nav a { color: #a7a3b2; }
+html[data-theme="dark"] .mini-nav a:hover { color: white; }
+
+/* Leave room for the mode control when the Brands overlay is open. */
+.brands-back { top: 87px; left: 30px; min-height: 32px; }
+
+@keyframes nebula-drift {
+  from { transform: scale(1.02) translate3d(0, 0, 0); }
+  to { transform: scale(1.09) translate3d(-1.2%, -.6%, 0); }
+}
+
+@media (max-width: 700px) {
+  .theme-toggle { top: 14px; left: 14px; gap: 7px; padding: 8px 12px; }
+  .status-badge { top: 70px; left: 14px; right: auto; }
+  .brands-back { top: 76px; left: 18px; }
+  .cosmic-backdrop::before { background-position: 67% center; }
+}
+@media (max-width: 600px), (max-height: 600px) {
+  body { overflow-y: auto; }
+  .hero { height: auto; min-height: max(100svh, 650px); padding: 120px 16px 80px; }
+  .brands-page { justify-content: flex-start; overflow-y: auto; padding: 125px 0 40px; }
+  .mini-nav { position: relative; left: auto; bottom: auto; transform: none; justify-content: center; flex-wrap: wrap; margin-top: -34px; padding: 0 12px 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html, body, *, *::before, *::after { animation: none !important; transition: none !important; }
+  .brg-mark, .eyebrow, .wordmark, .accent-bar, .tagline, .cta-row, .status-badge { opacity: 1; transform: none; }
+  .mini-nav { opacity: .65; }
+}
