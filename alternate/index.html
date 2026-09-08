@@ -650,23 +650,10 @@ body::after{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opac
   <div class="accent-bar"></div>
   <p class="tagline"><span class="tagline-word">Velocity</span><span class="tagline-sep">&middot;</span><span class="tagline-word">Strategy</span><span class="tagline-sep">&middot;</span><span class="tagline-word">Ignition</span></p>
   <div class="cta-row">
-    <div class="dropdown-wrap" id="gitWrap">
-      <button class="btn btn-primary" id="gitBtn">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        Get in Touch
-        <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-      </button>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="/cdn-cgi/l/email-protection#8ce1e5e7e9cceee3f8f8e0e9fee3efe7e9f8ebfee3fbf8e4a2efe3e1">
-          <span class="di-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
-          <span class="di-text"><span><span class="__cf_email__" data-cfemail="492420222c092b263d3d252c3b262a222c3d2e3b263e3d21672a2624">[email&#160;protected]</span></span><span class="di-label">Email</span></span>
-        </a>
-        <a class="dropdown-item" href="https://www.linkedin.com/in/mikecubberly" target="_blank" rel="noopener">
-          <span class="di-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span>
-          <span class="di-text"><span>LinkedIn</span><span class="di-label">Mike Cubberly</span></span>
-        </a>
-      </div>
-    </div>
+    <a class="btn btn-primary" id="gitBtn" href="https://tawk.to/chat/6aa052f9fd82573442c931ec/1k21487g4?layout=modern" aria-haspopup="dialog">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <span id="chat-cta-label">Get in Touch</span>
+    </a>
   </div>
 </main>
 <div class="status-badge" id="statusBadge"><span class="status-dot"></span>Currently fueling new growth</div>
@@ -745,14 +732,10 @@ body::after{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opac
 <div id="brand-popup"></div>
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function(){
-var gitWrap=document.getElementById("gitWrap");
-var gitBtn=document.getElementById("gitBtn");
 var backBtn=document.getElementById("backBtn");
 var brandsPage=document.getElementById("brandsPage");
 var popup=document.getElementById("brand-popup");
 var hideTimer=null;
-gitBtn.addEventListener("click",function(e){e.stopPropagation();gitWrap.classList.toggle("open");});
-document.addEventListener("click",function(e){if(!gitWrap.contains(e.target))gitWrap.classList.remove("open");});
 backBtn.addEventListener("click",function(){brandsPage.classList.remove("active");closePopup();});
 function showPopup(card){
   clearTimeout(hideTimer);
@@ -888,5 +871,6 @@ spaceCanvas("brands-canvas");
   <span class="dot">&middot;</span>
   <a href="/contact.html">Contact</a>
 </footer>
+<script defer src="/assets/home-chat.js"></script>
 </body>
 </html>
