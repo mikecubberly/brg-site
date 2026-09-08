@@ -9,6 +9,30 @@
   var loading = false;
   var failed = false;
   var timer;
+  var originalFrames = new Set(document.querySelectorAll('iframe'));
+  var chatFrames = new Set();
+
+  // Keep the Tawk-owned outer frames visually aligned with the homepage.
+  function styleFrames() {
+    chatFrames.forEach(function (frame) {
+      if (!frame.isConnected) { chatFrames.delete(frame); return; }
+      if (frame.style.borderRadius !== '4px') frame.style.setProperty('border-radius', '4px', 'important');
+      var shadow = 'none';
+      if (frame.style.boxShadow !== shadow) frame.style.setProperty('box-shadow', shadow, 'important');
+    });
+  }
+  var frameObserver = new MutationObserver(function (records) {
+    records.forEach(function (record) {
+      record.addedNodes.forEach(function (node) {
+        if (node.nodeType !== 1) return;
+        var frames = node.tagName === 'IFRAME' ? [node] : node.querySelectorAll('iframe');
+        frames.forEach(function (frame) {
+          if (!originalFrames.has(frame) && (frame.getAttribute('src') === 'about:blank' || frame.hasAttribute('srcdoc'))) chatFrames.add(frame);
+        });
+      });
+    });
+    styleFrames();
+  });
 
   function reset() {
     clearTimeout(timer);
@@ -46,6 +70,7 @@
     loading = true;
     label.textContent = 'Opening chat…';
     cta.setAttribute('aria-busy', 'true');
+    frameObserver.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['style'] });
     window.Tawk_LoadStart = new Date();
     var script = document.createElement('script');
     script.async = true;
