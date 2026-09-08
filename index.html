@@ -645,7 +645,7 @@ body::after{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opac
 <canvas id="space-canvas"></canvas>
 <main class="hero">
   <img class="brg-mark" src="/brg-logo-mark.png" srcset="/brg-logo-mark.png 1x, /brg-logo-mark-2x.png 2x" alt="Bottle Rocket Growth logo" width="220" height="220">
-  <span class="eyebrow">Est. 2024 &nbsp;&middot;&nbsp; Fueling Startup Ascent</span>
+  <span class="eyebrow">Est. 2024 &nbsp;&middot;&nbsp; Building Growth &amp; Go-to-Market Motions</span>
   <h1 class="wordmark">Bottle Rocket<br>Growth</h1>
   <div class="accent-bar"></div>
   <p class="tagline"><span class="tagline-word">Velocity</span><span class="tagline-sep">&middot;</span><span class="tagline-word">Strategy</span><span class="tagline-sep">&middot;</span><span class="tagline-word">Ignition</span></p>
@@ -667,7 +667,6 @@ body::after{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opac
         </a>
       </div>
     </div>
-    <button class="btn btn-ghost" id="brandsBtn">Brands</button>
   </div>
 </main>
 <div class="status-badge" id="statusBadge"><span class="status-dot"></span>Currently fueling new growth</div>
@@ -748,14 +747,12 @@ body::after{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opac
 (function(){
 var gitWrap=document.getElementById("gitWrap");
 var gitBtn=document.getElementById("gitBtn");
-var brandsBtn=document.getElementById("brandsBtn");
 var backBtn=document.getElementById("backBtn");
 var brandsPage=document.getElementById("brandsPage");
 var popup=document.getElementById("brand-popup");
 var hideTimer=null;
 gitBtn.addEventListener("click",function(e){e.stopPropagation();gitWrap.classList.toggle("open");});
 document.addEventListener("click",function(e){if(!gitWrap.contains(e.target))gitWrap.classList.remove("open");});
-brandsBtn.addEventListener("click",function(){brandsPage.classList.add("active");});
 backBtn.addEventListener("click",function(){brandsPage.classList.remove("active");closePopup();});
 function showPopup(card){
   clearTimeout(hideTimer);
