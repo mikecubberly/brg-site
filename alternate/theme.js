@@ -6,7 +6,7 @@
   var label = document.getElementById('theme-toggle-label');
   var themeColor = document.querySelector('meta[name="theme-color"]');
 
-  // Each visit opens in the original white theme. Switching stays on this page.
+  // Each visit opens in dark mode. Switching stays on this page.
   toggle.addEventListener('click', function () {
     var dark = root.dataset.theme !== 'dark';
     root.dataset.theme = dark ? 'dark' : 'light';
