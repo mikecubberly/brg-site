@@ -1,85 +1,80 @@
-/* Open the BRG Tawk.to widget from the homepage contact CTA. */
+/* BRG's visitor-initiated Botpress assistant. Public embed handles only. */
 (function () {
   'use strict';
+  if (document.getElementById('bp-toggle-chat')) return;
   var cta = document.getElementById('gitBtn');
   var label = document.getElementById('chat-cta-label');
-  if (!cta || !label) return;
-  var api = window.Tawk_API = window.Tawk_API || {};
-  var ready = false;
+  var launcher = document.createElement('button');
+  launcher.id = 'bp-toggle-chat';
+  launcher.type = 'button';
+  launcher.setAttribute('aria-label', "Chat with Mike's AI assistant at Bottle Rocket Growth");
+  launcher.setAttribute('aria-haspopup', 'dialog');
+  launcher.innerHTML = '<img src="/racing/mike-cubberly.png" alt="" width="46" height="46"><span><strong>Worth a conversation?</strong><small>Ask Mike\'s AI assistant</small></span>';
+  document.body.appendChild(launcher);
+  var status = document.createElement('div');
+  status.id = 'brg-ai-status';
+  status.hidden = true;
+  status.setAttribute('role', 'status');
+  document.body.appendChild(status);
   var loading = false;
-  var failed = false;
+  var ready = false;
   var timer;
-  var originalFrames = new Set(document.querySelectorAll('iframe'));
-  var chatFrames = new Set();
-
-  // Keep the Tawk-owned outer frames visually aligned with the homepage.
-  function styleFrames() {
-    chatFrames.forEach(function (frame) {
-      if (!frame.isConnected) { chatFrames.delete(frame); return; }
-      if (frame.style.borderRadius !== '4px') frame.style.setProperty('border-radius', '4px', 'important');
-      if (frame.style.backgroundColor !== 'rgb(23, 22, 28)') frame.style.setProperty('background-color', 'rgb(23, 22, 28)', 'important');
-      var shadow = 'none';
-      if (frame.style.boxShadow !== shadow) frame.style.setProperty('box-shadow', shadow, 'important');
-    });
-  }
-  var frameObserver = new MutationObserver(function (records) {
-    records.forEach(function (record) {
-      record.addedNodes.forEach(function (node) {
-        if (node.nodeType !== 1) return;
-        var frames = node.tagName === 'IFRAME' ? [node] : node.querySelectorAll('iframe');
-        frames.forEach(function (frame) {
-          if (!originalFrames.has(frame) && (frame.getAttribute('src') === 'about:blank' || frame.hasAttribute('srcdoc'))) chatFrames.add(frame);
-        });
-      });
-    });
-    styleFrames();
-  });
-
+  var returnFocus = launcher;
   function reset() {
     clearTimeout(timer);
     loading = false;
-    label.textContent = 'Get in Touch';
-    cta.removeAttribute('aria-busy');
-  }
-  function open() {
-    api.showWidget();
-    api.maximize();
+    launcher.removeAttribute('aria-busy');
+    if (cta) cta.removeAttribute('aria-busy');
+    if (label) label.textContent = 'Get in Touch';
   }
   function fallback() {
-    if (ready) return;
-    failed = true;
     reset();
-    label.textContent = 'Open Chat';
-    cta.removeAttribute('aria-haspopup');
+    status.innerHTML = 'Chat is unavailable right now. <a href="/contact.html">Send Mike a note instead</a>.';
+    status.hidden = false;
+    launcher.hidden = false;
   }
-  api.onLoad = function () {
-    ready = true;
-    failed = false;
-    reset();
-    cta.setAttribute('aria-haspopup', 'dialog');
-    open();
-  };
-  api.onChatMinimized = function () {
-    api.hideWidget();
-    cta.focus({ preventScroll: true });
-  };
-  cta.addEventListener('click', function (event) {
-    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || failed) return;
-    event.preventDefault();
-    if (ready) { open(); return; }
+  function loadScript(src, onload) {
+    var script = document.createElement('script');
+    script.src = src;
+    script.async = true;
+    script.onload = onload;
+    script.onerror = fallback;
+    document.head.appendChild(script);
+  }
+  function openChat(event) {
+    if (event && (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)) return;
+    if (event) event.preventDefault();
+    returnFocus = event ? event.currentTarget : launcher;
+    status.hidden = true;
+    if (ready) {
+      // Botpress owns this custom launcher's toggle once initialized.
+      if (!event || event.currentTarget !== launcher) window.botpress.open();
+      return;
+    }
     if (loading) return;
     loading = true;
-    label.textContent = 'Opening chat…';
-    cta.setAttribute('aria-busy', 'true');
-    frameObserver.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['style'] });
-    window.Tawk_LoadStart = new Date();
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://embed.tawk.to/6aa052f9fd82573442c931ec/1k21487g4';
-    script.charset = 'UTF-8';
-    script.setAttribute('crossorigin', '*');
-    script.onerror = fallback;
-    timer = setTimeout(fallback, 15000);
-    document.head.appendChild(script);
-  });
+    launcher.setAttribute('aria-busy', 'true');
+    if (cta) cta.setAttribute('aria-busy', 'true');
+    if (label) label.textContent = 'Opening chat…';
+    status.textContent = 'Opening your conversation…';
+    status.hidden = false;
+    timer = setTimeout(fallback, 20000);
+    loadScript('https://cdn.botpress.cloud/webchat/v5.0/inject.js', function () {
+      window.botpress.on('webchat:initialized', function () {
+        ready = true;
+        reset();
+        status.hidden = true;
+        window.botpress.open();
+      });
+      window.botpress.on('webchat:opened', function () { launcher.hidden = true; });
+      window.botpress.on('webchat:closed', function () {
+        launcher.hidden = false;
+        if (returnFocus) returnFocus.focus({ preventScroll: true });
+      });
+      window.botpress.on('error', fallback);
+      loadScript('https://files.bpcontent.cloud/2026/09/09/14/20260909144452-K1GZ0C6Y.js');
+    });
+  }
+  launcher.addEventListener('click', openChat);
+  if (cta) cta.addEventListener('click', openChat);
 }());
