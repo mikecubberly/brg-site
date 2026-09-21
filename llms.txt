@@ -1,6 +1,6 @@
 # Bottle Rocket Growth
 
-> Bottle Rocket Growth (BRG) connects growth strategy, market intelligence, and hands-on execution. Based in Chicago and led by founder Mike Cubberly.
+> Bottle Rocket Growth (BRG) connects growth strategy, market intelligence, and hands-on execution. BRG is based in Chicago and led by founder Mike Cubberly.
 
 ## Core work
 
@@ -9,19 +9,27 @@
 - AI and GTM systems: client-specific agents and connected workflows.
 - Revenue motions: outreach, partnerships, ownership, and follow-through.
 - Team building and enablement: recruiting, onboarding, and sales enablement.
-- Event strategy: conferences, dinners, happy hours, and pre- and post-event programs.
+- Event strategy: audience research, conferences, hosted gatherings, and pre- and post-event programs.
 
-## Explore
+## Primary pages
 
-- [Services](https://bottlerocketgrowth.com/#services)
+- [Bottle Rocket Growth](https://bottlerocketgrowth.com/)
 - [Bottle Rocket Events](https://bottlerocketgrowth.com/events/)
-- [Free tools](https://bottlerocketgrowth.com/free-tools/)
-- [All Systems GEO audit](https://bottlerocketgrowth.com/GEO)
-- [About Mike and BRG](https://bottlerocketgrowth.com/#team)
+- [Free growth tools](https://bottlerocketgrowth.com/free-tools/)
+- [All Systems G(E)O audit](https://bottlerocketgrowth.com/GEO)
 - [Insights](https://bottlerocketgrowth.com/insights/)
-- [Contact Us](https://bottlerocketgrowth.com/contact/)
+- [Contact Bottle Rocket Growth](https://bottlerocketgrowth.com/contact/)
+
+## Practical guides
+
+- [How to define an ICP your team can actually use](https://bottlerocketgrowth.com/insights/defining-an-icp-that-converts)
+- [Signal-based list building: from web research to useful priorities](https://bottlerocketgrowth.com/insights/signal-based-list-building)
+- [LinkedIn sender strategy: credibility, ownership, and account risk](https://bottlerocketgrowth.com/insights/linkedin-sender-profile-strategy)
+- [HeyReach sequence architecture: context, handoffs, and measurement](https://bottlerocketgrowth.com/insights/heyreach-sequence-architecture)
 
 ## Contact
 
-Mike Cubberly: mike@bottlerocketgrowth.com
-LinkedIn: https://www.linkedin.com/in/mikecubberly
+- Mike Cubberly: mike@bottlerocketgrowth.com
+- LinkedIn: https://www.linkedin.com/in/mikecubberly
+
+For a fuller factual site summary, see https://bottlerocketgrowth.com/llms-full.txt
