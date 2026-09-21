@@ -1,5 +1,31 @@
 # Redirect legacy and casing variants to canonical /MCP/
 
+/about /#team 301
+/about.html /#team 301
+/team /#team 301
+/team.html /#team 301
+/press.html /press 301
+/methodology /#services 301
+/methodology.html /#services 301
+/glossary /insights/ 301
+/glossary.html /insights/ 301
+/industries /linkedin/ 301
+/industries/ /linkedin/ 301
+/industries/index.html /linkedin/ 301
+/industries/freight-logistics /linkedin/ 301
+/industries/freight-logistics.html /linkedin/ 301
+/industries/managed-service-providers /linkedin/ 301
+/industries/managed-service-providers.html /linkedin/ 301
+/industries/commercial-insurance /linkedin/ 301
+/industries/commercial-insurance.html /linkedin/ 301
+/conference-commanders /events/ 301
+/conference-commanders.html /events/ 301
+/eventlists /events/ 301
+/eventlists.html /events/ 301
+/alternate / 301
+/alternate/ / 301
+/alternate/index.html / 301
+
 /events /events/ 301
 /events.html /events/ 301
 /contact /contact/ 301
@@ -14,8 +40,8 @@
 /insights/signal-based-list-building.html /insights/signal-based-list-building 301
 /insights/linkedin-sender-profile-strategy.html /insights/linkedin-sender-profile-strategy 301
 /insights/heyreach-sequence-architecture.html /insights/heyreach-sequence-architecture 301
-/growth-consultants /conference-commanders 301
-/growth-consultants.html /conference-commanders 301
+/growth-consultants /events/ 301
+/growth-consultants.html /events/ 301
 
 /signed%20and%20sealed /signedandsealed/ 301
 /signed-and-sealed /signedandsealed/ 301

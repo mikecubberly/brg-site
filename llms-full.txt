@@ -41,6 +41,10 @@ BRG supports B2B event programs through Audience Intelligence, Event Enricher, C
 
 All Systems G(E)O is a free generative engine optimization audit at https://bottlerocketgrowth.com/GEO. It evaluates how clearly a website can be understood, cited, and recommended by AI search systems.
 
+## Press and media
+
+Current company boilerplate, founder information, key facts, approved assets, and media contact details are available at https://bottlerocketgrowth.com/press.
+
 ## Published guides
 
 1. How to define an ICP your team can actually use: https://bottlerocketgrowth.com/insights/defining-an-icp-that-converts

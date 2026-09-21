@@ -1,0 +1,22 @@
+.press-page { max-width: 1180px; }
+.press-page .insight-context a { color: var(--heading-accent); text-decoration: underline; text-underline-offset: 3px; }
+.press-layout { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 22px; }
+.press-block { padding: clamp(24px,3vw,34px); border: 1px solid var(--rule); border-radius: 16px; background: var(--panel); }
+.press-block h2, .press-contact h2 { margin: 12px 0 18px; color: var(--ink); font-size: clamp(1.55rem,3vw,2.1rem); line-height: 1.25; }
+.press-copy-card { color: var(--body-copy); font-size: 1rem; line-height: 1.8; }
+.press-facts { display: grid; gap: 0; }
+.press-facts > div { display: grid; grid-template-columns: minmax(100px,.6fr) minmax(0,1.4fr); gap: 20px; padding: 13px 0; border-bottom: 1px solid var(--rule); }
+.press-facts > div:last-child { border-bottom: 0; }
+.press-facts dt { color: var(--ink); font-weight: 700; }
+.press-facts dd { color: var(--body-copy); }
+.press-topic-list { margin: 0; padding-left: 20px; color: var(--body-copy); }
+.press-topic-list li { margin: 0 0 12px; line-height: 1.65; }
+.press-assets { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; }
+.press-assets a { display: grid; gap: 5px; padding: 18px; border: 1px solid var(--rule); border-radius: 12px; color: var(--ink); background: var(--surface); }
+.press-assets a:hover { border-color: var(--heading-accent); }
+.press-assets span { font-weight: 700; }
+.press-assets small { color: var(--body-copy); }
+.press-contact { margin-top: 42px; padding: clamp(26px,4vw,44px); border: 1px solid var(--rule); border-left: 3px solid var(--heading-accent); border-radius: 16px; background: var(--panel); }
+.press-contact > p:not(.section-kicker) { max-width: 760px; color: var(--body-copy); font-size: 1rem; line-height: 1.75; }
+.press-contact-links { display: flex; flex-wrap: wrap; gap: 18px 28px; margin-top: 24px; }
+@media (max-width: 760px) { .press-layout { grid-template-columns: 1fr; } .press-facts > div { grid-template-columns: 1fr; gap: 4px; } .press-assets { grid-template-columns: 1fr; } }
