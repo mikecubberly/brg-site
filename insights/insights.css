@@ -1,0 +1,20 @@
+.insight-page { max-width: 1080px; margin: 0 auto; padding: 140px 28px 80px; color: var(--ink); }
+.insight-breadcrumb { display: flex; gap: 12px; flex-wrap: wrap; font-size: .875rem; color: var(--body-copy); margin-bottom: 36px; }
+.insight-heading h1 { font-family: 'Bebas Neue',sans-serif; font-weight: 400; font-size: clamp(2.6rem,6vw,4.9rem); line-height: 1.04; letter-spacing: .005em; max-width: 950px; margin: 18px 0 24px; }
+.insight-deck { font-size: 1.125rem; line-height: 1.75; color: var(--body-copy); max-width: 820px; }
+.insight-meta { font-size: .875rem; line-height: 1.7; color: var(--body-copy); margin-top: 22px; }
+.insight-context { border-left: 3px solid var(--heading-accent); background: var(--panel); padding: 22px 26px; margin: 32px 0 42px; font-size: 1rem; line-height: 1.75; color: var(--body-copy); }
+.insight-context strong { color: var(--ink); }
+.insight-prose { max-width: 760px; margin-inline: auto; font-size: 1.0625rem; line-height: 1.85; color: var(--body-copy); }
+.insight-prose h2, .insight-related h2 { color: var(--ink); font-size: 1.7rem; line-height: 1.3; margin: 42px 0 18px; }
+.insight-prose p, .insight-prose ul, .insight-prose dl { margin: 0 0 24px; }
+.insight-prose ul { padding-left: 24px; }
+.insight-prose li { margin-bottom: 14px; }
+.insight-prose dt { font-weight: 700; color: var(--ink); margin-top: 18px; }
+.insight-prose dd { margin: 4px 0 16px; }
+.insight-prose a { color: var(--heading-accent); text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.insight-related { max-width: 760px; margin: 48px auto 0; padding-top: 12px; border-top: 1px solid var(--rule); }
+.insight-related a { display: block; padding: 12px 0; color: var(--heading-accent); }
+.insight-hub-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.insight-hub-grid h2 { font-size: 1.5rem; line-height: 1.35; margin: 18px 0; }
+@media (max-width: 600px) { .insight-page { padding: 120px 22px 54px; } .insight-hub-grid { grid-template-columns: 1fr; } .insight-context { padding: 18px; } }

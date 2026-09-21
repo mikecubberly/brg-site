@@ -1,7 +1,9 @@
 # Redirect legacy and casing variants to canonical /MCP/
 
-/events /conference-commanders 301
-/events.html /conference-commanders 301
+/events /events/ 301
+/events.html /events/ 301
+/contact /contact/ 301
+/contact.html /contact/ 301
 /growth-consultants /conference-commanders 301
 /growth-consultants.html /conference-commanders 301
 

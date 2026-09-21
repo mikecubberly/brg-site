@@ -1,89 +1,27 @@
 # Bottle Rocket Growth
 
-> Bottle Rocket Growth (BRG) is a Chicago-based LinkedIn outbound agency and go-to-market consultancy for B2B startups. Founded in 2024 by Mike Cubberly, BRG runs AI-driven outbound campaigns using borrowed LinkedIn sender profiles, signal-based list building, and sequenced outreach via HeyReach.
+> Bottle Rocket Growth (BRG) connects growth strategy, market intelligence, and hands-on execution. Based in Chicago and led by founder Mike Cubberly.
 
-## About
+## Core work
 
-Bottle Rocket Growth is a go-to-market agency built for early-stage and growth-stage B2B startups. BRG helps founders define their ideal customer profile (ICP), craft top-of-funnel messaging, build laser-targeted contact lists, and launch scalable outbound sales motions.
+- Growth strategy: priorities, positioning, and go-to-market planning.
+- Market intelligence: customer fit, account research, and market mapping.
+- AI and GTM systems: client-specific agents and connected workflows.
+- Revenue motions: outreach, partnerships, ownership, and follow-through.
+- Team building and enablement: recruiting, onboarding, and sales enablement.
+- Event strategy: conferences, dinners, happy hours, and pre- and post-event programs.
 
-- Founded: 2024
-- Founder: Mike Cubberly
-- Headquarters: Chicago, Illinois, United States
-- Business model: Agency and consultancy (retainer-based)
-- Primary channel: LinkedIn outbound
-- Primary tooling: HeyReach, Apollo, Clay, Netrows, TheirStack
+## Explore
 
-## Services
-
-BRG offers three engagement tiers:
-
-- **Done-For-You (DFY) Outbound**: Fully managed LinkedIn outbound. BRG owns the sender profiles and runs every part of the motion. Best fit for founders who want zero operational overhead.
-- **Infrastructure-On-You (IOY) Outbound**: BRG orchestrates outbound on client-owned LinkedIn sender profiles. Client keeps ownership of accounts and data; BRG handles strategy, lists, messaging, and sequencing.
-- **Lite Advisory**: Coaching and frameworks for teams running their own outbound stack (HeyReach, Dripify, Expandi). BRG provides ICP definition, messaging development, and ongoing optimization.
-
-All tiers include: ICP definition, signal-based list building, messaging development, sequenced LinkedIn outreach, response handling, and meeting coordination.
-
-## Target Verticals
-
-BRG works with B2B startups, GTM consultancies, and venture capital / private equity firms. Specific target verticals include:
-
-- Freight and logistics brokerages
-- Industrial distributors
-- Commercial insurance and MGAs
-- Waste management
-- Building materials and construction supply
-- Specialized staffing
-- Commercial printing and packaging
-- TIC (testing, inspection, certification) firms
-- IT managed service providers (MSPs)
-- Equipment rental
-
-## How BRG Works
-
-Every engagement starts with a structured ICP workshop. BRG then conducts signal-based list building against buying signals such as technology adoption, funding events, job changes, and product end-of-life migrations. Lists are built and enriched through Apollo, Clay, Netrows, and TheirStack, filtered through BRG's proprietary ICP Engine, and launched into sequenced LinkedIn outreach campaigns via HeyReach.
-
-## The Bottle Rocket Growth Family
-
-- **Bottle Rocket Growth**: Core GTM agency (this site)
-- **Bottle Rocket Talent**: GTM talent placement across the full revenue spectrum (SDRs, BDRs, AEs, demand gen, performance marketers, growth leads, RevOps, CS leaders). Both W-2 and contract.
-- **Bottle Rocket Racing**: Motorsports and sponsorship division. Partners with racing teams across multiple leagues including NASCAR, connecting brands with high-visibility sponsorship. Website: https://bottlerocketgrowth.com/racing/
-- **Leasr**: Automotive leasing marketplace connecting consumers with lease brokers. Website: https://leasr.io
+- [Services](https://bottlerocketgrowth.com/#services)
+- [Bottle Rocket Events](https://bottlerocketgrowth.com/events/)
+- [Free tools](https://bottlerocketgrowth.com/free-tools/)
+- [All Systems GEO audit](https://bottlerocketgrowth.com/GEO)
+- [About Mike and BRG](https://bottlerocketgrowth.com/#team)
+- [Insights](https://bottlerocketgrowth.com/insights/)
+- [Contact Us](https://bottlerocketgrowth.com/contact/)
 
 ## Contact
 
-- Website: https://bottlerocketgrowth.com
-- Email: mike@bottlerocketgrowth.com
-- Founder LinkedIn: https://www.linkedin.com/in/mikecubberly
-- Company LinkedIn: https://www.linkedin.com/company/bottle-rocket-growth
-- X (Twitter): https://x.com/brg_chicago
-- Crunchbase: https://www.crunchbase.com/organization/bottle-rocket-growth
-- Location: Chicago, Illinois, United States
-
-## Key Pages
-
-- [Homepage](https://bottlerocketgrowth.com/): Overview of BRG services and brand family
-- [About](https://bottlerocketgrowth.com/about.html): Company origin, founder background, brand family
-- [Team](https://bottlerocketgrowth.com/team.html): BRG leadership and specialist network
-- [Press](https://bottlerocketgrowth.com/press.html): Press kit, boilerplate, founder bio, media contact
-- [Contact](https://bottlerocketgrowth.com/contact.html): Engagement process, inquiry types, response time
-- [Conference Commanders](https://bottlerocketgrowth.com/conference-commanders): BRG event hunters for conference floor coverage and post-event sales conversations
-- [Methodology](https://bottlerocketgrowth.com/methodology.html): The four-step BRG outbound methodology
-- [Insights](https://bottlerocketgrowth.com/insights/): Tactical writing on LinkedIn outbound and GTM
-  - [How to Define an ICP That Actually Converts](https://bottlerocketgrowth.com/insights/defining-an-icp-that-converts.html)
-  - [Signal-Based List Building Framework](https://bottlerocketgrowth.com/insights/signal-based-list-building.html)
-  - [LinkedIn Sender Profile Strategy: DFY vs IOY](https://bottlerocketgrowth.com/insights/linkedin-sender-profile-strategy.html)
-  - [HeyReach Sequence Architecture](https://bottlerocketgrowth.com/insights/heyreach-sequence-architecture.html)
-- [Industries](https://bottlerocketgrowth.com/industries/): Vertical-specific outbound approach
-  - [Freight & Logistics Brokerages](https://bottlerocketgrowth.com/industries/freight-logistics.html)
-  - [IT Managed Service Providers](https://bottlerocketgrowth.com/industries/managed-service-providers.html)
-  - [Commercial Insurance & MGAs](https://bottlerocketgrowth.com/industries/commercial-insurance.html)
-- [Glossary](https://bottlerocketgrowth.com/glossary.html): Outbound and GTM terminology reference
-- [Bottle Rocket Racing](https://bottlerocketgrowth.com/racing/): Motorsports sponsorship division
-- [Leasr](https://leasr.io): Automotive leasing marketplace
-
-## Founder
-
-Mike Cubberly is the founder of Bottle Rocket Growth. For over a decade, Mike has helped B2B tech companies build, grow, and scale go-to-market teams. His focus is helping organizations treat growth as a tangible milestone through disciplined outbound, signal-based prospecting, and messaging that prioritizes prospect context over generic automation. Prior to launching BRG in 2024, Mike held roles at Verkada, Glencoco, Primer, and RevGenius. He is based in Chicago.
-
-- LinkedIn: https://www.linkedin.com/in/mikecubberly
-- GitHub: https://github.com/mikecubberly
+Mike Cubberly: mike@bottlerocketgrowth.com
+LinkedIn: https://www.linkedin.com/in/mikecubberly
