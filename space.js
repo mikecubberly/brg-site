@@ -23,7 +23,7 @@ function spaceCanvas(id){
     this.go();
   }
   function Cloud(init){
-    this.spawn=function(i){this.s=rand(.45,1.5);this.y=rand(H*.04,H*.88);this.x=i?rand(-300,W+300):W+380;this.spd=rand(.1,.3);this.a=rand(.04,.12);};
+    this.spawn=function(i){this.s=rand(.45,1.5);this.y=rand(H*.04,H*.88);this.x=i?rand(-300,W+300):W+380;this.spd=rand(.1,.3);this.a=rand(.03,.085);};
     this.update=function(){this.x-=this.spd;if(this.x<-420)this.spawn(false);};
     this.blob=function(x,y,rx,ry){ctx.beginPath();ctx.ellipse(x,y,rx,ry,0,0,Math.PI*2);ctx.fill();};
     this.draw=function(){ctx.fillStyle="rgba(190,200,235,"+this.a+")";var s=this.s;this.blob(this.x,this.y,68*s,25*s);this.blob(this.x+48*s,this.y-14*s,46*s,21*s);this.blob(this.x-36*s,this.y-9*s,40*s,18*s);this.blob(this.x+9*s,this.y-22*s,32*s,16*s);};
@@ -37,7 +37,7 @@ function spaceCanvas(id){
         for(var p=0;p<plPos.length;p++){var dx=ix-plPos[p].x,dy=iy-plPos[p].y;if(Math.sqrt(dx*dx+dy*dy)<r+plPos[p].r+90){ok=false;break;}}tries++;}
       var styles=[{r:46,h:36,s:58},{r:23,h:220,s:5},{r:34,h:185,s:65},{r:29,h:15,s:62}];
       var style=styles[kind];
-      self.r=Math.min(r,style.r);self.ix=ix;self.iy=iy;self.x=ix;self.y=iy;self.a=.23;self.hue=style.h;self.sat=style.s;
+      self.r=Math.min(r,style.r);self.ix=ix;self.iy=iy;self.x=ix;self.y=iy;self.a=.18;self.hue=style.h;self.sat=style.s;
       self.hasRing=kind===0;self.ringTilt=.36;self.tilt=[-.35,.2,.65,-.2][kind];self.phase=rand(0,Math.PI*2);self.period=rand(300,700);self.bands=7;
       // Surface details are generated once, so they never flicker between frames.
       self.details=[];
@@ -100,4 +100,3 @@ function spaceCanvas(id){
 
 spaceCanvas('space-canvas');
 })();
-
