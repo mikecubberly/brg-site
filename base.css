@@ -1,6 +1,4 @@
 
-@font-face{font-family:"Bebas Neue";font-style:normal;font-weight:400;font-display:swap;src:url("/assets/fonts/bebas-neue.woff2") format("woff2");}
-@font-face{font-family:"DM Sans";font-style:normal;font-weight:300 800;font-display:swap;src:url("/assets/fonts/dm-sans.woff2") format("woff2");}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{--ink:#1a1d2e;--slate:#8892b0;--silver:#c8cde0;--light:#eef0f8;--accent:#5b6bff;}
 html,body{width:100%;min-height:100%;background:#fff;font-family:"DM Sans",sans-serif;}
