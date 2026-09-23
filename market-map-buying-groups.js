@@ -51,6 +51,117 @@
     }
   };
 
+  const buyingGroups = {
+    'mfg-aster': [
+      ['Priority','Mock signal: recently discussed standardizing performance reporting across sites.','Likely owns the operating outcome and can confirm urgency.'],
+      ['Champion','Mock signal: appears on the internal systems steering team.','Close to the systems and handoffs that would make the work actionable.'],
+      ['Quinn Foster','Director of Business Transformation','2 years',41,'Alternative','Mock signal: led a cross-functional process redesign last quarter.','A credible route into the initiative if the executive owner is not accessible.']
+    ],
+    'mfg-forge': [
+      ['Priority','Mock signal: sponsored the new production-line announcement.','Likely accountable for the expansion and its operating model.'],
+      ['Champion','Mock signal: is listed on the plant systems implementation team.','Can validate workflow friction and the current technology landscape.'],
+      ['Sofia Martinez','Continuous Improvement Director','4 years',42,'Alternative','Mock signal: shared a process-improvement scorecard with plant leaders.','Can connect the expansion to measurable operational priorities.']
+    ],
+    'mfg-northline': [
+      ['Priority','Mock signal: named executive sponsor for the modernization program.','Owns the business case and cross-site alignment.'],
+      ['Champion','Mock signal: leads the technical workstream for the ERP program.','Has direct evidence of system gaps, dependencies, and timing.'],
+      ['Malik Turner','Program Management Director','3 years',43,'Alternative','Mock signal: coordinates the first-phase rollout across facilities.','Can verify scope and provide a practical path to the wider team.']
+    ],
+    'mfg-meridian': [
+      ['Priority','Mock signal: oversees capacity and delivery across contract sites.','Likely owns the operating priorities if a trigger emerges.'],
+      ['Champion','Mock signal: runs the continuous-improvement cadence.','Would see process friction early and help quantify it.'],
+      ['Grace Han','VP Supply Chain','5 years',44,'Alternative','Mock signal: recently reviewed supplier and production planning controls.','Offers a second executive route when the issue crosses operations and supply chain.']
+    ],
+    'sc-linkfield': [
+      ['Priority','Mock signal: announced the supplier-consolidation program.','Likely owns the program outcome and executive alignment.'],
+      ['Champion','Mock signal: leads vendor segmentation and sourcing governance.','Can explain the supplier decisions, process, and data required.'],
+      ['Olivia Brooks','Director of Supplier Strategy','4 years',45,'Alternative','Mock signal: published a supplier scorecard framework internally.','A practical alternate route with direct evidence of the program design.']
+    ],
+    'sc-arcwell': [
+      ['Priority','Mock signal: hired to establish a global planning function.','The new mandate makes this person the most likely owner of change.'],
+      ['Champion','Mock signal: built the forecasting dashboard used in monthly reviews.','Can validate data quality, adoption, and handoff problems.'],
+      ['Adrian Keller','Finance Transformation Lead','3 years',46,'Alternative','Mock signal: supports the planning and finance operating-model review.','Can connect forecast quality to financial impact and executive priorities.']
+    ],
+    'sc-sable': [
+      ['Priority','Mock signal: leads the network-redesign workstream.','Likely owns the problem definition and desired future state.'],
+      ['Champion','Mock signal: is evaluating the systems required for the redesign.','Can validate technical constraints and implementation readiness.'],
+      ['Naomi Price','Supply Chain Program Lead','2 years',47,'Alternative','Mock signal: coordinates stakeholder interviews across the network.','A strong alternate route with visibility into the full decision group.']
+    ],
+    'sc-keystone': [
+      ['Priority','Mock signal: owns enterprise inventory performance.','Most likely to sponsor action when a meaningful trigger appears.'],
+      ['Champion','Mock signal: runs weekly inventory exception reviews.','Close to the daily symptoms and measurable operational impact.'],
+      ['Ethan Park','Inventory Systems Manager','6 years',48,'Alternative','Mock signal: maintains the systems behind replenishment and reporting.','Can verify the data and workflow issues behind any future initiative.']
+    ],
+    'log-pineward': [
+      ['Priority','Mock signal: executive sponsor for the new regional hub.','Likely owns launch success, capacity, and operating readiness.'],
+      ['Champion','Mock signal: is staffing and standing up the region.','Has direct visibility into launch dependencies and early bottlenecks.'],
+      ['Tessa Morgan','Hub Launch Director','1 year',49,'Alternative','Mock signal: coordinates the hub opening plan across functions.','A timely alternate contact with hands-on responsibility for execution.']
+    ],
+    'log-cinder': [
+      ['Priority','Mock signal: requested a review of brokerage workflows.','Likely owns the operational case for a TMS change.'],
+      ['Champion','Mock signal: is documenting current integrations and process gaps.','Can provide the technical proof needed to qualify the initiative.'],
+      ['Victor Shah','Chief Technology Officer','4 years',50,'Alternative','Mock signal: referenced platform consolidation in a leadership update.','An executive alternative who can confirm priority, scope, and timing.']
+    ],
+    'log-harborlane': [
+      ['Priority','Mock signal: sponsors the enterprise customer experience program.','Likely owns the commercial impact of onboarding performance.'],
+      ['Champion','Mock signal: tracks warehouse readiness for new customer launches.','Can pinpoint the operating handoffs that create risk.'],
+      ['Camille Ross','Enterprise Implementation Lead','3 years',51,'Alternative','Mock signal: manages launch plans for the largest new accounts.','A practical route to evidence, timing, and the working team.']
+    ],
+    'log-lumen': [
+      ['Priority','Mock signal: owns delivery performance across the network.','Most likely to sponsor action when expansion or service changes occur.'],
+      ['Champion','Mock signal: runs the network capacity and exception process.','Can validate where operational pressure is building.'],
+      ['Daniel Reyes','VP Customer Operations','5 years',52,'Alternative','Mock signal: leads service reviews for strategic customers.','Can connect operational issues to retention and customer impact.']
+    ],
+    'sw-marrow': [
+      ['Priority','Mock signal: announced the operating plan for a second product line.','Likely owns cross-functional readiness and the executive outcome.'],
+      ['Champion','Mock signal: is redesigning pipeline and customer handoffs.','Can validate where the expansion is stressing the revenue system.'],
+      ['Hana Kim','Director of Customer Operations','4 years',53,'Alternative','Mock signal: built the new-product onboarding checklist.','A direct route to customer journey evidence and implementation detail.']
+    ],
+    'sw-nexora': [
+      ['Priority','Mock signal: joined with a mandate to rebuild revenue operations.','The new role is the clearest owner of the potential change.'],
+      ['Champion','Mock signal: is testing new acquisition channels and segments.','Can connect market experiments to operational needs.'],
+      ['Andre Lewis','Chief Revenue Officer','2 years',54,'Alternative','Mock signal: referenced predictable growth as a current company priority.','An executive route for confirming urgency, budget, and sponsorship.']
+    ],
+    'sw-tandem': [
+      ['Priority','Mock signal: is leading the move into enterprise accounts.','Likely owns the commercial outcome and buying decision.'],
+      ['Champion','Mock signal: is building the first enterprise sales playbook.','Close to the daily motion and able to validate execution gaps.'],
+      ['Elena Vasquez','Director of GTM Strategy','2 years',55,'Alternative','Mock signal: mapped the initial enterprise segments and use cases.','A strong route into targeting, positioning, and market-priority evidence.']
+    ],
+    'sw-atlas': [
+      ['Priority','Mock signal: owns retention and expansion across the customer base.','Most likely to sponsor work when a customer trigger appears.'],
+      ['Champion','Mock signal: leads roadmap reviews with strategic customers.','Can surface unmet needs and product-workflow friction.'],
+      ['Marcus Boyd','Revenue Systems Lead','3 years',56,'Alternative','Mock signal: maintains the customer and revenue data model.','Can verify the operational data behind any growth initiative.']
+    ],
+    'svc-bellwether': [
+      ['Priority','Mock signal: announced the launch of a new advisory practice.','Likely owns the investment, positioning, and early revenue target.'],
+      ['Champion','Mock signal: is developing the new practice offer and delivery model.','Can validate buyer fit, proof points, and launch needs.'],
+      ['Rachel Chen','Director of Practice Operations','4 years',57,'Alternative','Mock signal: built the practice launch plan and operating cadence.','A practical alternate route with direct visibility into execution.']
+    ],
+    'svc-cedar': [
+      ['Priority','Mock signal: selected the first vertical for expansion.','Likely owns the growth target and final prioritization decision.'],
+      ['Champion','Mock signal: is adapting the offer for the new buyer group.','Can validate messaging, proof, and client-fit requirements.'],
+      ['Omar Patel','Head of Demand Generation','2 years',58,'Alternative','Mock signal: is building the first vertical campaign.','A direct route into channel readiness, targeting, and early response data.']
+    ],
+    'svc-westward': [
+      ['Priority','Mock signal: joined to build a more repeatable sales motion.','The new hire is the clearest day-to-day owner of growth change.'],
+      ['Champion','Mock signal: sponsors the commercial plan and account strategy.','Can provide executive context and open the wider leadership team.'],
+      ['Nicole Grant','Strategy Director','5 years',59,'Alternative','Mock signal: leads positioning work for the studio’s priority sectors.','Can connect market focus to client proof and sales conversations.']
+    ],
+    'svc-northstar': [
+      ['Priority','Mock signal: owns the company strategy and service portfolio.','Most likely to sponsor action when a meaningful trigger emerges.'],
+      ['Champion','Mock signal: runs the customer feedback and renewal cadence.','Can identify recurring buyer needs and service gaps.'],
+      ['Peter Wallace','VP Partnerships','3 years',60,'Alternative','Mock signal: is testing new routes to market with ecosystem partners.','An alternate path into growth priorities and external demand signals.']
+    ]
+  };
+
+  Object.values(sectors).forEach(sector => {
+    sector.accounts.forEach(account => {
+      const group = buyingGroups[account.id];
+      account.people = account.people.map((person,index) => [...person,...group[index]]);
+      account.people.push(group[2]);
+    });
+  });
+
   const fitNames = { strong:'Strong fit', explore:'Explore', watch:'Watch' };
   const edgeIndexes = [[0,1],[0,3],[1,2],[1,3],[2,3]];
   const viewport = document.getElementById('market-map-viewport');
@@ -124,15 +235,17 @@
   }
 
   function personCard(person) {
-    const [name,title,tenure] = person;
+    const [name,title,tenure,,rank,proof,reason] = person;
     const card = make('div','detail-person');
     const copy = make('div','detail-person-copy');
-    copy.append(make('strong','',name),make('span','',title),make('small','',`${tenure} at company`));
+    copy.append(make('span',`person-rank rank-${rank.toLowerCase()}`,rank),make('strong','',name),make('span','',title),make('small','',`${tenure} at company`));
     const linkedIn = make('span','person-linkedin','in');
     linkedIn.setAttribute('role','img');
     linkedIn.setAttribute('aria-label','LinkedIn profile indicator, illustrative only');
     linkedIn.title = 'Illustrative profile, not a live link';
-    card.append(portrait(person,'detail-person-photo'),copy,linkedIn);
+    const evidence = make('div','person-evidence');
+    evidence.append(make('p','person-proof',proof),make('p','person-reason',`Why mapped: ${reason}`));
+    card.append(portrait(person,'detail-person-photo'),copy,linkedIn,evidence);
     return card;
   }
 
@@ -149,13 +262,13 @@
     const signal = make('div','detail-signal');
     signal.append(make('span','detail-label','Signal'),make('strong','',account.signal));
     const people = make('div','detail-people');
-    people.append(make('span','detail-label','People to map'));
+    people.append(make('span','detail-label','Ranked buying group'),make('p','detail-people-note','Priority, Champion, and Alternative with fictional evidence to illustrate the research model.'));
     account.people.forEach(person => people.append(personCard(person)));
     const why = make('div','detail-line');
     why.append(make('span','detail-label','Why now'),make('p','',account.why));
     const next = make('div','detail-next');
     next.append(make('span','detail-label','Next move'),make('p','',account.next));
-    detail.append(top,signal,people,why,next,make('p','detail-note','Illustrative only. Companies, people, roles, tenure, and signals are fictional.'));
+    detail.append(top,signal,people,why,next,make('p','detail-note','Illustrative only. Companies, people, roles, tenure, signals, and evidence are fictional.'));
     drawConnections();
   }
 
@@ -177,7 +290,11 @@
       status.setAttribute('aria-hidden','true');
       const people = make('span','node-people');
       people.setAttribute('aria-hidden','true');
-      account.people.forEach(person => people.append(portrait(person,'node-person-photo')));
+      account.people.forEach(person => {
+        const image = portrait(person,'node-person-photo');
+        image.title = `${person[0]} · ${person[4]}`;
+        people.append(image);
+      });
       button.append(logo(account),copy,status,people);
       button.addEventListener('click',() => renderDetail(account.id));
       nodes.append(button);

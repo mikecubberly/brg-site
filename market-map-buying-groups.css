@@ -83,14 +83,24 @@
 .detail-signal strong { color: #eee8f3; font-size: .72rem; text-align: right; }
 .detail-label { display: block; flex: 0 0 auto; color: #9d8cab; font: 700 .52rem ui-monospace,monospace; letter-spacing: .12em; text-transform: uppercase; }
 .detail-people { padding: 14px 0 8px; border-bottom: 1px solid #ffffff12; }
-.detail-person { position: relative; display: grid; grid-template-columns: 42px minmax(0,1fr) 19px; align-items: center; gap: 9px; margin-top: 10px; }
+.detail-people-note { margin-top: 6px; color: #887c91; font-size: .56rem; line-height: 1.45; }
+.detail-person { position: relative; display: grid; grid-template-columns: 42px minmax(0,1fr) 19px; align-items: start; gap: 9px; padding: 12px 0; }
+.detail-person + .detail-person { border-top: 1px solid #ffffff0d; }
 .detail-person-photo { width: 42px; height: 42px; border: 1px solid #8a7899; border-radius: 50%; object-fit: cover; }
 .detail-person-copy { min-width: 0; }
 .detail-person-copy strong, .detail-person-copy span, .detail-person-copy small { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .detail-person-copy strong { color: #f5f0f8; font-size: .68rem; }
 .detail-person-copy span { margin-top: 3px; color: #b7adbf; font-size: .6rem; }
 .detail-person-copy small { margin-top: 3px; color: #817788; font-size: .54rem; }
+.detail-person-copy .person-rank { display: inline-flex; width: auto; margin: 0 0 5px; padding: 2px 6px; overflow: visible; border: 1px solid currentColor; border-radius: 999px; font: 750 .46rem ui-monospace,monospace; letter-spacing: .09em; text-transform: uppercase; }
+.rank-priority { color: #d8b7f3!important; background: #c09cde15; }
+.rank-champion { color: #94d9af!important; background: #74c59612; }
+.rank-alternative { color: #9ec9ee!important; background: #75aedf12; }
 .person-linkedin { display: grid; place-items: center; width: 19px; height: 19px; border: 1px solid #7aa5c9; border-radius: 4px; color: #a9d6fa; background: #3b77a736; font: 800 .58rem Arial,sans-serif; cursor: default; }
+.person-evidence { grid-column: 2 / -1; display: grid; gap: 5px; min-width: 0; }
+.person-evidence p { margin: 0; font-size: .57rem; line-height: 1.42; }
+.person-proof { color: #c4b8cc; }
+.person-reason { color: #93869d; }
 .detail-line { padding: 14px 0; border-bottom: 1px solid #ffffff12; }
 .detail-line p, .detail-next p { margin-top: 7px; color: #cdc4d4; font-size: .69rem; line-height: 1.52; }
 .detail-next { margin-top: 15px; padding-left: 12px; border-left: 1px solid #c09cde; }
