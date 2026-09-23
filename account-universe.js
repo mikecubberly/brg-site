@@ -5,7 +5,6 @@
   // This is a fictional product demonstration. Every company, person, signal, and score is illustrative.
   const canvasWidth = 980;
   const canvasHeight = 560;
-  const offsets = [[-74,-42],[-12,-72],[61,-46],[-96,22],[-29,12],[44,28],[92,66],[-5,78]];
   const clusterDefinitions = [
     {
       key:'manufacturing', label:'Manufacturing', center:[175,150],
@@ -130,14 +129,16 @@
   ];
 
   const accounts = [];
+  let globalAccountIndex = 0;
   clusterDefinitions.forEach((cluster,clusterIndex) => {
     cluster.accounts.forEach((raw,index) => {
       const [name,fit,view,signal,employees] = raw;
-      const [dx,dy] = offsets[index];
       const id = `${cluster.key}-${index}`;
       const signalStrength = view === 'priority' ? 96 : view === 'strong' ? 78 + (index % 9) : view === 'explore' ? 58 : 28;
       const people = name === 'Northline Fabrication' ? peoplePools[0] : peoplePools[(clusterIndex + 1) % peoplePools.length];
-      accounts.push({id,name,sector:cluster.key,sectorLabel:cluster.label,x:cluster.center[0]+dx,y:cluster.center[1]+dy,fit,view,signal,signalStrength,employees,people});
+      const portraits = name === 'Northline Fabrication' ? people.map(person => person[4]) : [0,1,2].map(offset => ((globalAccountIndex * 3 + offset) % 60) + 1);
+      accounts.push({id,name,sector:cluster.key,sectorLabel:cluster.label,x:cluster.center[0],y:cluster.center[1],fit,view,signal,signalStrength,employees,people,portraits,logoSeed:globalAccountIndex});
+      globalAccountIndex += 1;
     });
   });
 
@@ -161,15 +162,86 @@
     return element;
   };
 
+  const sectorPalettes = {
+    manufacturing:['#6d55d8','#f0a44b'],
+    'supply-chain':['#13a777','#51c4d6'],
+    logistics:['#2f77dc','#f2bd42'],
+    'industrial-tech':['#ee684f','#f3a1aa'],
+    software:['#169bd6','#8866e8'],
+    services:['#d95d9f','#f0a34a']
+  };
+
+  function logoMark(account) {
+    const frame = make('span','account-logo');
+    const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+    svg.setAttribute('viewBox','0 0 32 32');
+    svg.setAttribute('aria-hidden','true');
+    const palette = sectorPalettes[account.sector];
+    const variant = account.logoSeed % 6;
+    const add = (tag,attributes) => {
+      const shape = document.createElementNS('http://www.w3.org/2000/svg',tag);
+      Object.entries(attributes).forEach(([key,value]) => shape.setAttribute(key,value));
+      svg.append(shape);
+    };
+    if (variant === 0) {
+      add('circle',{cx:12,cy:16,r:7,fill:palette[0]});
+      add('circle',{cx:21,cy:16,r:7,fill:palette[1],opacity:.9});
+    } else if (variant === 1) {
+      add('rect',{x:7,y:7,width:18,height:18,rx:5,fill:palette[0]});
+      add('path',{d:'M11 20 L16 10 L21 20 Z',fill:'#fff'});
+    } else if (variant === 2) {
+      add('path',{d:'M7 22 L13 8 H18 L12 22 Z',fill:palette[0]});
+      add('path',{d:'M15 22 L21 8 H26 L20 22 Z',fill:palette[1]});
+    } else if (variant === 3) {
+      add('path',{d:'M16 5 L27 16 L16 27 L5 16 Z',fill:palette[0]});
+      add('circle',{cx:16,cy:16,r:4.5,fill:'#fff'});
+    } else if (variant === 4) {
+      add('circle',{cx:16,cy:16,r:10,fill:'none',stroke:palette[0],'stroke-width':4});
+      add('path',{d:'M8 18 C12 9 20 9 24 18',fill:'none',stroke:palette[1],'stroke-width':3,'stroke-linecap':'round'});
+    } else {
+      add('rect',{x:5,y:5,width:22,height:22,rx:11,fill:palette[0]});
+      const text = document.createElementNS('http://www.w3.org/2000/svg','text');
+      text.setAttribute('x','16');
+      text.setAttribute('y','20.5');
+      text.setAttribute('text-anchor','middle');
+      text.setAttribute('fill','#fff');
+      text.setAttribute('font-size','13');
+      text.setAttribute('font-weight','800');
+      text.setAttribute('font-family','Arial, sans-serif');
+      text.textContent = account.name.charAt(0);
+      svg.append(text);
+    }
+    frame.append(svg);
+    return frame;
+  }
+
+  function layoutAccounts() {
+    const selected = selectedAccount();
+    const shown = accounts.filter(visible);
+    const others = shown.filter(account => account.id !== selected.id);
+    selected.x = canvasWidth / 2;
+    selected.y = canvasHeight / 2;
+    const rings = others.length > 28
+      ? [{count:9,rx:150,ry:88,offset:-Math.PI/2},{count:15,rx:275,ry:165,offset:-Math.PI/2+.13},{count:Infinity,rx:410,ry:238,offset:-Math.PI/2+.05}]
+      : others.length > 10
+        ? [{count:8,rx:190,ry:112,offset:-Math.PI/2},{count:Infinity,rx:350,ry:205,offset:-Math.PI/2+.12}]
+        : [{count:Infinity,rx:300,ry:175,offset:-Math.PI/2}];
+    let cursor = 0;
+    rings.forEach(ring => {
+      const remaining = others.length - cursor;
+      const count = Math.min(ring.count,remaining);
+      for (let index = 0; index < count; index += 1) {
+        const account = others[cursor + index];
+        const angle = ring.offset + (Math.PI * 2 * index / count);
+        account.x = canvasWidth / 2 + Math.cos(angle) * ring.rx;
+        account.y = canvasHeight / 2 + Math.sin(angle) * ring.ry;
+      }
+      cursor += count;
+    });
+  }
+
   function renderClusters() {
     clustersLayer.replaceChildren();
-    clusterDefinitions.forEach(cluster => {
-      if (sectorFilter !== 'all' && cluster.key !== sectorFilter) return;
-      const label = make('span','universe-cluster',cluster.label);
-      label.style.left = `${cluster.center[0]}px`;
-      label.style.top = `${cluster.center[1] - 116}px`;
-      clustersLayer.append(label);
-    });
   }
 
   function drawLine(from,to,className) {
@@ -183,20 +255,24 @@
   function renderConnections() {
     connections.replaceChildren();
     const selected = selectedAccount();
-    clusterDefinitions.forEach(cluster => {
-      const clusterAccounts = accounts.filter(account => account.sector === cluster.key);
-      [[0,1],[1,4],[4,5],[2,6]].forEach(([a,b]) => {
-        const from = clusterAccounts[a];
-        const to = clusterAccounts[b];
-        if (!visible(from) || !visible(to)) return;
-        const related = from.id === selected.id || to.id === selected.id;
-        drawLine(from,to,`universe-edge${related ? ' is-related' : ' is-muted'}`);
-      });
+    const shown = accounts.filter(visible);
+    const ringCount = shown.length > 28 ? 3 : shown.length > 10 ? 2 : 1;
+    const ringSizes = ringCount === 3 ? [[150,88],[275,165],[410,238]] : ringCount === 2 ? [[190,112],[350,205]] : [[300,175]];
+    ringSizes.forEach(([rx,ry],index) => {
+      const ellipse = document.createElementNS('http://www.w3.org/2000/svg','ellipse');
+      ellipse.setAttribute('cx',String(canvasWidth / 2));
+      ellipse.setAttribute('cy',String(canvasHeight / 2));
+      ellipse.setAttribute('rx',String(rx));
+      ellipse.setAttribute('ry',String(ry));
+      ellipse.setAttribute('class',`universe-orbit orbit-${index + 1}`);
+      connections.append(ellipse);
     });
+    shown.filter(account => account.id !== selected.id && account.sector === selected.sector).slice(0,4).forEach(account => drawLine(selected,account,'universe-edge is-related'));
   }
 
   function nodeSize(account) {
-    return Math.round(Math.max(11,Math.min(25,11 + (account.fit - 55) * .32)));
+    if (account.id === selectedId) return 64;
+    return Math.round(Math.max(34,Math.min(46,34 + (account.fit - 55) * .3)));
   }
 
   function renderNodes() {
@@ -212,10 +288,20 @@
       button.classList.toggle('is-selected',account.id === selected.id);
       button.classList.toggle('is-muted',account.id !== selected.id);
       button.classList.toggle('is-filtered',!visible(account));
-      button.classList.toggle('has-label',account.view === 'priority' || account.fit >= 88);
+      button.classList.toggle('has-label',account.view === 'priority');
       button.setAttribute('aria-pressed',String(account.id === selected.id));
       button.setAttribute('aria-label',`${account.name}. Fit score ${account.fit}. ${account.signal}.`);
-      button.append(make('span','account-satellite'),make('span','account-label',account.name));
+      const people = make('span','account-people');
+      const portraits = account.id === selected.id ? account.portraits.slice(0,4) : account.portraits.slice(0,3);
+      portraits.forEach(number => {
+        const image = document.createElement('img');
+        image.src = portraitPath(number);
+        image.alt = '';
+        image.width = 16;
+        image.height = 16;
+        people.append(image);
+      });
+      button.append(logoMark(account),people,make('span','account-label',account.name));
       button.addEventListener('click',() => {
         selectedId = account.id;
         render();
@@ -226,24 +312,6 @@
 
   function renderCommittee() {
     committeeLayer.replaceChildren();
-    const account = selectedAccount();
-    if (!visible(account)) return;
-    const placements = [[-62,-49],[61,-48],[67,48],[-60,51]];
-    account.people.slice(0,4).forEach((person,index) => {
-      const [name,,,,portrait] = person;
-      const [dx,dy] = placements[index];
-      const satellite = make('div','committee-node');
-      satellite.style.left = `${account.x + dx}px`;
-      satellite.style.top = `${account.y + dy}px`;
-      const image = document.createElement('img');
-      image.src = portraitPath(portrait);
-      image.alt = '';
-      image.width = 24;
-      image.height = 24;
-      satellite.append(image,make('span','',name.split(' ')[0]));
-      committeeLayer.append(satellite);
-      drawLine(account,{x:account.x+dx,y:account.y+dy},'committee-edge');
-    });
   }
 
   function detailSignals(account) {
@@ -302,6 +370,7 @@
 
   function render() {
     ensureSelectedVisible();
+    layoutAccounts();
     renderClusters();
     renderNodes();
     renderConnections();
