@@ -56,14 +56,18 @@
 .account-node.view-priority { border-width:2px; }
 .account-logo { display:grid; place-items:center; width:94%; height:94%; }
 .account-logo svg { display:block; width:108%; height:108%; overflow:visible; }
+.account-score { position:absolute; top:-13px; right:-45px; z-index:3; width:max-content; padding:4px 7px 3px; border:1px solid #d2b6df; border-radius:999px; color:#fff; background:#22182c; box-shadow:0 5px 14px #000b,0 0 12px #b58cc75c; font:800 .76rem/1 'DM Sans',sans-serif; letter-spacing:-.025em; pointer-events:none; }
 .account-people { position:absolute; top:calc(100% + 4px); left:50%; display:flex; align-items:center; transform:translateX(-50%); padding:1px 3px; border:1px solid #ffffff35; border-radius:999px; background:#111018e8; box-shadow:0 4px 10px #0008; }
 .account-people img { display:block; width:14px; height:14px; margin-left:-3px; border:1px solid #f5f1f7; border-radius:50%; object-fit:cover; }
 .account-people img:first-child { margin-left:0; }
 .account-node.is-selected .account-people img { width:18px; height:18px; }
-.account-label { position:absolute; top:calc(100% + 25px); left:50%; width:max-content; max-width:126px; transform:translateX(-50%); color:#a79faa; font-size:.68rem; line-height:1.15; text-align:center; text-shadow:0 2px 5px #000; pointer-events:none; }
+.account-label { position:absolute; top:calc(100% + 25px); left:50%; display:block; width:max-content; max-width:136px; transform:translateX(-50%); color:#d8d0dc; font-size:.69rem; font-weight:650; line-height:1.15; text-align:center; text-shadow:0 2px 5px #000; pointer-events:none; }
 .account-node.has-label .account-label { color:#ddd5e1; }
 .account-node.is-selected .account-label { top:calc(100% + 29px); color:#fff; font-size:.76rem; font-weight:750; }
-.account-node:not(.has-label):not(.is-selected) .account-label { display:none; }
+.market-map-nodes[data-density="medium"] .account-score { top:-10px; right:-39px; font-size:.68rem; }
+.market-map-nodes[data-density="dense"] .account-score { top:-9px; right:-35px; padding:3px 5px; font-size:.61rem; }
+.market-map-nodes[data-density="medium"] .account-label { max-width:112px; font-size:.62rem; }
+.market-map-nodes[data-density="dense"] .account-label { top:calc(100% + 22px); max-width:96px; font-size:.56rem; }
 .market-map-committee { position:absolute; inset:0; z-index:5; pointer-events:none; }
 .market-map-key { position:absolute; right:17px; bottom:14px; z-index:6; display:flex; gap:15px; color:#6d6672; font-size:.65rem; }
 .market-map-key span { display:flex; align-items:center; gap:5px; }

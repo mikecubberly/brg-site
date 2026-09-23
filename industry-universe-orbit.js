@@ -280,6 +280,8 @@
     nodesLayer.replaceChildren();
     nodeButtons = new Map();
     const selected = selectedAccount();
+    const shownCount = accounts.filter(visible).length;
+    nodesLayer.dataset.density = shownCount > 24 ? 'dense' : shownCount > 10 ? 'medium' : 'focused';
     accounts.forEach(account => {
       const button = make('button',`account-node view-${account.view}`);
       button.type = 'button';
@@ -303,7 +305,12 @@
         image.height = 16;
         people.append(image);
       });
-      button.append(logoMark(account),people,make('span','account-label',account.name));
+      button.append(
+        logoMark(account),
+        make('span','account-score',`${account.fit} out of 100`),
+        people,
+        make('span','account-label',account.name)
+      );
       button.addEventListener('click',() => {
         selectedId = account.id;
         render();
