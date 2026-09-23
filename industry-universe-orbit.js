@@ -149,7 +149,7 @@
   const clustersLayer = document.getElementById('market-map-clusters');
   const committeeLayer = document.getElementById('market-map-committee');
   const detail = document.getElementById('market-map-detail');
-  const identityCount = app.querySelector('.market-map-identity span');
+  const identityCount = app.querySelector('.market-map-account-count');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let sectorFilter = 'manufacturing';
   let viewFilter = 'all';
