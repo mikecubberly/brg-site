@@ -149,6 +149,8 @@
   const clustersLayer = document.getElementById('market-map-clusters');
   const committeeLayer = document.getElementById('market-map-committee');
   const detail = document.getElementById('market-map-detail');
+  const detailScrollTrack = app.querySelector('.market-map-scroll-track');
+  const detailScrollThumb = app.querySelector('.market-map-scroll-thumb');
   const identityCount = app.querySelector('.market-map-account-count');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let sectorFilter = 'manufacturing';
@@ -369,6 +371,19 @@
     return signalDetails[account.signal] || [account.signal,`${account.sectorLabel} activity is above its recent baseline`,account.view === 'watch' ? 'No verified trigger yet' : 'Relevant buying-group activity is visible'];
   }
 
+  function updateDetailScrollCue() {
+    if (!detailScrollTrack || !detailScrollThumb) return;
+    const maxScroll = Math.max(0,detail.scrollHeight - detail.clientHeight);
+    detailScrollTrack.classList.toggle('is-scrollable',maxScroll > 2);
+    if (maxScroll <= 2) return;
+    const trackHeight = detailScrollTrack.clientHeight;
+    const thumbHeight = Math.max(42,trackHeight * (detail.clientHeight / detail.scrollHeight));
+    const travel = Math.max(0,trackHeight - thumbHeight);
+    const offset = travel * (detail.scrollTop / maxScroll);
+    detailScrollThumb.style.height = `${thumbHeight}px`;
+    detailScrollThumb.style.transform = `translateY(${offset}px)`;
+  }
+
   function renderDetail() {
     const account = selectedAccount();
     const signals = detailSignals(account);
@@ -420,6 +435,8 @@
     const recommended = make('section','intel-section');
     recommended.append(make('div','intel-section-title','Recommended play'),make('div','recommended-play',play));
     detail.append(head,why,committee,recommended,make('p','intel-note','Illustrative demo. All companies, people, signals, scores, and recommendations are fictional.'));
+    detail.scrollTop = 0;
+    window.requestAnimationFrame(updateDetailScrollCue);
   }
 
   function ensureSelectedVisible() {
@@ -488,10 +505,14 @@
 
   app.querySelectorAll('[data-map-sector]').forEach(button => button.addEventListener('click',() => setSector(button.dataset.mapSector)));
   app.querySelectorAll('[data-map-filter]').forEach(button => button.addEventListener('click',() => setView(button.dataset.mapFilter)));
+  detail.addEventListener('scroll',updateDetailScrollCue,{passive:true});
   let resizeTimer;
   window.addEventListener('resize',() => {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(fitCanvas,100);
+    resizeTimer = setTimeout(() => {
+      fitCanvas();
+      updateDetailScrollCue();
+    },100);
   });
 
   render();
