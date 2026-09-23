@@ -95,48 +95,40 @@
     'New regional hub':['New regional hub announced','Launch hiring is active','Regional systems ownership is visible'],
     'Supplier consolidation':['Supplier consolidation program','Procurement leadership is newly aligned','Vendor governance roles are expanding']
   };
-  const peoplePools = [
-    [
-      ['Dana Ellis','COO','Economic Buyer','Priority',5,'Executive sponsor'],
-      ['Owen Reed','Director of Technology','Technical Champion','ERP research signal',6,'Active'],
-      ['Rachel Kim','CFO','Financial Buyer','No active signal',43,'Quiet'],
-      ['Malik Turner','Program Management Director','Project Champion','New role',44,'Active']
-    ],
-    [
-      ['Nina Solis','Chief Supply Chain Officer','Economic Buyer','Priority',9,'Executive sponsor'],
-      ['Kiran Moss','VP Procurement','Business Champion','Program activity',10,'Active'],
-      ['Seth Quinn','Director of Analytics','Technical Evaluator','Research signal',12,'Active'],
-      ['Grace Han','VP Operations','Alternative Route','No active signal',44,'Quiet']
-    ],
-    [
-      ['Caleb Ford','Chief Operating Officer','Economic Buyer','Priority',17,'Executive sponsor'],
-      ['Imani Brooks','Regional VP','Business Champion','Expansion signal',18,'Active'],
-      ['Marcus Hill','Director of Technology','Technical Evaluator','Systems review',20,'Active'],
-      ['Camille Ross','Implementation Lead','Project Champion','Launch activity',51,'Active']
-    ],
-    [
-      ['Caroline Wu','Chief Operating Officer','Economic Buyer','Priority',25,'Executive sponsor'],
-      ['Evan Brooks','VP Revenue Operations','Business Champion','Workflow signal',26,'Active'],
-      ['Hana Kim','Director of Customer Operations','Project Champion','Hiring signal',53,'Active'],
-      ['Grant Holloway','VP Product','Alternative Route','No active signal',32,'Quiet']
-    ],
-    [
-      ['Mateo Silva','Managing Partner','Economic Buyer','Priority',33,'Executive sponsor'],
-      ['Rina Shah','Practice Lead','Business Champion','Launch signal',34,'Active'],
-      ['Omar Patel','Head of Demand Generation','Activation Lead','Campaign build',58,'Active'],
-      ['Nicole Grant','Strategy Director','Alternative Route','No active signal',59,'Quiet']
-    ]
-  ];
+  const firstNames = ['Avery','Jordan','Taylor','Morgan','Cameron','Riley','Parker','Quinn','Reese','Logan','Casey','Devon','Sidney','Hayden','Blake','Emerson','Finley','Rowan','Drew','Kendall','Sage','Ellis','Blair','Remy','Micah','Jamie','Tessa','Nolan','Priya','Mateo','Lena'];
+  const lastNames = ['Bennett','Patel','Kim','Rivera','Brooks','Sullivan','Shah','Turner','Chen','Morgan','Foster','Grant','Ortiz','Reed','Ellis','Wallace','Singh','Hayes','Carter','Nguyen','Price','Holloway','Walker','Diaz','Ross','Campbell','Murphy','Stone','Lane'];
+  const committeeTitles = {
+    manufacturing:['Chief Operating Officer','VP Manufacturing','Director of Operational Excellence'],
+    'supply-chain':['Chief Supply Chain Officer','VP Procurement','Director of Network Planning'],
+    logistics:['Chief Operating Officer','VP Transportation','Director of Warehouse Operations'],
+    'industrial-tech':['Chief Operating Officer','VP Product','Director of Solutions Engineering'],
+    software:['Chief Revenue Officer','VP Revenue Operations','VP Sales'],
+    services:['Managing Partner','VP Client Services','Director of Business Development']
+  };
+  const committeeRoles = ['Decision maker','Internal champion','Alternate route'];
+  const committeeRanks = ['Priority','Champion','Alternative'];
+
+  function buildCommittee(accountIndex,sector,signal) {
+    return committeeTitles[sector].map((title,slot) => {
+      const firstName = firstNames[(accountIndex * 5 + slot * 7) % firstNames.length];
+      const lastName = lastNames[(accountIndex * 7 + slot * 11) % lastNames.length];
+      const tenure = 1 + ((accountIndex * 3 + slot * 4) % 11);
+      const trigger = signal === 'No current trigger' ? 'adjacent to the operating need' : `closest to ${signal.toLowerCase()}`;
+      const proof = slot === 0 ? `${tenure} yrs at company · owns the budget` : slot === 1 ? `${tenure} yrs at company · ${trigger}` : `${tenure} yrs at company · viable alternate route`;
+      const portrait = ((accountIndex * 4 + slot * 13) % 60) + 1;
+      return [`${firstName} ${lastName}`,title,committeeRoles[slot],proof,portrait,slot < 2 ? 'Active' : 'Quiet',committeeRanks[slot]];
+    });
+  }
 
   const accounts = [];
   let globalAccountIndex = 0;
-  clusterDefinitions.forEach((cluster,clusterIndex) => {
+  clusterDefinitions.forEach(cluster => {
     cluster.accounts.forEach((raw,index) => {
       const [name,fit,view,signal,employees] = raw;
       const id = `${cluster.key}-${index}`;
       const signalStrength = view === 'priority' ? 96 : view === 'strong' ? 78 + (index % 9) : view === 'explore' ? 58 : 28;
-      const people = name === 'Northline Fabrication' ? peoplePools[0] : peoplePools[(clusterIndex + 1) % peoplePools.length];
-      const portraits = name === 'Northline Fabrication' ? people.map(person => person[4]) : [0,1,2].map(offset => ((globalAccountIndex * 3 + offset) % 60) + 1);
+      const people = buildCommittee(globalAccountIndex,cluster.key,signal);
+      const portraits = people.map(person => person[4]);
       accounts.push({id,name,sector:cluster.key,sectorLabel:cluster.label,x:cluster.center[0],y:cluster.center[1],fit,view,signal,signalStrength,employees,people,portraits,logoSeed:globalAccountIndex});
       globalAccountIndex += 1;
     });
@@ -159,7 +151,7 @@
   let orbitPaused = false;
   let lastOrbitFrame = 0;
 
-  const visible = account => (sectorFilter === 'all' || account.sector === sectorFilter) && (viewFilter === 'all' || account.view === viewFilter);
+  const visible = account => account.sector === sectorFilter && (viewFilter === 'all' || account.view === viewFilter);
   const selectedAccount = () => accounts.find(account => account.id === selectedId);
   const make = (tag,className,text) => {
     const element = document.createElement(tag);
@@ -353,11 +345,11 @@
 
     const committee = make('section','intel-section');
     const committeeTitle = make('div','intel-section-title','Buying committee');
-    committeeTitle.append(make('span','',`${account.people.length}/6 mapped`));
+    committeeTitle.append(make('span','',`${account.people.length} people mapped`));
     committee.append(committeeTitle);
     const peopleList = make('div','committee-list');
     account.people.forEach(person => {
-      const [name,title,role,status,portrait,state] = person;
+      const [name,title,role,proof,portrait,state,rank] = person;
       const row = make('div','committee-row');
       const image = document.createElement('img');
       image.src = portraitPath(portrait);
@@ -365,8 +357,8 @@
       image.width = 30;
       image.height = 30;
       const copy = make('div','committee-copy');
-      copy.append(make('strong','',name),make('span','',`${title} · ${role}`));
-      row.append(image,copy,make('div',`committee-status${state === 'Active' || state === 'Executive sponsor' ? ' is-active' : ''}`,status));
+      copy.append(make('strong','',name),make('span','',title),make('small','committee-proof',`${role} · ${proof}`));
+      row.append(image,copy,make('div',`committee-status${state === 'Active' ? ' is-active' : ''}`,rank));
       peopleList.append(row);
     });
     committee.append(peopleList);
@@ -385,7 +377,7 @@
   function updateInterfaceCopy() {
     const shown = accounts.filter(visible);
     const sector = clusterDefinitions.find(cluster => cluster.key === sectorFilter);
-    const descriptor = sector ? sector.label.toLowerCase() : 'cross-sector';
+    const descriptor = sector.label.toLowerCase();
     identityCount.textContent = `${shown.length} fictional ${descriptor} ${shown.length === 1 ? 'account' : 'accounts'}`;
   }
 
