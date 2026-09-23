@@ -3,9 +3,9 @@
   <channel>
     <title>Bottle Rocket Growth Insights</title>
     <link>https://bottlerocketgrowth.com/insights/</link>
-    <description>Tactical writing on LinkedIn outbound, ICP frameworks, signal-based prospecting, and B2B GTM from Bottle Rocket Growth.</description>
+    <description>Writing on market mapping, account-based marketing, growth strategy, and channel execution from Bottle Rocket Growth.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Apr 2026 12:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 23 Sep 2026 09:43:39 -0500</lastBuildDate>
     <atom:link href="https://bottlerocketgrowth.com/feed.xml" rel="self" type="application/rss+xml"/>
     <managingEditor>mike@bottlerocketgrowth.com (Mike Cubberly)</managingEditor>
     <webMaster>mike@bottlerocketgrowth.com (Mike Cubberly)</webMaster>
@@ -21,13 +21,13 @@
     </item>
 
     <item>
-      <title>Signal-Based List Building: A Framework for B2B Outbound in 2026</title>
+      <title>Signal-based list building: from web research to useful priorities</title>
       <link>https://bottlerocketgrowth.com/insights/signal-based-list-building.html</link>
       <guid isPermaLink="true">https://bottlerocketgrowth.com/insights/signal-based-list-building.html</guid>
       <pubDate>Fri, 24 Apr 2026 12:00:00 -0500</pubDate>
       <dc:creator>Mike Cubberly</dc:creator>
       <category>List Building</category>
-      <description>How to build signal-based prospect lists using Apollo, Clay, TheirStack, and LinkedIn Sales Navigator. Covers structural, technology, and intent signals.</description>
+      <description>How to map an account universe with evidence, buying roles, ABM audiences, ownership, and clear next actions.</description>
     </item>
 
     <item>
@@ -41,13 +41,13 @@
     </item>
 
     <item>
-      <title>HeyReach Sequence Architecture: Building Campaigns That Book Meetings</title>
+      <title>HeyReach sequence architecture: context, handoffs, and measurement</title>
       <link>https://bottlerocketgrowth.com/insights/heyreach-sequence-architecture.html</link>
       <guid isPermaLink="true">https://bottlerocketgrowth.com/insights/heyreach-sequence-architecture.html</guid>
       <pubDate>Fri, 24 Apr 2026 12:00:00 -0500</pubDate>
       <dc:creator>Mike Cubberly</dc:creator>
       <category>Sequencing</category>
-      <description>How to architect a HeyReach LinkedIn outbound campaign end-to-end: sequence structure, message length, timing, branching logic, and metrics that matter.</description>
+      <description>How to decide when a HeyReach workflow fits an account strategy, manage handoffs, and measure account-level outcomes.</description>
     </item>
   </channel>
 </rss>

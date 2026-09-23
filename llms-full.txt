@@ -19,7 +19,7 @@ BRG helps clarify positioning, priorities, and an executable plan.
 
 ### Market intelligence
 
-BRG researches customer fit, accounts, decision-makers, contact routes, and relevant signals. Research can combine enrichment workflows, client-specific AI agents, and human review. Facts, assumptions, and unresolved questions are kept distinct.
+BRG researches customer fit, accounts, decision-makers, contact routes, and relevant signals. Research can combine enrichment workflows, client-specific AI agents, and human review. Facts, assumptions, and unresolved questions are kept distinct. For marketing teams, the output can be an account-based marketing audience with clear segments, signal rules, ownership, and coordinated campaign tests. The public site includes an interactive market map using entirely fictional account and person names to illustrate this approach.
 
 ### AI and GTM systems
 

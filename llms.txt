@@ -5,7 +5,7 @@
 ## Core work
 
 - Growth strategy: priorities, positioning, and go-to-market planning.
-- Market intelligence: customer fit, account research, and market mapping.
+- Market intelligence: customer fit, account research, market mapping, and account-based marketing audiences.
 - AI and GTM systems: client-specific agents and connected workflows.
 - Revenue motions: outreach, partnerships, ownership, and follow-through.
 - Team building and enablement: recruiting, onboarding, and sales enablement.
