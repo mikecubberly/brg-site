@@ -149,9 +149,15 @@
   const clustersLayer = document.getElementById('market-map-clusters');
   const committeeLayer = document.getElementById('market-map-committee');
   const detail = document.getElementById('market-map-detail');
-  let sectorFilter = 'all';
+  const identityCount = app.querySelector('.market-map-identity span');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let sectorFilter = 'manufacturing';
   let viewFilter = 'all';
   let selectedId = accounts.find(account => account.name === 'Northline Fabrication').id;
+  let activeOrbitRings = [];
+  let nodeButtons = new Map();
+  let orbitPaused = false;
+  let lastOrbitFrame = 0;
 
   const visible = account => (sectorFilter === 'all' || account.sector === sectorFilter) && (viewFilter === 'all' || account.view === viewFilter);
   const selectedAccount = () => accounts.find(account => account.id === selectedId);
@@ -216,23 +222,29 @@
   }
 
   function layoutAccounts() {
-    const selected = selectedAccount();
     const shown = accounts.filter(visible);
-    const others = shown.filter(account => account.id !== selected.id);
-    selected.x = canvasWidth / 2;
-    selected.y = canvasHeight / 2;
-    const rings = others.length > 28
-      ? [{count:9,rx:150,ry:88,offset:-Math.PI/2},{count:15,rx:275,ry:165,offset:-Math.PI/2+.13},{count:Infinity,rx:410,ry:238,offset:-Math.PI/2+.05}]
-      : others.length > 10
-        ? [{count:8,rx:190,ry:112,offset:-Math.PI/2},{count:Infinity,rx:350,ry:205,offset:-Math.PI/2+.12}]
-        : [{count:Infinity,rx:300,ry:175,offset:-Math.PI/2}];
+    const rings = shown.length > 28
+      ? [
+          {count:10,rx:155,ry:90,offset:-Math.PI/2,speed:.000055},
+          {count:16,rx:280,ry:162,offset:-Math.PI/2+.12,speed:-.000038},
+          {count:Infinity,rx:408,ry:232,offset:-Math.PI/2+.05,speed:.000026}
+        ]
+      : shown.length > 10
+        ? [
+            {count:8,rx:190,ry:108,offset:-Math.PI/2,speed:.00005},
+            {count:Infinity,rx:350,ry:202,offset:-Math.PI/2+.12,speed:-.000032}
+          ]
+        : [{count:Infinity,rx:322,ry:188,offset:-Math.PI/2,speed:.000042}];
+    activeOrbitRings = [];
     let cursor = 0;
     rings.forEach(ring => {
-      const remaining = others.length - cursor;
+      const remaining = shown.length - cursor;
       const count = Math.min(ring.count,remaining);
+      if (count > 0) activeOrbitRings.push({...ring,count});
       for (let index = 0; index < count; index += 1) {
-        const account = others[cursor + index];
+        const account = shown[cursor + index];
         const angle = ring.offset + (Math.PI * 2 * index / count);
+        account.orbit = {rx:ring.rx,ry:ring.ry,angle,speed:ring.speed};
         account.x = canvasWidth / 2 + Math.cos(angle) * ring.rx;
         account.y = canvasHeight / 2 + Math.sin(angle) * ring.ry;
       }
@@ -244,21 +256,9 @@
     clustersLayer.replaceChildren();
   }
 
-  function drawLine(from,to,className) {
-    const path = document.createElementNS('http://www.w3.org/2000/svg','path');
-    const bend = Math.min(24,Math.abs(from.x - to.x) * .08);
-    path.setAttribute('d',`M ${from.x} ${from.y} Q ${(from.x + to.x) / 2} ${(from.y + to.y) / 2 - bend} ${to.x} ${to.y}`);
-    path.setAttribute('class',className);
-    connections.append(path);
-  }
-
   function renderConnections() {
     connections.replaceChildren();
-    const selected = selectedAccount();
-    const shown = accounts.filter(visible);
-    const ringCount = shown.length > 28 ? 3 : shown.length > 10 ? 2 : 1;
-    const ringSizes = ringCount === 3 ? [[150,88],[275,165],[410,238]] : ringCount === 2 ? [[190,112],[350,205]] : [[300,175]];
-    ringSizes.forEach(([rx,ry],index) => {
+    activeOrbitRings.forEach(({rx,ry},index) => {
       const ellipse = document.createElementNS('http://www.w3.org/2000/svg','ellipse');
       ellipse.setAttribute('cx',String(canvasWidth / 2));
       ellipse.setAttribute('cy',String(canvasHeight / 2));
@@ -267,16 +267,18 @@
       ellipse.setAttribute('class',`universe-orbit orbit-${index + 1}`);
       connections.append(ellipse);
     });
-    shown.filter(account => account.id !== selected.id && account.sector === selected.sector).slice(0,4).forEach(account => drawLine(selected,account,'universe-edge is-related'));
   }
 
   function nodeSize(account) {
-    if (account.id === selectedId) return 64;
-    return Math.round(Math.max(34,Math.min(46,34 + (account.fit - 55) * .3)));
+    const shownCount = accounts.filter(visible).length;
+    if (shownCount <= 10) return account.id === selectedId ? 78 : Math.round(59 + (account.fit - 55) * .17);
+    if (shownCount <= 24) return account.id === selectedId ? 66 : Math.round(46 + (account.fit - 55) * .12);
+    return account.id === selectedId ? 56 : Math.round(36 + (account.fit - 55) * .08);
   }
 
   function renderNodes() {
     nodesLayer.replaceChildren();
+    nodeButtons = new Map();
     const selected = selectedAccount();
     accounts.forEach(account => {
       const button = make('button',`account-node view-${account.view}`);
@@ -306,7 +308,12 @@
         selectedId = account.id;
         render();
       });
+      button.addEventListener('mouseenter',() => { orbitPaused = true; });
+      button.addEventListener('mouseleave',() => { orbitPaused = false; });
+      button.addEventListener('focus',() => { orbitPaused = true; });
+      button.addEventListener('blur',() => { orbitPaused = false; });
       nodesLayer.append(button);
+      nodeButtons.set(account.id,button);
     });
   }
 
@@ -368,14 +375,42 @@
     if (next) selectedId = next.id;
   }
 
+  function updateInterfaceCopy() {
+    const shown = accounts.filter(visible);
+    const sector = clusterDefinitions.find(cluster => cluster.key === sectorFilter);
+    const descriptor = sector ? sector.label.toLowerCase() : 'cross-sector';
+    identityCount.textContent = `${shown.length} fictional ${descriptor} ${shown.length === 1 ? 'account' : 'accounts'}`;
+  }
+
   function render() {
     ensureSelectedVisible();
     layoutAccounts();
+    updateInterfaceCopy();
     renderClusters();
     renderNodes();
     renderConnections();
     renderCommittee();
     renderDetail();
+  }
+
+  function animateOrbit(timestamp) {
+    if (!lastOrbitFrame) lastOrbitFrame = timestamp;
+    const elapsed = Math.min(48,timestamp - lastOrbitFrame);
+    lastOrbitFrame = timestamp;
+    if (!orbitPaused && !reduceMotion.matches) {
+      accounts.filter(visible).forEach(account => {
+        if (!account.orbit) return;
+        account.orbit.angle += account.orbit.speed * elapsed;
+        account.x = canvasWidth / 2 + Math.cos(account.orbit.angle) * account.orbit.rx;
+        account.y = canvasHeight / 2 + Math.sin(account.orbit.angle) * account.orbit.ry;
+        const button = nodeButtons.get(account.id);
+        if (button) {
+          button.style.left = `${account.x}px`;
+          button.style.top = `${account.y}px`;
+        }
+      });
+    }
+    window.requestAnimationFrame(animateOrbit);
   }
 
   function setSector(value) {
@@ -408,4 +443,5 @@
 
   render();
   fitCanvas();
+  window.requestAnimationFrame(animateOrbit);
 })();
