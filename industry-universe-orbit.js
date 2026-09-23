@@ -107,6 +107,13 @@
   };
   const committeeRoles = ['Decision maker','Internal champion','Alternate route'];
   const committeeRanks = ['Priority','Champion','Alternative'];
+  const accountLocations = [
+    ['Chicago','IL'],['Columbus','OH'],['Milwaukee','WI'],['Detroit','MI'],['Cleveland','OH'],['Indianapolis','IN'],
+    ['Minneapolis','MN'],['Pittsburgh','PA'],['Charlotte','NC'],['Nashville','TN'],['Dallas','TX'],['Austin','TX'],
+    ['Phoenix','AZ'],['Denver','CO'],['Salt Lake City','UT'],['Portland','OR'],['Seattle','WA'],['Sacramento','CA'],
+    ['San Diego','CA'],['Atlanta','GA'],['Richmond','VA'],['Raleigh','NC'],['Kansas City','MO'],['St. Louis','MO']
+  ];
+  const fictionalDomain = name => `${name.toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'').slice(0,24)}.example`;
 
   function buildCommittee(accountIndex,sector,signal) {
     return committeeTitles[sector].map((title,slot) => {
@@ -129,7 +136,8 @@
       const signalStrength = view === 'priority' ? 96 : view === 'strong' ? 78 + (index % 9) : view === 'explore' ? 58 : 28;
       const people = buildCommittee(globalAccountIndex,cluster.key,signal);
       const portraits = people.map(person => person[4]);
-      accounts.push({id,name,sector:cluster.key,sectorLabel:cluster.label,x:cluster.center[0],y:cluster.center[1],fit,view,signal,signalStrength,employees,people,portraits,logoSeed:globalAccountIndex});
+      const [city,state] = accountLocations[globalAccountIndex % accountLocations.length];
+      accounts.push({id,name,sector:cluster.key,sectorLabel:cluster.label,x:cluster.center[0],y:cluster.center[1],fit,view,signal,signalStrength,employees,people,portraits,city,state,website:fictionalDomain(name),logoSeed:globalAccountIndex});
       globalAccountIndex += 1;
     });
   });
@@ -159,6 +167,43 @@
     if (text !== undefined) element.textContent = text;
     return element;
   };
+
+  function interfaceIcon(type) {
+    const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+    svg.setAttribute('viewBox','0 0 24 24');
+    svg.setAttribute('aria-hidden','true');
+    svg.setAttribute('focusable','false');
+    const paths = {
+      linkedin:['M6.5 8.25H3.25V19H6.5V8.25Z','M4.87 3.1a1.89 1.89 0 1 0 0 3.78 1.89 1.89 0 0 0 0-3.78Z','M9 8.25h3.12v1.47h.04c.44-.82 1.5-1.68 3.08-1.68 3.3 0 3.91 2.17 3.91 5V19H15.9v-5.28c0-1.26-.03-2.88-1.76-2.88-1.76 0-2.03 1.37-2.03 2.79V19H9V8.25Z'],
+      globe:['M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z','M3.6 9h16.8M3.6 15h16.8M12 3c2 2.47 3 5.47 3 9s-1 6.53-3 9c-2-2.47-3-5.47-3-9s1-6.53 3-9Z']
+    };
+    paths[type].forEach((data,index) => {
+      const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+      path.setAttribute('d',data);
+      if (type === 'globe') {
+        path.setAttribute('fill','none');
+        path.setAttribute('stroke','currentColor');
+        path.setAttribute('stroke-width','1.7');
+      }
+      svg.append(path);
+    });
+    return svg;
+  }
+
+  function linkedinMark(label) {
+    const mark = make('span','linkedin-mark');
+    mark.setAttribute('role','img');
+    mark.setAttribute('aria-label',label);
+    mark.title = `${label} · illustrative only`;
+    mark.append(interfaceIcon('linkedin'));
+    return mark;
+  }
+
+  function locationFlag() {
+    const mark = make('span','location-flag');
+    mark.setAttribute('aria-hidden','true');
+    return mark;
+  }
 
   const sectorPalettes = {
     manufacturing:['#6d55d8','#f0a44b'],
@@ -332,7 +377,14 @@
 
     const head = make('div','intel-head');
     const identity = make('div','');
-    identity.append(make('p','intel-eyebrow','Selected account'),make('h3','',account.name),make('p','intel-meta',`${account.sectorLabel} · ${account.employees} employees`));
+    const location = make('p','intel-location');
+    location.append(locationFlag(),make('span','',`${account.city}, ${account.state}`));
+    const presence = make('div','intel-presence');
+    const website = make('span','intel-website');
+    website.title = 'Fictional example website';
+    website.append(interfaceIcon('globe'),make('span','',account.website));
+    presence.append(website,linkedinMark(`Fictional LinkedIn company page for ${account.name}`));
+    identity.append(make('p','intel-eyebrow','Selected account'),make('h3','',account.name),location,make('p','intel-meta',`${account.sectorLabel} · ${account.employees} employees`),presence);
     const score = make('div','intel-score');
     score.append(make('strong','',`${account.fit} / 100`),make('span','', 'Fit'));
     head.append(identity,score);
@@ -357,7 +409,9 @@
       image.width = 30;
       image.height = 30;
       const copy = make('div','committee-copy');
-      copy.append(make('strong','',name),make('span','',title),make('small','committee-proof',`${role} · ${proof}`));
+      const nameRow = make('div','committee-name-row');
+      nameRow.append(make('strong','',name),linkedinMark(`Fictional LinkedIn profile for ${name}`));
+      copy.append(nameRow,make('span','',title),make('small','committee-proof',`${role} · ${proof}`));
       row.append(image,copy,make('div',`committee-status${state === 'Active' ? ' is-active' : ''}`,rank));
       peopleList.append(row);
     });
