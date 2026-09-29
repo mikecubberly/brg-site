@@ -271,11 +271,15 @@ button.inline-link { background: transparent; border: 0; border-bottom: 1px soli
 .footer-links { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 12px 22px; }
 .footer-links a { font-size: .875rem; color: var(--body-copy); text-decoration: none; padding: 8px 0; }
 .footer-bottom { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 16px; padding-top: 20px; border-top: 1px solid var(--rule); }
-.footer-credential { grid-column: 1 / -1; display: flex; align-items: center; gap: 14px; margin-top: 12px; }
-.footer-credential a, .founder-credential a { display: inline-flex; align-items: center; gap: 12px; color: var(--ink); text-decoration: none; }
-.footer-credential img { width: 88px; height: 87px; object-fit: contain; flex: 0 0 auto; padding: 5px; border-radius: 12px; background: #f1f0f8; }
-.footer-credential span, .founder-credential span { font-size: .875rem; line-height: 1.4; }
-.footer-credential a:hover span, .founder-credential a:hover span { text-decoration: underline; }
+.footer-credentials { grid-column: 1 / -1; display: flex; align-items: center; gap: 18px; margin-top: 12px; }
+.footer-credentials-label { color: var(--body-copy); font-size: .6875rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+.footer-credential-list { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; }
+.footer-credential-list a { display: inline-flex; align-items: center; justify-content: center; width: 62px; height: 62px; }
+.footer-credential-list img { display: block; width: 58px; height: 58px; object-fit: contain; filter: brightness(1.32) saturate(1.12) drop-shadow(0 0 4px rgba(255,255,255,.4)); transition: filter .2s ease, transform .2s ease; }
+.footer-credential-list a:hover img { filter: brightness(1.5) saturate(1.2) drop-shadow(0 0 6px rgba(255,255,255,.55)); transform: translateY(-2px); }
+.founder-credential a { display: inline-flex; align-items: center; gap: 12px; color: var(--ink); text-decoration: none; }
+.founder-credential span { font-size: .875rem; line-height: 1.4; }
+.founder-credential a:hover span { text-decoration: underline; }
 .founder-credential { margin: 24px 0; }
 .founder-credential img { width: 82px; height: 81px; object-fit: contain; flex: 0 0 auto; padding: 5px; border-radius: 12px; background: #f1f0f8; }
 .footer-location { display: inline-flex; align-items: center; gap: 9px; font-size: .8125rem; color: var(--body-copy); }
