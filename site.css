@@ -271,6 +271,13 @@ button.inline-link { background: transparent; border: 0; border-bottom: 1px soli
 .footer-links { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 12px 22px; }
 .footer-links a { font-size: .875rem; color: var(--body-copy); text-decoration: none; padding: 8px 0; }
 .footer-bottom { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 16px; padding-top: 20px; border-top: 1px solid var(--rule); }
+.footer-credential { grid-column: 1 / -1; display: flex; align-items: center; gap: 14px; margin-top: 12px; }
+.footer-credential a, .founder-credential a { display: inline-flex; align-items: center; gap: 12px; color: var(--ink); text-decoration: none; }
+.footer-credential img { width: 88px; height: 87px; object-fit: contain; flex: 0 0 auto; padding: 5px; border-radius: 12px; background: #f1f0f8; }
+.footer-credential span, .founder-credential span { font-size: .875rem; line-height: 1.4; }
+.footer-credential a:hover span, .founder-credential a:hover span { text-decoration: underline; }
+.founder-credential { margin: 24px 0; }
+.founder-credential img { width: 82px; height: 81px; object-fit: contain; flex: 0 0 auto; padding: 5px; border-radius: 12px; background: #f1f0f8; }
 .footer-location { display: inline-flex; align-items: center; gap: 9px; font-size: .8125rem; color: var(--body-copy); }
 .chicago-inline-flag { display: inline-block; width: 30px; height: 20px; object-fit: contain; vertical-align: middle; flex-shrink: 0; border-radius: 2px; }
 .racing-gallery figcaption .chicago-inline-flag { order: 1; flex: 0 0 30px; width: 30px; height: 20px; margin: 0; transform: none; }
