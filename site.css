@@ -425,3 +425,7 @@ html[data-theme="dark"] .teaser-line-icon { filter: brightness(0) invert(1); }
 .client-scroll-hint .scroll-touch { display: none; }
 @media (pointer: coarse) { .client-scroll-hint .scroll-desktop { display: none; } .client-scroll-hint .scroll-touch { display: inline; } }
 @media (prefers-reduced-motion: reduce) { .client-scroll-hint { display: none; } }
+
+.service-detail-link { margin-top: 18px; font-size: .875rem; line-height: 1.4; }
+.service-card { display: flex; flex-direction: column; }
+.service-card .service-detail-link { margin-top: auto; padding-top: 18px; }
