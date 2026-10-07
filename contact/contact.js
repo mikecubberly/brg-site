@@ -36,6 +36,7 @@
       });
       const result = await response.json();
       if (!response.ok || result.success !== true) throw new Error(result.error || 'Your message could not be sent. Please try again, or email Mike directly.');
+      window.brgTrackLead?.();
       form.hidden = true;
       success.hidden = false;
       success.focus();
