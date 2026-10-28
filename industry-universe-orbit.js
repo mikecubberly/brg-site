@@ -86,7 +86,7 @@
     }
   ];
 
-  const portraitPath = number => `/assets/market-map/people/person-${String(number).padStart(2,'0')}.png`;
+  const portraitPath = number => `/assets/market-map/people/person-${String(number).padStart(2,'0')}.webp`;
   const signalDetails = {
     'New operations leader':['New operations leader','Leadership mandate appears broader than the previous role','Operating model review is likely underway'],
     'Plant expansion':['New production capacity announced','Operations hiring increased','Systems ownership is still unconfirmed'],
@@ -333,26 +333,32 @@
       button.classList.toggle('is-filtered',!visible(account));
       button.classList.toggle('has-label',account.view === 'priority');
       button.setAttribute('aria-pressed',String(account.id === selected.id));
-      button.setAttribute('aria-label',`${account.name}. Fit score ${account.fit}. ${account.signal}.`);
+      button.setAttribute('aria-description',`${account.signal}.`);
       const people = make('span','account-people');
       const portraits = account.id === selected.id ? account.portraits.slice(0,4) : account.portraits.slice(0,3);
       portraits.forEach(number => {
         const image = document.createElement('img');
         image.src = portraitPath(number);
+        image.loading = 'lazy';
+        image.decoding = 'async';
         image.alt = '';
         image.width = 16;
         image.height = 16;
         people.append(image);
       });
+      const mark = logoMark(account);
+      mark.setAttribute('aria-hidden','true');
       button.append(
-        logoMark(account),
+        mark,
         make('span','account-score',`${account.fit} out of 100`),
         people,
         make('span','account-label',account.name)
       );
       button.addEventListener('click',() => {
+        const restoreFocus = document.activeElement === button;
         selectedId = account.id;
         render();
+        if (restoreFocus) nodeButtons.get(account.id)?.focus({preventScroll:true});
       });
       button.addEventListener('mouseenter',() => { orbitPaused = true; });
       button.addEventListener('mouseleave',() => { orbitPaused = false; });
@@ -420,6 +426,8 @@
       const row = make('div','committee-row');
       const image = document.createElement('img');
       image.src = portraitPath(portrait);
+      image.loading = 'lazy';
+      image.decoding = 'async';
       image.alt = `${name}, fictional professional`;
       image.width = 30;
       image.height = 30;
@@ -467,7 +475,7 @@
     if (!lastOrbitFrame) lastOrbitFrame = timestamp;
     const elapsed = Math.min(48,timestamp - lastOrbitFrame);
     lastOrbitFrame = timestamp;
-    if (!orbitPaused && !reduceMotion.matches) {
+    if (!orbitPaused && !reduceMotion.matches && document.documentElement.dataset.motion !== 'paused' && !document.hidden) {
       accounts.filter(visible).forEach(account => {
         if (!account.orbit) return;
         account.orbit.angle += account.orbit.speed * elapsed;

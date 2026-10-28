@@ -94,7 +94,7 @@
 .intel-score span { display:block; margin-top:4px; color:#867b8c; font-size:.66rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
 .intel-section { padding:17px 0 16px; border-bottom:1px solid #ffffff0d; }
 .intel-section-title { display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:11px; color:#988ba0; font-size:.7rem; font-weight:700; letter-spacing:.11em; text-transform:uppercase; }
-.intel-section-title span { color:#77707c; font-size:.68rem; letter-spacing:0; text-transform:none; }
+.intel-section-title span { color:#a198a7; font-size:.68rem; letter-spacing:0; text-transform:none; }
 .signal-list { display:grid; gap:9px; margin:0; padding:0; list-style:none; }
 .signal-list li { position:relative; padding-left:12px; color:#cac2cd; font-size:.77rem; line-height:1.35; }
 .signal-list li::before { content:''; position:absolute; top:.48em; left:0; width:4px; height:4px; border-radius:50%; background:#a980b3; box-shadow:0 0 8px #a980b366; }
@@ -109,12 +109,12 @@
 .committee-name-row strong { min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .committee-name-row .linkedin-mark { width:19px; height:19px; border-radius:5px; }
 .committee-name-row .linkedin-mark svg { width:11px; height:11px; }
-.committee-proof { margin-top:3px; overflow:visible!important; color:#746d79; font-size:.6rem; line-height:1.3; text-overflow:clip!important; white-space:normal!important; }
+.committee-proof { margin-top:3px; overflow:visible!important; color:#a198a7; font-size:.6rem; line-height:1.3; text-overflow:clip!important; white-space:normal!important; }
 .committee-status { max-width:78px; padding:4px 7px; border:1px solid #55475d; border-radius:999px; color:#aaa0ae; font-size:.62rem; font-weight:700; line-height:1; text-align:center; }
 .committee-status.is-active { border-color:#9472a3; color:#d6bce0; background:#ae79c20c; }
 .recommended-play { display:flex; align-items:center; justify-content:space-between; gap:14px; color:#e6dfe9; font-size:.8rem; line-height:1.35; }
 .recommended-play::after { content:'→'; color:#b794c2; font-size:1rem; }
-.intel-note { margin-top:16px; color:#625c66; font-size:.65rem; line-height:1.45; }
+.intel-note { margin-top:16px; color:#a198a7; font-size:.65rem; line-height:1.45; }
 .market-map-sectors button:focus-visible { outline:1px solid #cfb3da; outline-offset:3px; }
 
 @media (max-width:980px) {
@@ -147,3 +147,5 @@
   .account-node,.market-map-sectors button { transition:none; }
   .account-node.is-selected::before,.account-node.is-selected::after { animation:none; }
 }
+
+.account-node:focus-visible { outline: 3px solid #bda4ff; outline-offset: 8px; }

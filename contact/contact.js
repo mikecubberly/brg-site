@@ -16,9 +16,10 @@
   form.addEventListener('submit', async event => {
     event.preventDefault();
     if (sending) return;
+    const profileValue = linkedin.value.trim();
     let profile;
-    try { profile = new URL(linkedin.value.trim()); } catch {}
-    const validProfile = profile && profile.protocol === 'https:' && /^(www\.)?linkedin\.com$/i.test(profile.hostname) && profile.pathname.length > 1 && !profile.username && !profile.password && !profile.port;
+    try { profile = new URL(profileValue); } catch {}
+    const validProfile = !profileValue || profile && profile.protocol === 'https:' && /^(www\.)?linkedin\.com$/i.test(profile.hostname) && profile.pathname.length > 1 && !profile.username && !profile.password && !profile.port;
     linkedin.setCustomValidity(validProfile ? '' : 'Enter a LinkedIn URL, such as https://www.linkedin.com/in/your-name.');
     if (!form.reportValidity()) return;
     const data = Object.fromEntries(new FormData(form));

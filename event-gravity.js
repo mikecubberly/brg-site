@@ -72,7 +72,7 @@ if (typeof document !== 'undefined') {
     }).catch(() => {});
   }
   function start() {
-    if (!visible || motion.matches || document.hidden || played) return;
+    if (!visible || motion.matches || document.documentElement.dataset.motion === 'paused' || document.hidden || played) return;
     played = true;
     const box = arena.getBoundingClientRect();
     bodies = items.map((item, i) => {
@@ -89,7 +89,7 @@ if (typeof document !== 'undefined') {
     }
     frame = requestAnimationFrame(tick);
   }
-  function schedule() { clearTimeout(timer); if (visible && !motion.matches && !document.hidden && !played) timer = setTimeout(start, 1250); }
+  function schedule() { clearTimeout(timer); if (visible && !motion.matches && document.documentElement.dataset.motion !== 'paused' && !document.hidden && !played) timer = setTimeout(start, 1250); }
   new IntersectionObserver(entries => {
     const entry = entries[0];
     if (!entry.isIntersecting) { visible = false; reset(); }
@@ -98,5 +98,6 @@ if (typeof document !== 'undefined') {
   motion.addEventListener('change', () => { reset(); schedule(); });
   window.addEventListener('resize', () => { reset(); schedule(); });
   document.addEventListener('visibilitychange', () => { reset(); schedule(); });
+  document.addEventListener('brg:motion-change', () => { reset(); schedule(); });
  }
 }

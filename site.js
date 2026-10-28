@@ -2,6 +2,8 @@
   'use strict';
   var root = document.documentElement;
   var motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var motionToggle = document.getElementById('motion-toggle');
+  var userPaused = false;
   var stage = document.getElementById('orbit-stage');
   var nodes = Array.from(stage.querySelectorAll('.orbit-node'));
   var visible = false;
@@ -31,7 +33,7 @@
       node.style.zIndex = String(Math.round((p.depth + 1) * 10) + 1);
     });
   }
-  function canAnimate() { return visible && !document.hidden && !motionQuery.matches; }
+  function canAnimate() { return visible && !document.hidden && !motionQuery.matches && !userPaused; }
   function animate(time) {
     frame = null;
     if (!canAnimate()) { lastTime = null; return; }
@@ -44,10 +46,16 @@
     if (canAnimate()) frame = requestAnimationFrame(animate);
   }
   function syncMotion() {
-    root.dataset.motion = motionQuery.matches || document.hidden ? 'paused' : 'running';
+    root.dataset.motion = userPaused || motionQuery.matches || document.hidden ? 'paused' : 'running';
+    if (motionToggle) {
+      motionToggle.textContent = motionQuery.matches ? 'Reduced motion on' : userPaused ? 'Resume animations' : 'Pause animations';
+      motionToggle.disabled = motionQuery.matches;
+      motionToggle.setAttribute('aria-pressed', String(userPaused || motionQuery.matches));
+    }
     document.dispatchEvent(new Event('brg:motion-change'));
     restart();
   }
+  if (motionToggle) motionToggle.addEventListener('click', function () { userPaused = !userPaused; syncMotion(); });
   motionQuery.addEventListener('change', syncMotion);
   document.addEventListener('visibilitychange', syncMotion);
   function measure() { stageWidth = stage.clientWidth; stageHeight = stage.clientHeight; draw(); }
@@ -77,7 +85,7 @@
     });
     var questionFlashes = new Map();
     function flashAccent(word) {
-      if (motionQuery.matches || document.hidden) return;
+      if (motionQuery.matches || document.hidden || userPaused) return;
       if (!word || typeof word.animate !== 'function') return;
       var previous = questionFlashes.get(word);
       if (previous && previous.playState === 'running') return;

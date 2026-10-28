@@ -56,7 +56,7 @@ export function bindEventTeaser(card, motion, doc = document) {
     card.classList.remove('is-animating');
   }
   function sync() {
-    if (!(hovered || focused) || !visible || doc.hidden || motion.matches || !layersReady()) { stop(); return; }
+    if (!(hovered || focused) || !visible || doc.hidden || doc.documentElement?.dataset.motion === 'paused' || motion.matches || !layersReady()) { stop(); return; }
     if (animations.length) return;
     if (kind === 'commanders' && typeof flight?.animate === 'function') {
       animations.push(flight.animate(rocketFrames(), { duration: 5600, iterations: Infinity, easing: 'linear' }));
@@ -78,6 +78,7 @@ export function bindEventTeaser(card, motion, doc = document) {
   card.addEventListener('focusout', event => { if (!card.contains(event.relatedTarget)) focused = false; sync(); });
   motion.addEventListener('change', sync);
   doc.addEventListener('visibilitychange', sync);
+  doc.addEventListener('brg:motion-change', sync);
   layers.forEach(img => { img.addEventListener('load', sync); img.addEventListener('error', sync); });
   return { setVisible(value) { visible = value; sync(); }, stop };
 }
