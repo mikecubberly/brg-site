@@ -14,6 +14,10 @@
 ## Primary pages
 
 - [Bottle Rocket Growth](https://bottlerocketgrowth.com/)
+- [Growth strategy](https://bottlerocketgrowth.com/growth-strategy/): Positioning, priorities, and executable go-to-market plans.
+- [Market intelligence](https://bottlerocketgrowth.com/market-intelligence/): Customer fit, account research, market maps, and ABM audiences.
+- [AI and GTM systems](https://bottlerocketgrowth.com/ai-gtm-systems/): Client-specific agents and connected workflows.
+- [Team building and enablement](https://bottlerocketgrowth.com/team-building/): Recruiting, onboarding, and equipping growth teams.
 - [Bottle Rocket Events](https://bottlerocketgrowth.com/events/)
 - [Free growth tools](https://bottlerocketgrowth.com/free-tools/)
 - [All Systems G(E)O audit](https://bottlerocketgrowth.com/GEO)

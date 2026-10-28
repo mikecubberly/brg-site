@@ -4,10 +4,10 @@
   const submit = document.getElementById('contact-submit');
   const status = document.getElementById('contact-status');
   const success = document.getElementById('contact-success');
+  const fallback = document.getElementById('contact-fallback');
   const linkedin = form.elements.linkedin;
   let sending = false;
   let submissionId = crypto.randomUUID();
-  submit.disabled = false;
   linkedin.addEventListener('input', () => linkedin.setCustomValidity(''));
   linkedin.addEventListener('blur', () => {
     const value = linkedin.value.trim();
@@ -54,4 +54,7 @@
       form.removeAttribute('aria-busy');
     }
   });
+  submit.disabled = false;
+  form.hidden = false;
+  fallback.hidden = true;
 })();
