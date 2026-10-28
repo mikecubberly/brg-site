@@ -78,3 +78,6 @@ html[data-theme="dark"] .hero .tagline { color: #b8b5c4; }
   .dropdown-wrap.open .dropdown-menu { transform: translateY(0) scale(1); }
   .mini-nav { gap: 8px; }
 }
+
+/* Show the offer and contact actions immediately on the first paint. */
+.hero .brg-mark, .hero .hero-brand, .hero .wordmark, .hero .tagline, .hero .cta-row { opacity: 1; transform: none; animation: none; }
