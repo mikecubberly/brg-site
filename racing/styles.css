@@ -279,7 +279,7 @@ select {
 .hero-media {
   position: absolute;
   inset: 0;
-  background-image: url("/race-car-88-crisp.png");
+  background-image: url("/racing/race-car-88-crisp.png");
   background-repeat: no-repeat;
   background-position: 68% center;
   background-size: cover;
@@ -2207,7 +2207,7 @@ body.dialog-open {
   overflow: hidden;
   background:
     linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.88) 48%, rgba(0, 0, 0, 0.36) 100%),
-    url("/race-car-88-crisp.png") center 48% / cover no-repeat;
+    url("/racing/race-car-88-crisp.png") center 48% / cover no-repeat;
 }
 
 .page-hero::after {
