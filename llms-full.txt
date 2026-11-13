@@ -39,7 +39,7 @@ BRG supports B2B event programs through Audience Intelligence, Event Enricher, C
 
 ## Free tool
 
-All Systems G(E)O is a free generative engine optimization audit at https://bottlerocketgrowth.com/GEO. It evaluates how clearly a website can be understood, cited, and recommended by AI search systems.
+All Systems G(E)O is a free generative engine optimization audit at https://bottlerocketgrowth.com/GEO. It checks site signals that can affect discovery and gives a readiness grade with suggested fixes.
 
 ## Press and media
 
@@ -51,6 +51,12 @@ Current company boilerplate, founder information, key facts, approved assets, an
 2. Signal-based list building: from web research to useful priorities: https://bottlerocketgrowth.com/insights/signal-based-list-building
 3. LinkedIn sender strategy: credibility, ownership, and account risk: https://bottlerocketgrowth.com/insights/linkedin-sender-profile-strategy
 4. HeyReach sequence architecture: context, handoffs, and measurement: https://bottlerocketgrowth.com/insights/heyreach-sequence-architecture
+
+5. How to verify a B2B conference attendee list: https://bottlerocketgrowth.com/insights/verify-b2b-conference-attendee-list
+6. How to turn B2B conference conversations into pipeline: https://bottlerocketgrowth.com/insights/b2b-conference-follow-up
+7. How to choose a LinkedIn outbound agency: https://bottlerocketgrowth.com/insights/how-to-choose-a-linkedin-outbound-agency
+8. How to book meetings at AWS re:Invent 2026: https://bottlerocketgrowth.com/insights/aws-reinvent-2026-meetings
+9. How to measure AI search visibility for a B2B website: https://bottlerocketgrowth.com/insights/measure-ai-search-visibility
 
 ## Attribution
 

@@ -5,14 +5,60 @@
     <link>https://bottlerocketgrowth.com/insights/</link>
     <description>Writing on market mapping, account-based marketing, growth strategy, and channel execution from Bottle Rocket Growth.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 23 Sep 2026 09:43:39 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 13 Nov 2026 09:22:57 -0600</lastBuildDate>
     <atom:link href="https://bottlerocketgrowth.com/feed.xml" rel="self" type="application/rss+xml"/>
     <managingEditor>mike@bottlerocketgrowth.com (Mike Cubberly)</managingEditor>
     <webMaster>mike@bottlerocketgrowth.com (Mike Cubberly)</webMaster>
 
     <item>
+      <title>How to verify a B2B conference attendee list</title>
+      <link>https://bottlerocketgrowth.com/insights/verify-b2b-conference-attendee-list</link>
+      <guid isPermaLink="true">https://bottlerocketgrowth.com/insights/verify-b2b-conference-attendee-list</guid>
+      <pubDate>Fri, 13 Nov 2026 09:22:57 -0600</pubDate>
+      <dc:creator>Mike Cubberly</dc:creator>
+      <category>Event audience research</category>
+      <description>Build an outreach list with separate checks for company fit, current role, and evidence that a person plans to attend.</description>
+    </item>
+    <item>
+      <title>How to turn B2B conference conversations into pipeline</title>
+      <link>https://bottlerocketgrowth.com/insights/b2b-conference-follow-up</link>
+      <guid isPermaLink="true">https://bottlerocketgrowth.com/insights/b2b-conference-follow-up</guid>
+      <pubDate>Fri, 13 Nov 2026 09:22:57 -0600</pubDate>
+      <dc:creator>Mike Cubberly</dc:creator>
+      <category>Event follow-up</category>
+      <description>Give each conference conversation an owner, a due date, and an agreed next step. Measure held meetings and opportunities separately.</description>
+    </item>
+    <item>
+      <title>How to choose a LinkedIn outbound agency</title>
+      <link>https://bottlerocketgrowth.com/insights/how-to-choose-a-linkedin-outbound-agency</link>
+      <guid isPermaLink="true">https://bottlerocketgrowth.com/insights/how-to-choose-a-linkedin-outbound-agency</guid>
+      <pubDate>Fri, 13 Nov 2026 09:22:57 -0600</pubDate>
+      <dc:creator>Mike Cubberly</dc:creator>
+      <category>LinkedIn outbound</category>
+      <description>Compare LinkedIn outbound agencies on targeting, sender ownership, reply handling, and cost per held, qualified meeting.</description>
+    </item>
+    <item>
+      <title>How to book meetings at AWS re:Invent 2026</title>
+      <link>https://bottlerocketgrowth.com/insights/aws-reinvent-2026-meetings</link>
+      <guid isPermaLink="true">https://bottlerocketgrowth.com/insights/aws-reinvent-2026-meetings</guid>
+      <pubDate>Fri, 13 Nov 2026 09:22:57 -0600</pubDate>
+      <dc:creator>Mike Cubberly</dc:creator>
+      <category>Conference planning</category>
+      <description>Build your AWS re:Invent 2026 meeting plan around verified speakers, relevant accounts, venue travel time, and clear follow-up.</description>
+    </item>
+    <item>
+      <title>How to measure AI search visibility for a B2B website</title>
+      <link>https://bottlerocketgrowth.com/insights/measure-ai-search-visibility</link>
+      <guid isPermaLink="true">https://bottlerocketgrowth.com/insights/measure-ai-search-visibility</guid>
+      <pubDate>Fri, 13 Nov 2026 09:22:57 -0600</pubDate>
+      <dc:creator>Mike Cubberly</dc:creator>
+      <category>AI search measurement</category>
+      <description>Track Google AI impressions, Bing citations, sampled AI answers, referral visits, and qualified inquiries in one monthly review.</description>
+    </item>
+
+    <item>
       <title>How to Define an ICP That Actually Converts in B2B Outbound</title>
-      <link>https://bottlerocketgrowth.com/insights/defining-an-icp-that-converts.html</link>
+      <link>https://bottlerocketgrowth.com/insights/defining-an-icp-that-converts</link>
       <guid isPermaLink="true">https://bottlerocketgrowth.com/insights/defining-an-icp-that-converts.html</guid>
       <pubDate>Fri, 24 Apr 2026 12:00:00 -0500</pubDate>
       <dc:creator>Mike Cubberly</dc:creator>
@@ -22,7 +68,7 @@
 
     <item>
       <title>Signal-based list building: from web research to useful priorities</title>
-      <link>https://bottlerocketgrowth.com/insights/signal-based-list-building.html</link>
+      <link>https://bottlerocketgrowth.com/insights/signal-based-list-building</link>
       <guid isPermaLink="true">https://bottlerocketgrowth.com/insights/signal-based-list-building.html</guid>
       <pubDate>Fri, 24 Apr 2026 12:00:00 -0500</pubDate>
       <dc:creator>Mike Cubberly</dc:creator>
@@ -32,7 +78,7 @@
 
     <item>
       <title>LinkedIn Sender Profile Strategy: Borrowed vs Client-Owned</title>
-      <link>https://bottlerocketgrowth.com/insights/linkedin-sender-profile-strategy.html</link>
+      <link>https://bottlerocketgrowth.com/insights/linkedin-sender-profile-strategy</link>
       <guid isPermaLink="true">https://bottlerocketgrowth.com/insights/linkedin-sender-profile-strategy.html</guid>
       <pubDate>Fri, 24 Apr 2026 12:00:00 -0500</pubDate>
       <dc:creator>Mike Cubberly</dc:creator>
@@ -42,7 +88,7 @@
 
     <item>
       <title>HeyReach sequence architecture: context, handoffs, and measurement</title>
-      <link>https://bottlerocketgrowth.com/insights/heyreach-sequence-architecture.html</link>
+      <link>https://bottlerocketgrowth.com/insights/heyreach-sequence-architecture</link>
       <guid isPermaLink="true">https://bottlerocketgrowth.com/insights/heyreach-sequence-architecture.html</guid>
       <pubDate>Fri, 24 Apr 2026 12:00:00 -0500</pubDate>
       <dc:creator>Mike Cubberly</dc:creator>

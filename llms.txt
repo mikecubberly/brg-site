@@ -32,6 +32,12 @@
 - [LinkedIn sender strategy: credibility, ownership, and account risk](https://bottlerocketgrowth.com/insights/linkedin-sender-profile-strategy)
 - [HeyReach sequence architecture: context, handoffs, and measurement](https://bottlerocketgrowth.com/insights/heyreach-sequence-architecture)
 
+- [How to verify a B2B conference attendee list](https://bottlerocketgrowth.com/insights/verify-b2b-conference-attendee-list)
+- [How to turn B2B conference conversations into pipeline](https://bottlerocketgrowth.com/insights/b2b-conference-follow-up)
+- [How to choose a LinkedIn outbound agency](https://bottlerocketgrowth.com/insights/how-to-choose-a-linkedin-outbound-agency)
+- [How to book meetings at AWS re:Invent 2026](https://bottlerocketgrowth.com/insights/aws-reinvent-2026-meetings)
+- [How to measure AI search visibility for a B2B website](https://bottlerocketgrowth.com/insights/measure-ai-search-visibility)
+
 ## Contact
 
 - Mike Cubberly: mike@bottlerocketgrowth.com

@@ -62,3 +62,16 @@
 
 /Mcp/* /MCP/:splat 301
 /Mcp /MCP/ 301
+
+/about/ /#team 301
+/team/ /#team 301
+/insights/verify-b2b-conference-attendee-list.html /insights/verify-b2b-conference-attendee-list 301
+/insights/verify-b2b-conference-attendee-list/ /insights/verify-b2b-conference-attendee-list 301
+/insights/b2b-conference-follow-up.html /insights/b2b-conference-follow-up 301
+/insights/b2b-conference-follow-up/ /insights/b2b-conference-follow-up 301
+/insights/how-to-choose-a-linkedin-outbound-agency.html /insights/how-to-choose-a-linkedin-outbound-agency 301
+/insights/how-to-choose-a-linkedin-outbound-agency/ /insights/how-to-choose-a-linkedin-outbound-agency 301
+/insights/aws-reinvent-2026-meetings.html /insights/aws-reinvent-2026-meetings 301
+/insights/aws-reinvent-2026-meetings/ /insights/aws-reinvent-2026-meetings 301
+/insights/measure-ai-search-visibility.html /insights/measure-ai-search-visibility 301
+/insights/measure-ai-search-visibility/ /insights/measure-ai-search-visibility 301
