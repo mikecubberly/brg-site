@@ -38,6 +38,7 @@
 - [How to book meetings at AWS re:Invent 2026](https://bottlerocketgrowth.com/insights/aws-reinvent-2026-meetings)
 - [How to measure AI search visibility for a B2B website](https://bottlerocketgrowth.com/insights/measure-ai-search-visibility)
 - [How to plan a SaaS user conference](https://bottlerocketgrowth.com/insights/saas-user-conference-planning)
+- [How to choose your first AI workflow for B2B sales](https://bottlerocketgrowth.com/insights/first-ai-workflow-for-b2b-sales)
 
 ## Contact
 
