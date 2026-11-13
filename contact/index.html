@@ -87,10 +87,11 @@
   <section class="contact-card" aria-label="Contact Mike">
     <form id="contact-form" action="https://clients.bottlerocketgrowth.com/api/brg-contact" method="post" hidden>
       <p class="form-intro">A few details to get started.</p>
-      <p class="form-requirements" id="form-requirements">Name and email are required. LinkedIn and a note are optional.</p>
+      <p class="form-requirements" id="form-requirements">Name and email are required.</p>
       <div class="contact-field"><label for="contact-name">Your name</label><input id="contact-name" name="name" autocomplete="name" maxlength="120" required placeholder="Full name"></div>
       <div class="contact-field"><label for="contact-email">Email address</label><input id="contact-email" name="email" type="email" autocomplete="email" maxlength="254" required placeholder="you@company.com"></div>
       <div class="contact-field"><label for="contact-linkedin">LinkedIn URL <span>(optional)</span></label><input id="contact-linkedin" name="linkedin" type="url" inputmode="url" autocomplete="url" maxlength="500" placeholder="https://www.linkedin.com/in/your-name"></div>
+      <div class="contact-field"><label for="contact-source">How did you first hear about us? <span>(optional)</span></label><input id="contact-source" name="source" maxlength="160" placeholder="Search, AI answer, referral, or somewhere else"></div>
       <div class="contact-field"><label for="contact-note">A note <span>(optional)</span></label><textarea id="contact-note" name="note" rows="4" maxlength="4000" placeholder="What are you working toward?"></textarea></div>
       <div class="contact-trap" aria-hidden="true"><label for="contact-website">Leave this field blank</label><input id="contact-website" name="website" tabindex="-1" autocomplete="off"></div>
       <p class="contact-privacy">Your details go to Mike so he can follow up with you.</p>
