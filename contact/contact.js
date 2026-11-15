@@ -5,9 +5,44 @@
   const status = document.getElementById('contact-status');
   const success = document.getElementById('contact-success');
   const fallback = document.getElementById('contact-fallback');
+  const verification = document.getElementById('contact-verification');
+  const verificationStatus = document.getElementById('contact-verification-status');
   const linkedin = form.elements.linkedin;
   let sending = false;
+  let token = '';
+  let widgetId;
   let submissionId = crypto.randomUUID();
+
+  function updateVerification(responseToken, message = '') {
+    token = responseToken;
+    verificationStatus.textContent = message;
+    submit.disabled = sending || !token;
+  }
+
+  const verificationUnavailable = () => updateVerification('', 'Verification is unavailable. Reload the page to try again or email Mike directly.');
+  const turnstileScript = document.createElement('script');
+  turnstileScript.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+  turnstileScript.async = true;
+  turnstileScript.addEventListener('error', verificationUnavailable);
+  turnstileScript.addEventListener('load', () => {
+    try {
+      window.turnstile.ready(() => {
+        widgetId = window.turnstile.render(verification, {
+          sitekey: verification.dataset.sitekey,
+          action: 'brg_contact',
+          size: verification.clientWidth < 300 ? 'compact' : 'flexible',
+          theme: 'auto',
+          'response-field': false,
+          'refresh-expired': 'auto',
+          'refresh-timeout': 'auto',
+          callback: responseToken => updateVerification(responseToken),
+          'expired-callback': () => updateVerification('', 'Refreshing verification…'),
+          'timeout-callback': () => updateVerification('', 'Please complete verification to send your message.'),
+          'error-callback': verificationUnavailable,
+        });
+      });
+    } catch { verificationUnavailable(); }
+  });
   linkedin.addEventListener('input', () => linkedin.setCustomValidity(''));
   linkedin.addEventListener('blur', () => {
     const value = linkedin.value.trim();
@@ -15,7 +50,7 @@
   });
   form.addEventListener('submit', async event => {
     event.preventDefault();
-    if (sending) return;
+    if (sending || !token) return;
     const profileValue = linkedin.value.trim();
     let profile;
     try { profile = new URL(profileValue); } catch {}
@@ -33,7 +68,7 @@
     try {
       const response = await fetch(form.action, {
         method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'omit',
-        body: JSON.stringify({ ...data, submissionId }), signal: controller.signal
+        body: JSON.stringify({ ...data, submissionId, turnstileToken: token }), signal: controller.signal
       });
       const result = await response.json();
       if (!response.ok || result.success !== true) throw new Error(result.error || 'Your message could not be sent. Please try again, or email Mike directly.');
@@ -51,11 +86,14 @@
     } finally {
       clearTimeout(timeout);
       sending = false;
-      submit.disabled = false;
       form.removeAttribute('aria-busy');
+      if (!form.hidden) {
+        updateVerification('', 'Refreshing verification…');
+        window.turnstile.reset(widgetId);
+      }
     }
   });
-  submit.disabled = false;
   form.hidden = false;
-  fallback.hidden = true;
+  if (fallback) fallback.hidden = true;
+  document.head.append(turnstileScript);
 })();
