@@ -21,28 +21,27 @@
 
   const verificationUnavailable = () => updateVerification('', 'Verification is unavailable. Reload the page to try again or email Mike directly.');
   const turnstileScript = document.createElement('script');
-  turnstileScript.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+  turnstileScript.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=brgContactTurnstileReady';
   turnstileScript.async = true;
   turnstileScript.addEventListener('error', verificationUnavailable);
-  turnstileScript.addEventListener('load', () => {
+  window.brgContactTurnstileReady = () => {
+    delete window.brgContactTurnstileReady;
     try {
-      window.turnstile.ready(() => {
-        widgetId = window.turnstile.render(verification, {
-          sitekey: verification.dataset.sitekey,
-          action: 'brg_contact',
-          size: verification.clientWidth < 300 ? 'compact' : 'flexible',
-          theme: 'auto',
-          'response-field': false,
-          'refresh-expired': 'auto',
-          'refresh-timeout': 'auto',
-          callback: responseToken => updateVerification(responseToken),
-          'expired-callback': () => updateVerification('', 'Refreshing verification…'),
-          'timeout-callback': () => updateVerification('', 'Please complete verification to send your message.'),
-          'error-callback': verificationUnavailable,
-        });
+      widgetId = window.turnstile.render(verification, {
+        sitekey: verification.dataset.sitekey,
+        action: 'brg_contact',
+        size: verification.clientWidth < 300 ? 'compact' : 'flexible',
+        theme: 'auto',
+        'response-field': false,
+        'refresh-expired': 'auto',
+        'refresh-timeout': 'auto',
+        callback: responseToken => updateVerification(responseToken),
+        'expired-callback': () => updateVerification('', 'Refreshing verification…'),
+        'timeout-callback': () => updateVerification('', 'Please complete verification to send your message.'),
+        'error-callback': verificationUnavailable,
       });
     } catch { verificationUnavailable(); }
-  });
+  };
   linkedin.addEventListener('input', () => linkedin.setCustomValidity(''));
   linkedin.addEventListener('blur', () => {
     const value = linkedin.value.trim();
