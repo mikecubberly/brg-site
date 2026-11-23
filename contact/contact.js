@@ -8,6 +8,15 @@
   const verification = document.getElementById('contact-verification');
   const verificationStatus = document.getElementById('contact-verification-status');
   const linkedin = form.elements.linkedin;
+  const params = new URLSearchParams(window.location.search);
+  const racing = params.get('from') === 'racing';
+  if (racing && params.get('embed') === '1' && window.parent !== window) {
+    document.documentElement.classList.add('contact-embedded');
+  }
+  if (racing) {
+    form.elements.note.placeholder = 'Tell us about the team, racing series, and sponsorship goals.';
+    document.getElementById('contact-heading').textContent = 'Let’s talk racing.';
+  }
   let sending = false;
   let token = '';
   let widgetId;
@@ -57,6 +66,7 @@
     linkedin.setCustomValidity(validProfile ? '' : 'Enter a LinkedIn URL, such as https://www.linkedin.com/in/your-name.');
     if (!form.reportValidity()) return;
     const data = Object.fromEntries(new FormData(form));
+    if (racing) data.source = ['Bottle Rocket Racing', data.source.trim()].filter(Boolean).join(' | ').slice(0, 160);
     sending = true;
     submit.disabled = true;
     form.setAttribute('aria-busy', 'true');

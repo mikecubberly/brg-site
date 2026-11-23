@@ -49,7 +49,7 @@ Bottle Rocket Racing operates on three core pillars:
 Mike Cubberly is the founder of Bottle Rocket Racing and Bottle Rocket Growth. Based in Chicago, Mike has spent over a decade building go-to-market systems for B2B technology companies. Prior to launching Bottle Rocket Growth in 2024, Mike held roles at Verkada, Glencoco, Primer, and RevGenius.
 
 - LinkedIn: https://www.linkedin.com/in/mikecubberly
-- Personal site: https://mikecubberly.com
+- Contact Mike: https://bottlerocketracing.com/contact
 
 ## Bottle Rocket Family
 
@@ -71,4 +71,4 @@ Mike Cubberly is the founder of Bottle Rocket Racing and Bottle Rocket Growth. B
 - [Press & Media Kit](https://bottlerocketgrowth.com/racing/press): Boilerplate, founder bio, quick facts, media contact
 - [Contact](https://bottlerocketgrowth.com/racing/contact): Email, LinkedIn, headquarters, partner agency
 - [Bottle Rocket Growth](https://bottlerocketgrowth.com): Parent GTM agency
-- [Mike Cubberly](https://mikecubberly.com): Founder portfolio
+- [Contact Mike Cubberly](https://bottlerocketracing.com/contact): Racing inquiries

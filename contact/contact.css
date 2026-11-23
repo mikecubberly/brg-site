@@ -42,3 +42,11 @@ html[data-theme="dark"] .contact-status[data-error="true"] { color: #ffabb4; }
   .contact-card { padding: 24px; border-radius: 18px; }
   .contact-footer { padding: 24px 20px; flex-wrap: wrap; }
 }
+
+html.contact-embedded, .contact-embedded .contact-page { background: transparent; min-height: 0; }
+.contact-embedded .contact-page::before,
+.contact-embedded .contact-page > header,
+.contact-embedded .contact-intro,
+.contact-embedded .contact-footer { display: none; }
+.contact-embedded .contact-layout { display: block; padding: 0; min-height: 0; }
+.contact-embedded .contact-card { padding: clamp(12px, 4vw, 24px); box-shadow: none; }
